@@ -1,5 +1,6 @@
 footer {
-  background-color: var(--light-color);
+  background-color: #404041;
+  color: #fff;
   font-size: var(--body-font-size-xs);
 }
 
@@ -17,4 +18,37 @@ footer .footer p {
   footer .footer > div {
     padding: 40px 32px 24px;
   }
+}
+footer columns-container:has(.columns-4-cols) {
+  padding: 20px 0;
+}
+footer columns-container:has(.columns-2-cols) {
+  border-top: 1px solid #fff;
+  padding-top: 14px;
+}
+
+footer .columns-2-cols ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+footer .columns-2-cols ul li a {
+  color: #fff;
+}
+
+footer .columns-2-cols ul li {
+  position: relative;
+}
+
+footer .columns-2-cols ul li::after {
+  content: "|";
+  margin-left: 10px;
+  color: #fff;
+}
+
+footer .columns-2-cols ul li:last-child::after {
+  content: "";
 }

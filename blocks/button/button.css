@@ -1,0 +1,11 @@
+.button-container:has(.left-align) {
+    text-align: left;
+  }
+  
+  .button-container:has(.right-align) {
+    text-align: right;
+  }
+  
+  .button-container:has(.center-align) {
+    text-align: center;
+  }  

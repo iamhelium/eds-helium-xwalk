@@ -12,6 +12,11 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
       }
     ]
   },
@@ -90,6 +95,29 @@
           {
             "name": "secondary",
             "value": "secondary"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "linkAlignment",
+        "label": "Alignment",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left-align"
+          },
+          {
+            "name": "Right",
+            "value": "right-align"
+          },
+          {
+            "name": "Center",
+            "value": "center-align"
+          },
+          {
+            "name": "Justify",
+            "value": "justify-align"
           }
         ]
       }
@@ -182,6 +210,94 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "quote",
+    "fields": [
+       {
+         "component": "richtext",
+         "name": "quote",
+         "value": "",
+         "label": "Quote",
+         "valueType": "string"
+       },
+       {
+         "component": "text",
+         "valueType": "string",
+         "name": "author",
+         "label": "Author",
+         "value": ""
+       },
+       {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Background Color",
+        "description": "The quote background color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": "bg-default"
+          },
+          {
+            "name": "Red",
+            "value": "bg-red"
+          },
+          {
+            "name": "Green",
+            "value": "bg-green"
+          },
+          {
+            "name": "Blue",
+            "value": "bg-blue"
+          },
+          {
+            "name": "Yellow",
+            "value": "bg-yellow"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "text",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Text Color",
+        "description": "The text color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "Primary",
+            "value": "primary"
+          },
+          {
+            "name": "Secondary",
+            "value": "secondary"
+          },
+          {
+            "name": "Success",
+            "value": "success"
+          },
+          {
+            "name": "Warning",
+            "value": "warning"
+          },
+          {
+            "name": "Danger",
+            "value": "danger"
+          }
+        ]
       }
     ]
   }
