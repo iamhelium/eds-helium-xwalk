@@ -1,18 +1,24 @@
+
 .default {
     color: inherit;
 }
+
 .primary {
     color: #0055a5;
 }
+
 .secondary {
     color: #ff5733;
 }
+
 .success {
     color: #28a745;
 }
+
 .warning {
     color: #ffc107;
 }
+
 .danger {
     color: #dc3545;
 }

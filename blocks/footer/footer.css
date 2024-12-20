@@ -19,9 +19,11 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 }
+
 footer columns-container:has(.columns-4-cols) {
   padding: 20px 0;
 }
+
 footer columns-container:has(.columns-2-cols) {
   border-top: 1px solid #fff;
   padding-top: 14px;
