@@ -210,6 +210,13 @@ button.secondary {
   color: var(--text-color);
 }
 
+a.button.new,
+button.new {
+  background-color: green;
+  border: 2px solid currentcolor;
+  color: red;
+}
+
 main img {
   max-width: 100%;
   width: auto;
