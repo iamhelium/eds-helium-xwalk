@@ -52,6 +52,29 @@
               "value": "secondary"
             }
           ]
+        },
+        {
+          "component": "select",
+          "name": "linkAlignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "name": "Left-B",
+              "value": "left-align"
+            },
+            {
+              "name": "Right",
+              "value": "right-align"
+            },
+            {
+              "name": "Center",
+              "value": "center-align"
+            },
+            {
+              "name": "Justify",
+              "value": "justify-align"
+            }
+          ]
         }
       ]
     }
