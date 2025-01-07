@@ -104,7 +104,7 @@
         "label": "Alignment",
         "options": [
           {
-            "name": "Left",
+            "name": "Left-A",
             "value": "left-align"
           },
           {

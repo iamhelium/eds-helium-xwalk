@@ -52,25 +52,6 @@
               "value": "secondary"
             }
           ]
-        },
-        {
-          "component": "select",
-          "name": "Alignment",
-          "label": "Alignment",
-          "options": [
-            {
-              "name": "Left",
-              "value": "left-align"
-            },
-            {
-              "name": "Right",
-              "value": "right-align"
-            },
-            {
-              "name": "Center",
-              "value": "center-align"
-            }
-          ]
         }
       ]
     }
