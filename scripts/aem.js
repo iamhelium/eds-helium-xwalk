@@ -433,7 +433,7 @@ function decorateButtons(element) {
         ) {
           a.className = 'button new';
           twoup.classList.add('button-container');
-        }
+        }console.log('length == ',up.childNodes.length);
         if (
           up.childNodes.length === 2
         ) {
