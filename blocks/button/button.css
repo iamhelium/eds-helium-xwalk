@@ -9,3 +9,10 @@
   .button-container:has(.center-align) {
     text-align: center;
   }  
+
+  a.button.new,
+  button.new {
+    background-color: green;
+    border: 2px solid currentcolor;
+    color: red;
+  }
