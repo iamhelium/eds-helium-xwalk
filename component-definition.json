@@ -99,7 +99,7 @@
         },
         {
           "title": "AccordionItem",
-          "id": "accordion-item",
+          "id": "accordionitem",
           "plugins": {
             "xwalk": {
               "page": {
