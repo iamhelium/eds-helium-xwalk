@@ -14,4 +14,17 @@ export default function decorate(block) {
       details.append(summary, body);
       row.replaceWith(details);
     });
+
+    const accordionItems = block.querySelectorAll('.accordion-item');
+    accordionItems.forEach((item) => {
+        item.addEventListener('toggle', () => {
+            if (item.open) {
+                accordionItems.forEach((otherItem) => {
+                if (otherItem !== item) {
+                    otherItem.open = false;
+                }
+                });
+            }
+        });
+    });
   }
