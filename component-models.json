@@ -152,7 +152,7 @@
         "component": "richtext",
         "name": "accordion-item-body",
         "value": "",
-        "label": "Text",
+        "label": "Accordion body",
         "valueType": "string"
       }
     ]
