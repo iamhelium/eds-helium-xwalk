@@ -144,13 +144,13 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "accordion-item-label",
+        "name": "accordionitemlabel",
         "label": "Accordion label",
         "value": ""
       },
       {
         "component": "richtext",
-        "name": "accordion-item-body",
+        "name": "accordionitembody",
         "value": "",
         "label": "Accordion body",
         "valueType": "string"
