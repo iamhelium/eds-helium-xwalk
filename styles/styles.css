@@ -217,6 +217,18 @@ button.new {
   color: red;
 }
 
+.left-align {
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.center-align {
+  text-align: center;
+}  
+
 main img {
   max-width: 100%;
   width: auto;
