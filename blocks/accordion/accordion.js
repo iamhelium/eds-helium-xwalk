@@ -1,43 +1,23 @@
 export default function decorate(block) {
-  const accordionItems = block.querySelectorAll(
-    '[data-aue-model="accordionitem"]'
-  );
-  accordionItems.forEach((item) => {
-    const labelWrapper = item.querySelector(
-      '[data-aue-prop="accordionitemlabel"]'
-    );
-    const bodyWrapper = item.querySelector(
-      '[data-aue-prop="accordionitembody"]'
-    );
+    const accordionItems = block.querySelectorAll('[data-aue-model="accordionitem"]');
+    accordionItems.forEach((item) => {
+        const label = item.querySelector('[data-aue-prop="accordionitemlabel"]');
+        const body = item.querySelector('[data-aue-prop="accordionitembody"]');
 
-    if (labelWrapper && bodyWrapper) {
-      const summary = document.createElement("summary");
-      summary.className = "accordion-item-label";
-
-      while (labelWrapper.firstChild) {
-        summary.appendChild(labelWrapper.firstChild);
-      }
-
-      labelWrapper.parentElement.replaceWith(summary);
-
-      const bodyDiv = document.createElement("div");
-      bodyDiv.className = "accordion-item-body";
-
-      while (bodyWrapper.firstChild) {
-        bodyDiv.appendChild(bodyWrapper.firstChild);
-      }
-
-      bodyWrapper.parentElement.replaceWith(bodyDiv);
-
-      const details = document.createElement("details");
-      details.className = "accordion-item";
-
-      details.appendChild(summary);
-      details.appendChild(bodyDiv);
-
-      item.replaceWith(details);
-    }
-  });
+        if (label && body) {
+            const details = document.createElement('details');
+            details.className = 'accordion-item';
+            const summary = document.createElement('summary');
+            summary.className = 'accordion-item-label';
+            summary.innerHTML = label.innerHTML;
+            const bodyWrapper = document.createElement('div');
+            bodyWrapper.className = 'accordion-item-body';
+            bodyWrapper.innerHTML = body.innerHTML;
+            details.appendChild(summary);
+            details.appendChild(bodyWrapper);
+            item.appendChild(details);
+        }
+    });
   //   [...block.children].forEach((row) => {
   //     const [label, body] = row.children;
 
