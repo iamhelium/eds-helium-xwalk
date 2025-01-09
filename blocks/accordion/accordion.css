@@ -38,8 +38,13 @@
 }
 
 .accordion [data-aue-prop="accordionitembody"] {
-  padding: 0 16px;
+  padding: 0 16px 16px;
+  color: var(--dark-color);
   display: none;
+}
+
+.accordion [data-aue-prop="accordionitembody"] p {
+  margin: 0;
 }
 
 .accordion [data-aue-model="accordionitem"].open [data-aue-prop="accordionitemlabel"] {
