@@ -4,16 +4,12 @@
 
 .accordion [data-aue-model="accordionitem"] {
   border: 1px solid #dadada;
-  margin-top: 24px;
-}
-
-.accordion [data-aue-model="accordionitem"]:first-of-type {
-  margin-top: 0;
+  margin: 0;
 }
 
 .accordion [data-aue-prop="accordionitemlabel"] {
   position: relative;
-  padding: 10px 16px;
+  padding: 16px;
   margin: 0;
   padding-right: 46px;
   cursor: pointer;
@@ -48,6 +44,7 @@
 
 .accordion [data-aue-model="accordionitem"].open [data-aue-prop="accordionitemlabel"] {
   background-color: var(--light-color);
+  border: 0;
 }
 
 .accordion [data-aue-model="accordionitem"].open [data-aue-prop="accordionitemlabel"]::after {
@@ -56,6 +53,5 @@
 
 .accordion [data-aue-model="accordionitem"].open [data-aue-prop="accordionitembody"] {
   display: block;
-  border-top: 1px solid #dadada;
   background-color: var(--background-color);
 }
