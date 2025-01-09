@@ -139,29 +139,6 @@
     ]
   },
   {
-    "id": "accordion",
-    "fields": [
-      {
-        "component": "select",
-        "name": "expand",
-        "value": "",
-        "label": "Expand items",
-        "description": "Expand accordion items",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Single",
-            "value": "expand--single"
-          },
-          {
-            "name": "Multiple",
-            "value": "expand--multiple"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "accordionitem",
     "fields": [
       {
