@@ -3,7 +3,7 @@
 }
 
 .accordion [data-aue-model="accordionitem"] {
-  border: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
   margin: 0;
 }
 
