@@ -1,3 +1,7 @@
+.accordion {
+  padding: 16px 0;
+}
+
 .accordion [data-aue-model="accordionitem"] {
   border: 1px solid #dadada;
   margin-top: 24px;
