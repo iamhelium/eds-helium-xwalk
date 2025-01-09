@@ -3,9 +3,14 @@
   margin-top: 24px;
 }
 
+.accordion [data-aue-model="accordionitem"]:first-of-type {
+  margin-top: 0;
+}
+
 .accordion [data-aue-prop="accordionitemlabel"] {
   position: relative;
-  padding: 0 16px;
+  padding: 10px 16px;
+  margin: 0;
   padding-right: 46px;
   cursor: pointer;
   list-style: none;
