@@ -1,26 +1,26 @@
 export default function decorate(block) {
-    const accordionItems = block.querySelectorAll('.accordion-item');
-    accordionItems.forEach((item) => {
-        const label = item.querySelector('[data-aue-prop="accordionitemlabel"]');
-        const body = item.querySelector('[data-aue-prop="accordionitembody"]');
+    // const accordionItems = block.querySelectorAll('.accordion-item');
+    // accordionItems.forEach((item) => {
+    //     const label = item.querySelector('[data-aue-prop="accordionitemlabel"]');
+    //     const body = item.querySelector('[data-aue-prop="accordionitembody"]');
 
-        if (label && body) {
-            const summary = document.createElement('summary');
-            summary.className = 'accordion-item-label';
-            while (label.firstChild) {
-                summary.appendChild(label.firstChild);
-            }
-            label.replaceWith(summary);
-            const bodyWrapper = document.createElement('div');
-            bodyWrapper.className = 'accordion-item-body';
-            while (body.firstChild) {
-                bodyWrapper.appendChild(body.firstChild);
-            }
-            body.replaceWith(bodyWrapper);
-            item.appendChild(summary);
-            item.appendChild(bodyWrapper);
-        }
-    });
+    //     if (label && body) {
+    //         const summary = document.createElement('summary');
+    //         summary.className = 'accordion-item-label';
+    //         while (label.firstChild) {
+    //             summary.appendChild(label.firstChild);
+    //         }
+    //         label.replaceWith(summary);
+    //         const bodyWrapper = document.createElement('div');
+    //         bodyWrapper.className = 'accordion-item-body';
+    //         while (body.firstChild) {
+    //             bodyWrapper.appendChild(body.firstChild);
+    //         }
+    //         body.replaceWith(bodyWrapper);
+    //         item.appendChild(summary);
+    //         item.appendChild(bodyWrapper);
+    //     }
+    // });
 //   [...block.children].forEach((row) => {
 //     const [label, body] = row.children;
 
