@@ -9,7 +9,7 @@ function closeOnEscape(e) {
     const nav = document.getElementById('nav');
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
+    if (navSectionExpanded) {
       // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections);
       navSectionExpanded.focus();
@@ -26,7 +26,7 @@ function closeOnFocusLost(e) {
   if (!nav.contains(e.relatedTarget)) {
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
+    if (navSectionExpanded) {
       // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections, false);
     } else if (!isDesktop.matches) {
@@ -156,7 +156,7 @@ export default async function decorate(block) {
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
+  // toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
   const navWrapper = document.createElement('div');
