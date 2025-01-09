@@ -30,7 +30,15 @@ header nav[aria-expanded='true'] {
   overflow-y: auto;
   min-height: 100dvh;
 }
-
+@media (width < 900px) {
+  header nav .nav-sections ul > li[aria-expanded='true'] > ul {
+    display: block;
+    padding-left: 16px;
+  }
+  header nav .nav-sections ul > li[aria-expanded='false'] > ul {
+    display: none;
+  }
+}
 @media (width >= 900px) {
   header nav {
     display: flex;
