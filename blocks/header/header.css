@@ -1,6 +1,7 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #000000;
+  color: #ffffff80;
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -68,7 +69,7 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: #000000;
   color: inherit;
   overflow: initial;
   text-overflow: initial;
@@ -145,7 +146,7 @@ header .nav-brand {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 70px;
   height: auto;
 }
 
@@ -265,4 +266,8 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+header nav .nav-tools .icon-search img{
+  filter: invert(1) brightness(100%);
 }
