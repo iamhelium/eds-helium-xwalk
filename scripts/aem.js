@@ -590,7 +590,6 @@ function buildBlock(blockName, content) {
  * @param {Element} block The block element
  */
 async function loadBlock(block) {
-  console.log("load block..", block)
 
   const status = block.dataset.blockStatus;
   if (status !== 'loading' && status !== 'loaded') {
