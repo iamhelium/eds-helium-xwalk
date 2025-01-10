@@ -406,8 +406,8 @@ function wrapTextNodes(block) {
  * @param {Element} element container element
  */
 function decorateButtons(element) {
+  console.log("meta data,,", getMetadata('button'))
   element.querySelectorAll('a').forEach((a) => {
-    console.log("Button a...", a)
     a.title = a.title || a.textContent;
     if (a.href !== a.textContent) {
       const up = a.parentElement;
@@ -503,7 +503,6 @@ function decorateSections(main) {
     if (sectionMeta) {
       const meta = readBlockConfig(sectionMeta);
       Object.keys(meta).forEach((key) => {
-        console.log("Meta.....", meta)
         if (key === 'style') {
           const styles = meta.style
             .split(',')
