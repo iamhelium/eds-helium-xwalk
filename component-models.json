@@ -99,7 +99,7 @@
       },
       {
         "component": "select",
-        "name": "linkAlignment",
+        "name": "linkText",
         "label": "Alignment",
         "options": [
           {
