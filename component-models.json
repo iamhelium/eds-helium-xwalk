@@ -12,29 +12,6 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
-      },
-      {
-        "component": "select",
-        "name": "imageType",
-        "label": "Alignment",
-        "options": [
-          {
-            "name": "Left",
-            "value": "left-align"
-          },
-          {
-            "name": "Right",
-            "value": "right-align"
-          },
-          {
-            "name": "Center",
-            "value": "center-align"
-          },
-          {
-            "name": "Justify",
-            "value": "justify-align"
-          }
-        ]
       }
     ]
   },
@@ -156,6 +133,26 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Expand",
+        "options": [
+          {
+            "name": "Single",
+            "value": "single-expand"
+          },
+          {
+            "name": "Multiple",
+            "value": "multiple-expand"
           }
         ]
       }
