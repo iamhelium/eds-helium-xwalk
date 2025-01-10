@@ -406,8 +406,8 @@ function wrapTextNodes(block) {
  * @param {Element} element container element
  */
 function decorateButtons(element) {
+  console.log("Button a...", element.dataset)
   element.querySelectorAll('a').forEach((a) => {
-    console.log("Button a...", a.dataset.classes)
     a.title = a.title || a.textContent;
     if (a.href !== a.textContent) {
       const up = a.parentElement;
