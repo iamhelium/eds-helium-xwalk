@@ -15,7 +15,7 @@
       },
       {
         "component": "select",
-        "name": "classes",
+        "name": "imageType",
         "label": "Alignment",
         "options": [
           {
