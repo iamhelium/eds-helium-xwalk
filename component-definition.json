@@ -227,10 +227,7 @@
                 "template": {
                   "name": "HeliumButton",
                   "model": "heliumbutton",
-                  "text": "Button",
-                  "attributes": {
-                    "data-link": "{{fields.btnlink}}"
-                  }
+                  "text": "Button"
                 }
               }
             }

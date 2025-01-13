@@ -21,12 +21,6 @@
     ]
   },
   {
-    "id": "heliumbutton",
-    "fields": [
-      "btnlink"
-    ]
-  },
-  {
     "id": "accordion",
     "components": [
       "accordionitem"
