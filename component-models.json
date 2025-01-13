@@ -177,6 +177,44 @@
     ]
   },
   {
+    "id": "heliumbutton",
+    "fields": [
+      {
+        "component": "text",
+        "name": "text",
+        "label": "Button Text",
+        "value": "Click Me",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "url",
+        "label": "Button URL",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Button Style",
+        "description": "Select the button style",
+        "value": "btn-primary",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Primary",
+            "value": "btn-primary"
+          },
+          {
+            "name": "Secondary",
+            "value": "btn-secondary"
+          }
+        ]
+      }
+    ]
+  },
+  
+  {
     "id": "columns",
     "fields": [
       {
