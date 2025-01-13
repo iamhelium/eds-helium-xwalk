@@ -215,7 +215,15 @@
           }
         ]
       }
-    ]
+    ],
+    "render": {
+      "tag": "div",
+      "attributes": {
+        "class": "{{classes | join(' ')}}",
+        "data-btnlink": "{{btnlink}}"
+      },
+      "content": "{{text}}"
+    }
   },
   
   {
