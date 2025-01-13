@@ -99,7 +99,7 @@
       },
       {
         "component": "select",
-        "name": "style",
+        "name": "classes",
         "label": "Alignment",
         "options": [
           {
@@ -117,30 +117,6 @@
           {
             "name": "Justify",
             "value": "justify-align"
-          }
-        ]
-      },
-      {
-        "component": "multiselect",
-        "name": "classes",
-        "label": "Button Style",
-        "valueType": "string",
-        "maxSize": 2,
-        "options": [
-          {
-            "name": "Type",
-            "children": [
-              { "name": "Primary", "value": "btn-primary" },
-              { "name": "Secondary",  "value": "btn-secondary" }
-            ]
-          },
-          {
-            "name": "Alignment",
-            "children": [
-              { "name": "Left", "value": "btn-left-align" },
-              { "name": "Center", "value": "btn-center-align" },
-              { "name": "Right", "value": "btn-right-align" }
-            ]
           }
         ]
       }
