@@ -12,30 +12,6 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
-      },
-      {
-        "component": "multiselect",
-        "name": "classes",
-        "label": "Image Style",
-        "valueType": "string",
-        "maxSize": 2,
-        "options": [
-          {
-            "name": "Type",
-            "children": [
-              { "name": "Primary", "value": "img-primary" },
-              { "name": "Secondary",  "value": "img-secondary" }
-            ]
-          },
-          {
-            "name": "Alignment",
-            "children": [
-              { "name": "Left", "value": "btn-left-align" },
-              { "name": "Center", "value": "btn-center-align" },
-              { "name": "Right", "value": "btn-right-align" }
-            ]
-          }
-        ]
       }
     ]
   },
