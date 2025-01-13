@@ -227,8 +227,7 @@
                 "template": {
                   "name": "HeliumButton",
                   "model": "heliumbutton",
-                  "text": "Click Me",
-                  "url": ""
+                  "text": "Button"
                 }
               }
             }

@@ -183,51 +183,35 @@
         "component": "text",
         "name": "text",
         "label": "Button Text",
-        "value": "Click Me",
+        "value": "Button",
         "valueType": "string"
       },
       {
         "component": "aem-content",
-        "name": "url",
+        "name": "btnlink",
         "label": "Link"
       },
       {
-        "component": "select",
+        "component": "multiselect",
         "name": "classes",
         "label": "Button Style",
-        "description": "Select the button style",
-        "value": "btn-primary",
         "valueType": "string",
+        "maxSize": 2,
         "options": [
           {
-            "name": "Primary",
-            "value": "btn-primary"
+            "name": "Type",
+            "children": [
+              { "name": "Primary", "value": "btn-primary" },
+              { "name": "Secondary",  "value": "btn-secondary" }
+            ]
           },
           {
-            "name": "Secondary",
-            "value": "btn-secondary"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "style",
-        "label": "Button Alignment",
-        "description": "Select the button alignment",
-        "value": "btn-left",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Left",
-            "value": "btn-left-align"
-          },
-          {
-            "name": "Right",
-            "value": "btn-right-align"
-          },
-          {
-            "name": "Center",
-            "value": "btn-center-align"
+            "name": "Alignment",
+            "children": [
+              { "name": "Left", "value": "btn-left-align" },
+              { "name": "Center", "value": "btn-center-align" },
+              { "name": "Right", "value": "btn-right-align" }
+            ]
           }
         ]
       }
