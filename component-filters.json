@@ -16,7 +16,15 @@
       "cards",
       "columns",
       "fragment",
-      "carousel"
+      "accordion",
+      "carousel",
+      "quote"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordionitem"
     ]
   },
   {
