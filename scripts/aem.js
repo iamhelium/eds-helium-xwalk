@@ -433,7 +433,7 @@ function decorateButtons(element) {
         ) {
           a.className = 'button new';
           twoup.classList.add('button-container');
-        }console.log('length == ',up.childNodes, twoup.childNodes);
+        }
         if (
           up.childNodes.length === 2
         ) {
@@ -590,6 +590,7 @@ function buildBlock(blockName, content) {
  * @param {Element} block The block element
  */
 async function loadBlock(block) {
+
   const status = block.dataset.blockStatus;
   if (status !== 'loading' && status !== 'loaded') {
     block.dataset.blockStatus = 'loading';
