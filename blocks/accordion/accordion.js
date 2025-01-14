@@ -1,30 +1,15 @@
 export default function decorate(block) {
-    [...block.children].forEach((row) => {
-      // decorate accordion item label
-      const label = row.children[0];
-      const summary = document.createElement('summary');
-      summary.className = 'accordion-item-label';
-      summary.append(...label.childNodes);
-      // decorate accordion item body
-      const body = row.children[1];
-      body.className = 'accordion-item-body';
-      // decorate accordion item
-      const details = document.createElement('details');
-      details.className = 'accordion-item';
-      details.append(summary, body);
-      row.replaceWith(details);
-    });
-
-    const accordionItems = block.querySelectorAll('.accordion-item');
-    accordionItems.forEach((item) => {
-        item.addEventListener('toggle', () => {
-            if (item.open) {
-                accordionItems.forEach((otherItem) => {
-                if (otherItem !== item) {
-                    otherItem.open = false;
-                }
+    document.querySelectorAll('.accordion').forEach((accordionWrapper) => {
+        accordionWrapper.querySelectorAll('[data-aue-model="accordionitem"]').forEach((item) => {
+            const label = item.querySelector('[data-aue-prop="accordionitemlabel"]');
+            label.addEventListener('click', () => {
+                accordionWrapper.querySelectorAll('[data-aue-model="accordionitem"].open').forEach((openItem) => {
+                    if (openItem !== item) {
+                        openItem.classList.remove('open');
+                    }
                 });
-            }
+                item.classList.toggle('open');
+            });
         });
     });
-  }
+}

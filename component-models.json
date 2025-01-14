@@ -139,6 +139,26 @@
     ]
   },
   {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Expand",
+        "options": [
+          {
+            "name": "Single",
+            "value": "single-expand"
+          },
+          {
+            "name": "Multiple",
+            "value": "multiple-expand"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "accordionitem",
     "fields": [
       {
