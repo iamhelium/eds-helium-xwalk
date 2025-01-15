@@ -363,12 +363,6 @@
         "label": "Reference"
       },
       {
-        "component": "aem-content-fragment",
-        "name": "picker",
-        "label": "Content Fragment Picker",
-        "valueType": "string"
-      },
-      {
         "component": "aem-experience-fragment",
         "name": "picker",
         "label": "Experience Fragment Picker",
@@ -443,6 +437,12 @@
                 "value": "btn-green"
               }
             ]
+          },
+          {
+            "component": "aem-content-fragment",
+            "name": "picker",
+            "label": "Content Fragment Picker",
+            "valueType": "string"
           }
         ]
       }
