@@ -384,7 +384,6 @@
         "name": "classes",
         "label": "Button Style",
         "valueType": "string",
-        "maxSize": 2,
         "options": [
           {
             "name": "Type",
@@ -417,6 +416,19 @@
               {
                 "name": "Right",
                 "value": "btn-right-align"
+              }
+            ]
+          },
+          {
+            "name": "Color",
+            "children": [
+              {
+                "name": "Red",
+                "value": "btn-red"
+              },
+              {
+                "name": "Green",
+                "value": "btn-green"
               }
             ]
           }

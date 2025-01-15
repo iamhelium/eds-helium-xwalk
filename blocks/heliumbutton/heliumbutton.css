@@ -16,12 +16,20 @@
 
 .btn-left-align {
     text-align: left;
-  }
+}
 
-  .btn-right-align {
+.btn-right-align {
     text-align: right;
-  }
-  
-  .btn-center-align {
+}
+
+.btn-center-align {
     text-align: center;
-  }  
+}
+
+.btn-red button {
+    background-color: red;
+}
+
+.btn-green button {
+    background-color: green;
+}
