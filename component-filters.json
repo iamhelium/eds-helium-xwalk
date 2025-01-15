@@ -15,15 +15,7 @@
       "hero",
       "cards",
       "columns",
-      "fragment",
-      "accordion",
-      "heliumbutton"
-    ]
-  },
-  {
-    "id": "accordion",
-    "components": [
-      "accordionitem"
+      "fragment"
     ]
   },
   {
