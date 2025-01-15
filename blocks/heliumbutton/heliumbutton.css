@@ -3,7 +3,7 @@
 }
 
 .btn-secondary button {
-    background-color: var(--background-color);
+    background-color: var(--dark-color);
 }
 
 .btn-left-align {
