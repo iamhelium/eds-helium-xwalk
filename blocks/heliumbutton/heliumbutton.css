@@ -1,9 +1,9 @@
 .btn-primary {
-    color: blue;
+
 }
 
-.btn-secondary {
-    color: green;
+.btn-secondary button {
+    background-color: var(--background-color);
 }
 
 .btn-left-align {
