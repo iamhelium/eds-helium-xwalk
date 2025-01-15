@@ -47,7 +47,8 @@
         "fragment",
         "accordion",
         "carousel",
-        "quote"
+        "quote",
+        "teaser"
       ]
     }
   ]
