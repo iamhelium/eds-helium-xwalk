@@ -202,7 +202,8 @@
             "name": "Type",
             "children": [
               { "name": "Primary", "value": "btn-primary" },
-              { "name": "Secondary",  "value": "btn-secondary" }
+              { "name": "Secondary",  "value": "btn-secondary" },
+              { "name": "Tertiary",  "value": "btn-tertiary" }
             ]
           },
           {

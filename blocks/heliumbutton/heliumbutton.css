@@ -6,6 +6,14 @@
     background-color: var(--dark-color);
 }
 
+.btn-tertiary button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    color: blue;
+    text-decoration: underline;
+}
+
 .btn-left-align {
     text-align: left;
   }
