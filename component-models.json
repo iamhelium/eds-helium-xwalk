@@ -437,14 +437,14 @@
                 "value": "btn-green"
               }
             ]
-          },
-          {
-            "component": "aem-content-fragment",
-            "name": "picker",
-            "label": "Content Fragment Picker",
-            "valueType": "string"
           }
         ]
+      },
+      {
+        "component": "aem-content-fragment",
+        "name": "picker",
+        "label": "Content Fragment Picker",
+        "valueType": "string"
       }
     ]
   },
