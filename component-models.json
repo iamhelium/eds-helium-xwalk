@@ -377,7 +377,7 @@
         "component": "custom-asset-namespace:custom-asset",
         "name": "image",
         "label": "Image",
-        "configUrl": "https://main--xwalk-test-gems--githubusername.hlx.page/tools/assets-selector/image.config.json",
+        "configUrl": "https://author-p51328-e442308.adobeaemcloud.com/content/dam/eds-helium-xwalk/config/image.config.json",
         "valueType": "string"
       },
       {
