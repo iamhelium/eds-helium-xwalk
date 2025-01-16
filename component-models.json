@@ -377,7 +377,7 @@
         "component": "custom-asset-namespace:custom-asset",
         "name": "image",
         "label": "Image",
-        "configUrl": "https://author-p51328-e442308.adobeaemcloud.com/content/dam/eds-helium-xwalk/config/image.config.json",
+        "configUrl": "/content/dam/eds-helium-xwalk/config/image.config.json",
         "valueType": "string"
       },
       {
