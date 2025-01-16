@@ -377,7 +377,6 @@
         "component": "custom-asset-namespace:custom-asset",
         "name": "image",
         "label": "Image",
-        "configUrl": "/content/dam/eds-helium-xwalk/config/image.config.json",
         "valueType": "string"
       },
       {
