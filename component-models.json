@@ -393,6 +393,80 @@
     ]
   },
   {
+    "id": "heliumvideo",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Video Title",
+        "value": "My Video",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Video Description",
+        "value": "This is a sample video description.",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "videolink",
+        "label": "Video URL",
+        "value": "https://example.com/video.mp4",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "videoformat",
+        "label": "Video Format",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "MP4",
+            "value": "video/mp4"
+          },
+          {
+            "name": "WebM",
+            "value": "video/webm"
+          },
+          {
+            "name": "OGG",
+            "value": "video/ogg"
+          }
+        ]
+      },
+      {
+        "component": "toggle",
+        "name": "autoplay",
+        "label": "Autoplay Video",
+        "value": false,
+        "valueType": "boolean"
+      },
+      {
+        "component": "toggle",
+        "name": "loop",
+        "label": "Loop Video",
+        "value": false,
+        "valueType": "boolean"
+      },
+      {
+        "component": "toggle",
+        "name": "controls",
+        "label": "Show Video Controls",
+        "value": true,
+        "valueType": "boolean"
+      },
+      {
+        "component": "text",
+        "name": "poster",
+        "label": "Poster Image URL",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },  
+  {
     "id": "heliumbutton",
     "fields": [
       {
