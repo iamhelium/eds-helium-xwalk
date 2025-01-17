@@ -415,54 +415,6 @@
         "label": "Video URL",
         "value": "https://example.com/video.mp4",
         "valueType": "string"
-      },
-      {
-        "component": "select",
-        "name": "videoformat",
-        "label": "Video Format",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "MP4",
-            "value": "video/mp4"
-          },
-          {
-            "name": "WebM",
-            "value": "video/webm"
-          },
-          {
-            "name": "OGG",
-            "value": "video/ogg"
-          }
-        ]
-      },
-      {
-        "component": "boolean",
-        "name": "autoplay",
-        "label": "Autoplay Video",
-        "value": false,
-        "valueType": "boolean"
-      },
-      {
-        "component": "boolean",
-        "name": "loop",
-        "label": "Loop Video",
-        "value": false,
-        "valueType": "boolean"
-      },
-      {
-        "component": "boolean",
-        "name": "controls",
-        "label": "Show Video Controls",
-        "value": true,
-        "valueType": "boolean"
-      },
-      {
-        "component": "text",
-        "name": "poster",
-        "label": "Poster Image URL",
-        "value": "",
-        "valueType": "string"
       }
     ]
   },  
