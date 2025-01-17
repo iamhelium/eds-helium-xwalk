@@ -437,21 +437,21 @@
         ]
       },
       {
-        "component": "toggle",
+        "component": "boolean",
         "name": "autoplay",
         "label": "Autoplay Video",
         "value": false,
         "valueType": "boolean"
       },
       {
-        "component": "toggle",
+        "component": "boolean",
         "name": "loop",
         "label": "Loop Video",
         "value": false,
         "valueType": "boolean"
       },
       {
-        "component": "toggle",
+        "component": "boolean",
         "name": "controls",
         "label": "Show Video Controls",
         "value": true,
