@@ -436,8 +436,9 @@
           },
           {
             "name": "MOV",
-            "value": "video/mov"
+            "value": "video/quicktime"
           }
+          
         ]
       },
       {
