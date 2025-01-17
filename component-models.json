@@ -433,6 +433,10 @@
           {
             "name": "OGG",
             "value": "video/ogg"
+          },
+          {
+            "name": "MOV",
+            "value": "video/mov"
           }
         ]
       },
