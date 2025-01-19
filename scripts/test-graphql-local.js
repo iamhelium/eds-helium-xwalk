@@ -28,7 +28,7 @@
 //   }
 
   export async function graphqlDemoGet() {
-    const baseApiUrl = 'https://author-p51328-e442308.adobeaemcloud.com/graphql/execute.json';
+    const baseApiUrl = '/graphql/execute.json';
     const projectId = 'aem-demo-assets';
     const queryName = 'articles-all';
     const queryParams = ''; // Adjust if needed, e.g., '?param=value'
