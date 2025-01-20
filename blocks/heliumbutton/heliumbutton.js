@@ -1,6 +1,8 @@
 import { createModal } from "../modal/modal";
+import { getMetadata } from "../../scripts/aem";
 
 export default function decorate(block) {
+  console.log("called meta data...", getMetadata(block))
     const textElement = block.querySelector('[data-aue-prop="text"]');
     const linkElement = block.querySelector('a.button');
   
@@ -19,8 +21,8 @@ export default function decorate(block) {
       block.innerHTML = '';
       block.appendChild(button);
 
-      const { showModal } = createModal(contentNodes);
-        showModal();
+      // const { showModal } = createModal(contentNodes);
+      //   showModal();
     }
   }
   
