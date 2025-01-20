@@ -493,6 +493,12 @@
         "name": "picker",
         "label": "Content Fragment Picker",
         "valueType": "string"
+      },
+      {
+        "component": "aem-tag",
+        "label": "AEM Tag Picker",
+        "name": "cq:tags",
+        "valueType": "string"
       }
     ]
   },
