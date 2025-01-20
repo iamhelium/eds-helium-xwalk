@@ -1,3 +1,5 @@
+import { createModal } from "../modal/modal";
+
 export default function decorate(block) {
     const textElement = block.querySelector('[data-aue-prop="text"]');
     const linkElement = block.querySelector('a.button');
@@ -16,6 +18,9 @@ export default function decorate(block) {
   
       block.innerHTML = '';
       block.appendChild(button);
+
+      const { showModal } = createModal(contentNodes);
+        showModal();
     }
   }
   
