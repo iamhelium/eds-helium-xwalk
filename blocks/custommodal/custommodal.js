@@ -4,7 +4,7 @@ import {
 } from '../../scripts/aem.js';
 
 export async function createModal(contentNodes) {
-  await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
+  await loadCSS(`${window.hlx.codeBasePath}/blocks/custommodal/custommodal.css`);
   const dialog = document.createElement('dialog');
   const dialogContent = document.createElement('div');
   dialogContent.classList.add('modal-content');
@@ -19,7 +19,7 @@ export async function createModal(contentNodes) {
   closeButton.addEventListener('click', () => dialog.close());
   dialog.prepend(closeButton);
 
-  const block = buildBlock('modal', '');
+  const block = buildBlock('custommodal', '');
   document.querySelector('main').append(block);
   decorateBlock(block);
   await loadBlock(block);
