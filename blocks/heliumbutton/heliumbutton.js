@@ -1,4 +1,4 @@
-import { createModal } from "../modal/modal";
+//import { createModal } from "../modal/modal";
 import { getMetadata } from "../../scripts/aem";
 
 export default function decorate(block) {
