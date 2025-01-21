@@ -376,9 +376,8 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "title",
-        "label": "Modal Title",
-        "default": "Default Modal Title"
+        "name": "id",
+        "label": "Modal Id"
       },
       {
         "component": "richtext",
@@ -386,13 +385,6 @@
         "name": "content",
         "label": "Modal Content",
         "default": "<p>Default content for the modal.</p>"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttonText",
-        "label": "Button Text",
-        "default": "Close"
       }
     ]
   },
