@@ -1,5 +1,5 @@
 //import { createModal } from "../modal/modal";
-import { getMetadata } from "../../scripts/aem";
+// import { getMetadata } from "../../scripts/aem";
 
 export default function decorate(block) {
   console.log("called meta data...")
