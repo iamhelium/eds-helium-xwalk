@@ -449,8 +449,12 @@
         "valueType": "string",
         "options": [
           {
-            "name": "Auto play",
+            "name": "Auto play On",
             "value": "autoplay"
+          },
+          {
+            "name": "Auto play Off",
+            "value": ""
           }
         ]
       }
