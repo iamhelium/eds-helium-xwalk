@@ -15,6 +15,7 @@ body.modal-open {
     max-height: calc(100dvh - (2 * var(--header-height)));
     padding: 0;
     border: 1px solid var(--dark-color);
+    inset-inline-start: 60rem;
   }
   
   .modal dialog .modal-content {
