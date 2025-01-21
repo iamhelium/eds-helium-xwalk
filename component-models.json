@@ -371,7 +371,7 @@
     ]
   },
   {
-    "id": "custommodal",
+    "id": "modal",
     "fields": [
       {
         "component": "text",

@@ -2,11 +2,11 @@ body.modal-open {
     overflow: hidden;
   }
   
-  .custommodal dialog::backdrop {
+  .modal dialog::backdrop {
     background-color: rgb(19 19 19 / 75%);
   }
   
-  .custommodal dialog {
+  .modal dialog {
     overscroll-behavior: none;
     /* overflow-y: hidden; */
     position: relative;
@@ -17,7 +17,7 @@ body.modal-open {
     border: 1px solid var(--dark-color);
   }
   
-  .custommodal dialog .modal-content {
+  .modal dialog .modal-content {
     box-sizing: border-box;
     overflow-y: auto;
     overscroll-behavior: none;
@@ -29,18 +29,18 @@ body.modal-open {
   }
   
   @media (width >= 900px) {
-    .custommodal dialog {
+    .modal dialog {
       width: calc(100vw - 64px);
     }
     
-    .custommodal dialog .modal-content {
+    .modal dialog .modal-content {
       max-height: calc(100dvh - (2 * var(--header-height)) - 64px);
       padding: 32px;
       padding-top: 0;
     }
   }
   
-  .custommodal .close-button {
+  .modal .close-button {
     position: absolute;
     top: 0;
     right: 0;
@@ -55,14 +55,14 @@ body.modal-open {
     line-height: 0;
   }
   
-  .custommodal .close-button .icon.icon-close {
+  .modal .close-button .icon.icon-close {
     content: 'X';
     width: 24px;
     height: 24px;
   }
   
-  .custommodal .close-button .icon.icon-close::before,
-  .custommodal .close-button .icon.icon-close::after {
+  .modal .close-button .icon.icon-close::before,
+  .modal .close-button .icon.icon-close::after {
     content: '';
     box-sizing: border-box;
     display: block;
@@ -76,10 +76,10 @@ body.modal-open {
     background-color: currentcolor;
   }
   
-  .custommodal .close-button .icon.icon-close::after {
+  .modal .close-button .icon.icon-close::after {
     transform: translate(-50%, -50%) rotate(-45deg)
   }
   
-  .custommodal dialog .section {
+  .modal dialog .section {
     padding: 0;
   }
