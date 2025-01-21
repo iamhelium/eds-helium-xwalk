@@ -1,5 +1,4 @@
 export default function decorate(block) {
-  console.log("called meta data...")
     const textElement = block.querySelector('[data-aue-prop="text"]');
     const linkElement = block.querySelector('a.button');
   
