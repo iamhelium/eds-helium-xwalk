@@ -446,12 +446,11 @@
         "component": "select",
         "name": "classes",
         "label": "Auto play",
-        "valueType": "boolean",
-        "value": false,
+        "valueType": "string",
         "options": [
           {
             "name": "Auto play",
-            "value": true
+            "value": "autoplay"
           }
         ]
       }
