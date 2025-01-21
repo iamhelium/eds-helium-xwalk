@@ -1,6 +1,3 @@
-//import { createModal } from "../modal/modal";
-// import { getMetadata } from "../../scripts/aem";
-
 export default function decorate(block) {
   console.log("called meta data...")
     const textElement = block.querySelector('[data-aue-prop="text"]');
@@ -20,9 +17,6 @@ export default function decorate(block) {
   
       block.innerHTML = '';
       block.appendChild(button);
-
-      // const { showModal } = createModal(contentNodes);
-      //   showModal();
     }
   }
   
