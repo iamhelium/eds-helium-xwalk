@@ -1,4 +1,4 @@
-import { openModal } from '../custommodal/custommodal';
+import { openModal } from '../custommodal/custommodal.js';
 
 export default function decorate(block) {
   const textElement = block.querySelector('[data-aue-prop="text"]');
