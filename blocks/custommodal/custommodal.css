@@ -8,7 +8,7 @@ body.modal-open {
   
   .custommodal dialog {
     overscroll-behavior: none;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     position: relative;
     width: calc(100vw - 48px);
     max-width: 900px;
