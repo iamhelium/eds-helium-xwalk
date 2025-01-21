@@ -441,6 +441,19 @@
         "label": "Video URL",
         "value": "https://example.com/video.mp4",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "autoplay",
+        "label": "Auto play",
+        "valueType": "boolean",
+        "value": false,
+        "options": [
+          {
+            "name": "Auto play",
+            "value": true
+          }
+        ]
       }
     ]
   },  
