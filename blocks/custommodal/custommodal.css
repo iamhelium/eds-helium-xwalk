@@ -56,7 +56,7 @@ body.modal-open {
   }
   
   .modal .close-button .icon.icon-close {
-    content: '';
+    content: 'X';
     width: 24px;
     height: 24px;
   }
