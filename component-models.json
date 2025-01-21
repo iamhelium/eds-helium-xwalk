@@ -444,7 +444,7 @@
       },
       {
         "component": "select",
-        "name": "autoplay",
+        "name": "classes",
         "label": "Auto play",
         "valueType": "boolean",
         "value": false,
