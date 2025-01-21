@@ -371,6 +371,32 @@
     ]
   },
   {
+    "id": "modal",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Modal Title",
+        "default": "Default Modal Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Modal Content",
+        "default": "<p>Default content for the modal.</p>"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonText",
+        "label": "Button Text",
+        "default": "Close"
+      }
+    ]
+  },
+  {
     "id": "custom-asset-one",
     "fields": [
       {
