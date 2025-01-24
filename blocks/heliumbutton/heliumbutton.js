@@ -34,11 +34,12 @@ export default function decorate(block) {
 }
 
 function renderData(data) {
+  console.log("Data..", data.data.articlePaginated)
   const dataContainer = document.createElement('div');
   dataContainer.className = 'graphql-data';
 
-  if (data?.data?.edges) {
-    data.data.edges.forEach((edge) => {
+  if (data?.data?.articlePaginated?.edges) {
+    data.data.articlePaginated?.edges.forEach((edge) => {
       const edgeElement = document.createElement('p');
       edgeElement.textContent = edge.node.authorFragment.firstName;
       dataContainer.appendChild(edgeElement);
