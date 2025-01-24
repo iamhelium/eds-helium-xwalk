@@ -14,15 +14,14 @@ export default function decorate(block) {
     button.className = '';
 
     button.addEventListener('click', async () => {
-      console.log("call button", button.classList)
-      if (button.classList.contains('btn-tertiary')) {
+      if (block.classList.contains('btn-tertiary')) {
         try {
           const data = await graphqlDemoGet();
           renderData(data);
         } catch (error) {
           console.error('Error fetching GraphQL data:', error);
         }
-      } else if (button.classList.contains('btn-modal')) {
+      } else if (block.classList.contains('btn-modal')) {
         await openModal(linkHref);
       } else if (linkHref) {
         window.location.href = linkHref;
@@ -35,7 +34,6 @@ export default function decorate(block) {
 }
 
 function renderData(data) {
-  console.log("called", data)
   const dataContainer = document.createElement('div');
   dataContainer.className = 'graphql-data';
 
