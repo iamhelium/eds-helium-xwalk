@@ -15,7 +15,7 @@ export default function decorate(block) {
 
     button.addEventListener('click', async () => {
       console.log("call button", button.classList)
-      if (button.classList.contains('tertiary')) {
+      if (button.classList.contains('btn-tertiary')) {
         try {
           const data = await graphqlDemoGet();
           renderData(data);
@@ -26,8 +26,6 @@ export default function decorate(block) {
         await openModal(linkHref);
       } else if (linkHref) {
         window.location.href = linkHref;
-      } else {
-        console.error('No link provided for modal content.');
       }
     });
 
