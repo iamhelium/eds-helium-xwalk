@@ -521,7 +521,7 @@
             ]
           },
           {
-            "name": "Open link or modal",
+            "name": "On Button Click Open",
             "children": [
               {
                 "name": "Link",
