@@ -1,5 +1,5 @@
 import { openModal } from '../modal/modal.js';
-import { graphqlDemoGet } from '../graphql/test-graphql.js';
+import { graphqlDemoGet } from '../../scripts/test-graphql-local.js';
 
 export default function decorate(block) {
   const textElement = block.querySelector('[data-aue-prop="text"]');
