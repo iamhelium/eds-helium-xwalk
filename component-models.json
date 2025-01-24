@@ -519,6 +519,19 @@
                 "value": "btn-green"
               }
             ]
+          },
+          {
+            "name": "Open link or modal",
+            "children": [
+              {
+                "name": "Link",
+                "value": "btn-link"
+              },
+              {
+                "name": "Modal",
+                "value": "btn-modal"
+              }
+            ]
           }
         ]
       },
