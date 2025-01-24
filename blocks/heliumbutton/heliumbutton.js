@@ -4,6 +4,7 @@ import { graphqlDemoGet } from '../../scripts/test-graphql-local.js';
 export default function decorate(block) {
   const textElement = block.querySelector('[data-aue-prop="text"]');
   const linkElement = block.querySelector('a.button');
+  const mainElement = document.querySelector('main');
 
   if (textElement && linkElement) {
     const buttonText = textElement.textContent.trim();
@@ -17,7 +18,7 @@ export default function decorate(block) {
       if (block.classList.contains('btn-tertiary')) {
         try {
           const data = await graphqlDemoGet();
-          renderData(data);
+          renderData(data, mainElement);
         } catch (error) {
           console.error('Error fetching GraphQL data:', error);
         }
@@ -33,22 +34,21 @@ export default function decorate(block) {
   }
 }
 
-function renderData(data) {
-  console.log("Data..", data.data.articlePaginated)
+function renderData(data, targetElement) {
   const dataContainer = document.createElement('div');
   dataContainer.className = 'graphql-data';
 
   if (data?.data?.articlePaginated?.edges) {
     data.data.articlePaginated?.edges.forEach((edge) => {
       const edgeElement = document.createElement('p');
-      edgeElement.textContent = edge.node.authorFragment.firstName;
+      edgeElement.textContent = edge.node.authorFragment.firstName+ " " + edge.node.authorFragment.lastName;
       dataContainer.appendChild(edgeElement);
     });
   } else {
     dataContainer.textContent = 'No data available.';
   }
 
-  document.body.appendChild(dataContainer);
+  targetElement.appendChild(dataContainer);
 }
 
 
