@@ -21,9 +21,9 @@ export default function decorate(block) {
         } catch (error) {
           console.error('Error fetching GraphQL data:', error);
         }
-      } else if (block.classList.contains('btn-modal')) {
+      } else if (linkHref && block.classList.contains('btn-modal')) {
         await openModal(linkHref);
-      } else if (linkHref) {
+      } else if (linkHref && block.classList.contains('btn-link')) {
         window.location.href = linkHref;
       }
     });
