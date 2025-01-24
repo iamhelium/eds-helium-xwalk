@@ -14,6 +14,7 @@ export default function decorate(block) {
     button.className = '';
 
     button.addEventListener('click', async () => {
+      console.log("call button", button.classList)
       if (button.classList.contains('tertiary')) {
         try {
           const data = await graphqlDemoGet();
@@ -36,6 +37,7 @@ export default function decorate(block) {
 }
 
 function renderData(data) {
+  console.log("called", data)
   const dataContainer = document.createElement('div');
   dataContainer.className = 'graphql-data';
 
