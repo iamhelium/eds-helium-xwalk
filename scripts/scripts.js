@@ -147,9 +147,7 @@ async function loadPage() {
   loadDelayed();
   try {
     const response = await graphqlDemoGet();
-    console.log("called graphql....")
     if (response != null) {
-        console.log('GraphQL Data');
         console.log(response);
     }
   } catch (error) {
