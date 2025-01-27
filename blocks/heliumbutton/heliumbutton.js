@@ -4,7 +4,6 @@ import { graphqlDemoGet } from '../../scripts/test-graphql-local.js';
 export default function decorate(block) {
   const textElement = block.querySelector('[data-aue-prop="text"]');
   const linkElement = block.querySelector('a.button');
-  const mainElement = document.querySelector('main');
 
   if (textElement && linkElement) {
     const buttonText = textElement.textContent.trim();
@@ -18,7 +17,7 @@ export default function decorate(block) {
       if (block.classList.contains('btn-tertiary')) {
         try {
           const data = await graphqlDemoGet();
-          renderData(data, mainElement);
+          renderData(data, block);
         } catch (error) {
           console.error('Error fetching GraphQL data:', error);
         }
