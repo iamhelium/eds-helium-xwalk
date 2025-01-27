@@ -33,3 +33,8 @@
 .btn-green button {
     background-color: green;
 }
+
+.graphql-data {
+    display: flex;
+    justify-content: space-between;
+}
