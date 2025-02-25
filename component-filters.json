@@ -16,28 +16,15 @@
       "cards",
       "columns",
       "fragment",
-      "accordion",
-      "carousel",
       "quote",
-      "teaser"
-    ]
-  },
-  {
-    "id": "accordion",
-    "components": [
-      "accordionitem"
+      "form",
+      "form-embed"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
-    ]
-  },
-  {
-    "id": "carousel",
-    "components": [
-      "slide"
     ]
   },
   {
@@ -79,7 +66,8 @@
       "telephone-input",
       "text-input",
       "tnc",
-      "wizard"
+      "wizard",
+      "range"
     ]
   }
 ]
