@@ -31,7 +31,7 @@ export function getRouting() {
 // eslint-disable-next-line no-useless-escape
 export const emailPattern = '([A-Za-z0-9][._]?)+[A-Za-z0-9]@[A-Za-z0-9]+(\.?[A-Za-z0-9]){2}\.([A-Za-z0-9]{2,4})?';
 
-let submitBaseUrl = 'https://publish-p35437-e1492901.adobeaemcloud.com';
+let submitBaseUrl = 'https://publish-p51328-e442308.adobeaemcloud.com';
 
 export function setSubmitBaseUrl(url) {
   submitBaseUrl = url;
