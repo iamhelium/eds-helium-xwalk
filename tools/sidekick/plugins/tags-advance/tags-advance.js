@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-use-before-define */
 // eslint-disable-next-line import/no-unresolved
-import { PLUGIN_EVENTS } from 'https://www.hlx.live/tools/sidekick/library/events/events.js';
+import { PLUGIN_EVENTS } from 'https://www.aem.live/tools/sidekick/library/events/events.js';
 import UTILS from './utils.js';
 
 const CONST = {

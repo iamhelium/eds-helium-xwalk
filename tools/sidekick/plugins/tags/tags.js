@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { PLUGIN_EVENTS } from 'https://www.hlx.live/tools/sidekick/library/events/events.js';
+import { PLUGIN_EVENTS } from 'https://www.aem.live/tools/sidekick/library/events/events.js';
 
 const selectedTags = [];
 
