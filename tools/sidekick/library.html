@@ -1,15 +1,16 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <meta name="Description" content="AEM Sidekick Library" />
-  <meta name="robots" content="noindex" />
-  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
-  <base href="/" />
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="AEM Sidekick Library"/>
+    <meta name="robots" content="noindex"/>
+    <base href="/"/>
 
-  <style>
+    <style>
       html,
       body {
         margin: 0;
@@ -18,24 +19,26 @@
         background-color: #ededed;
         height: 100%;
       }
-      
+
       helix-sidekick { display: none }
+
     </style>
-  <title>AEMLab : Sidekick Library</title>
+    <title>Sidekick Library</title>
 </head>
 
 <body>
-<script type="module" src="https://www.hlx.live/tools/sidekick/library/index.js"></script>
+<script
+        type="module"
+        src="https://www.aem.live/tools/sidekick/library/index.js"
+></script>
 <script>
       const library = document.createElement('sidekick-library')
       library.config = {
         base: '/tools/sidekick/library.json',
-        tags: '/tools/sidekick/plugins/tags/tags.js',
       }
 
       document.body.prepend(library)
-    </script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</script>
 </body>
-</html>-->
+</html>
