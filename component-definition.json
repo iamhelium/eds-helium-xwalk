@@ -158,34 +158,6 @@
           }
         },
         {
-          "title": "Tag",
-          "id": "aem-tag-picker",
-          "fields": [
-            {
-              "component": "aem-tag",
-              "label": "AEM Tag Picker",
-              "name": "cq:tags",
-              "valueType": "string"
-            }
-          ]
-        },
-        {
-          "title": "Content Fragment",
-          "id": "aem-content-fragment",
-          "fields": [
-            {
-              "component": "aem-content-fragment",
-              "name": "picker",
-              "label": "Content Fragment Picker",
-              "valueType": "string",
-              "variationName": "contentFragmentVariation",
-              "validation": {
-                "rootPath": "/content"
-              }
-            }
-          ]
-        },
-        {
           "title": "Slide",
           "id": "slide",
           "plugins": {
