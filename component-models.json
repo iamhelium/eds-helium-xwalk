@@ -199,50 +199,6 @@
     ]
   },
   {
-    "id": "aem-tag-picker",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "quote",
-        "value": "",
-        "label": "Quote",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "author",
-        "label": "Author",
-        "value": ""
-      },
-      {
-        "component": "aem-content",
-        "name": "link",
-        "label": "Link"
-      }
-    ]
-  },
-  {
-    "id": "aem-content-fragment",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "quote",
-        "value": "",
-        "label": "Quote",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "author",
-        "label": "Author",
-        "value": ""
-      }
-    ]
-  },
-
-  {
     "id": "quote",
     "fields": [
       {
