@@ -12,11 +12,6 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
-      },
-      {
-        "component": "aem-content",
-        "name": "link",
-        "label": "Link"
       }
     ]
   },
@@ -97,7 +92,7 @@
             "value": "secondary"
           },
           {
-            "name": "new-A",
+            "name": "new-B",
             "value": "new"
           }
         ]
@@ -108,7 +103,7 @@
         "label": "Alignment",
         "options": [
           {
-            "name": "Left-A",
+            "name": "Left-B",
             "value": "left-align"
           },
           {
@@ -144,6 +139,45 @@
     ]
   },
   {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Expand",
+        "options": [
+          {
+            "name": "Single",
+            "value": "single-expand"
+          },
+          {
+            "name": "Multiple",
+            "value": "multiple-expand"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accordionitem",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "accordionitemlabel",
+        "label": "Accordion label",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "accordionitembody",
+        "value": "",
+        "label": "Accordion body",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
@@ -159,6 +193,222 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "slide",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "columns",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "form-embed",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "formPath",
+        "value": "",
+        "label": "Form Path"
+      }
+    ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "select",
+        "name": "thankYouOption",
+        "label": "On Submit",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Show message",
+            "value": "message"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "thankYouMessage",
+        "label": "Message Content",
+        "valueType": "string",
+        "condition": {
+          "==": [
+            {
+              "var": "thankYouOption"
+            },
+            "message"
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "actionType",
+        "label": "Submit Action",
+        "options": [
+          {
+            "name": "Submit to REST endpoint",
+            "value": "fd/af/components/guidesubmittype/restendpoint"
+          },
+          {
+            "name": "Send email",
+            "value": "fd/af/components/guidesubmittype/email"
+          }
+        ],
+        "value": ""
+      },
+      {
+        "component": "boolean",
+        "name": "enableRestEndpointPost",
+        "label": "Enable POST request",
+        "valueType": "string",
+        "condition": {
+          "==": [
+            {
+              "var": "actionType"
+            },
+            "fd/af/components/guidesubmittype/restendpoint"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "restEndpointPostUrl",
+        "label": "URL For POST request",
+        "valueType": "string",
+        "condition": {
+          "==": [
+            {
+              "var": "actionType"
+            },
+            "fd/af/components/guidesubmittype/restendpoint"
+          ]
+        }
+      },
+      {
+        "component": "container",
+        "name": "email",
+        "label": "Email Configuration",
+        "collapsible": false,
+        "condition": {
+          "==": [
+            {
+              "var": "actionType"
+            },
+            "fd/af/components/guidesubmittype/email"
+          ]
+        },
+        "fields": [
+          {
+            "component": "text",
+            "name": "from",
+            "label": "From",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "mailto",
+            "label": "To",
+            "valueType": "string",
+            "multi": true,
+            "required": true
+          },
+          {
+            "component": "text",
+            "name": "cc",
+            "label": "CC",
+            "valueType": "string",
+            "multi": true
+          },
+          {
+            "component": "text",
+            "name": "bcc",
+            "label": "BCC",
+            "valueType": "string",
+            "multi": true
+          },
+          {
+            "component": "text",
+            "name": "subject",
+            "label": "Subject",
+            "valueType": "string"
+          },
+          {
+            "component": "boolean",
+            "name": "useExternalEmailTemplate",
+            "label": "Use external template",
+            "valueType": "boolean"
+          },
+          {
+            "component": "aem-content",
+            "name": "templatePath",
+            "label": "External template path",
+            "valueType": "string",
+            "condition": {
+              "==": [
+                {
+                  "var": "useExternalEmailTemplate"
+                },
+                true
+              ]
+            }
+          },
+          {
+            "component": "richtext",
+            "name": "template",
+            "label": "Email template",
+            "valueType": "string",
+            "condition": {
+              "!=": [
+                {
+                  "var": "useExternalEmailTemplate"
+                },
+                true
+              ]
+            }
+          },
+          {
+            "component": "boolean",
+            "name": "includeAttachments",
+            "label": "Include attachments",
+            "valueType": "boolean"
+          }
+        ]
       }
     ]
   },
@@ -224,7 +474,7 @@
         "valueType": "string",
         "options": [
           {
-            "name": "Default",
+            "name": "default",
             "value": "bg-default"
           },
           {
@@ -238,167 +488,80 @@
           {
             "name": "Blue",
             "value": "bg-blue"
-          },
-          {
-            "name": "Yellow",
-            "value": "bg-yellow"
           }
         ]
       }
     ]
   },
   {
-    "id": "columns",
+    "id": "teaser",
     "fields": [
       {
-        "component": "text",
-        "valueType": "number",
-        "name": "columns",
-        "value": "",
-        "label": "Columns"
+        "component": "reference",
+        "valueType": "string",
+        "name": "background_image",
+        "label": "Background Image",
+        "multi": false
       },
       {
         "component": "text",
-        "valueType": "number",
-        "name": "rows",
+        "name": "background_imageAlt",
         "value": "",
-        "label": "Rows"
-      }
-    ]
-  },
-  {
-    "id": "form-embed",
-    "fields": [
+        "label": "Alt Text",
+        "valueType": "string"
+      },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "formPath",
+        "name": "foreground_pretitle",
         "value": "",
-        "label": "Form Path"
-      }
-    ]
-  },
-  {
-    "id": "form",
-    "fields": [
+        "label": "Pre title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "foreground_title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
       {
         "component": "select",
-        "name": "thankYouOption",
-        "label": "On Submit",
-        "valueType": "string",
+        "name": "foreground_titleType",
+        "value": "h3",
+        "label": "Title Type",
         "options": [
           {
-            "name": "Show message",
-            "value": "message"
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
           }
         ]
       },
       {
         "component": "richtext",
-        "name": "thankYouMessage",
-        "label": "Message Content",
-        "valueType": "string",
-        "condition": { "==": [{ "var": "thankYouOption" }, "message"] }
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "actionType",
-        "label": "Submit Action",
-        "options": [
-          {
-            "name": "Submit to REST endpoint",
-            "value": "fd/af/components/guidesubmittype/restendpoint"
-          },
-          {
-            "name": "Send email",
-            "value": "fd/af/components/guidesubmittype/email"
-          }
-        ],
-        "value" : ""
-      },
-      {
-        "component": "boolean",
-        "name": "enableRestEndpointPost",
-        "label": "Enable POST request",
-        "valueType": "string",
-        "condition": { "==": [{ "var": "actionType" }, "fd/af/components/guidesubmittype/restendpoint"] }
-      },
-      {
-        "component": "text",
-        "name": "restEndpointPostUrl",
-        "label": "URL For POST request",
-        "valueType": "string",
-        "condition": { "==": [{ "var": "actionType" }, "fd/af/components/guidesubmittype/restendpoint"] }
-      },
-      {
-        "component": "container",
-        "name": "email",
-        "label": "Email Configuration",
-        "collapsible": false,
-        "condition": { "==": [{ "var": "actionType" }, "fd/af/components/guidesubmittype/email"] },
-        "fields": [
-          {
-            "component": "text",
-            "name": "from",
-            "label": "From",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "name": "mailto",
-            "label": "To",
-            "valueType": "string",
-            "multi": true,
-            "required": true
-          },
-          {
-            "component": "text",
-            "name": "cc",
-            "label": "CC",
-            "valueType": "string",
-            "multi": true
-          },
-          {
-            "component": "text",
-            "name": "bcc",
-            "label": "BCC",
-            "valueType": "string",
-            "multi": true
-          },
-          {
-            "component": "text",
-            "name": "subject",
-            "label": "Subject",
-            "valueType": "string"
-          },
-          {
-            "component": "boolean",
-            "name": "useExternalEmailTemplate",
-            "label": "Use external template",
-            "valueType": "boolean"
-          },
-          {
-            "component": "aem-content",
-            "name": "templatePath",
-            "label": "External template path",
-            "valueType": "string",
-            "condition": { "==": [{ "var": "useExternalEmailTemplate" }, true] }
-          },
-          {
-            "component": "richtext",
-            "name": "template",
-            "label": "Email template",
-            "valueType": "string",
-            "condition": { "!=": [{ "var": "useExternalEmailTemplate" }, true] }
-          },
-          {
-            "component": "boolean",
-            "name": "includeAttachments",
-            "label": "Include attachments",
-            "valueType": "boolean"
-          }
-        ]
+        "name": "foreground_description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
       }
     ]
   },
@@ -4418,45 +4581,6 @@
             "name": "tooltip",
             "label": "Short description",
             "valueType": "string"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "text",
-    "fields": [
-      {
-        "component": "select",
-        "name": "classes",
-        "value": "",
-        "label": "Text Color",
-        "description": "The text color",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default",
-            "value": "default"
-          },
-          {
-            "name": "Primary",
-            "value": "primary"
-          },
-          {
-            "name": "Secondary",
-            "value": "secondary"
-          },
-          {
-            "name": "Success",
-            "value": "success"
-          },
-          {
-            "name": "Warning",
-            "value": "warning"
-          },
-          {
-            "name": "Danger",
-            "value": "danger"
           }
         ]
       }
