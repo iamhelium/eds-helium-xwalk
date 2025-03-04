@@ -90,33 +90,6 @@
           {
             "name": "secondary",
             "value": "secondary"
-          },
-          {
-            "name": "new-B",
-            "value": "new"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "linkAlignment",
-        "label": "Alignment",
-        "options": [
-          {
-            "name": "Left-B",
-            "value": "left-align"
-          },
-          {
-            "name": "Right",
-            "value": "right-align"
-          },
-          {
-            "name": "Center",
-            "value": "center-align"
-          },
-          {
-            "name": "Justify",
-            "value": "justify-align"
           }
         ]
       }
@@ -139,45 +112,6 @@
     ]
   },
   {
-    "id": "accordion",
-    "fields": [
-      {
-        "component": "select",
-        "name": "classes",
-        "label": "Expand",
-        "options": [
-          {
-            "name": "Single",
-            "value": "single-expand"
-          },
-          {
-            "name": "Multiple",
-            "value": "multiple-expand"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "accordionitem",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "accordionitemlabel",
-        "label": "Accordion label",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "accordionitembody",
-        "value": "",
-        "label": "Accordion body",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "card",
     "fields": [
       {
@@ -192,25 +126,6 @@
         "name": "text",
         "value": "",
         "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "slide",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Content",
         "valueType": "string"
       }
     ]
@@ -266,14 +181,7 @@
         "name": "thankYouMessage",
         "label": "Message Content",
         "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "thankYouOption"
-            },
-            "message"
-          ]
-        }
+        "condition": { "==": [{ "var": "thankYouOption" }, "message"] }
       },
       {
         "component": "select",
@@ -290,49 +198,28 @@
             "value": "fd/af/components/guidesubmittype/email"
           }
         ],
-        "value": ""
+        "value" : ""
       },
       {
         "component": "boolean",
         "name": "enableRestEndpointPost",
         "label": "Enable POST request",
         "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "actionType"
-            },
-            "fd/af/components/guidesubmittype/restendpoint"
-          ]
-        }
+        "condition": { "==": [{ "var": "actionType" }, "fd/af/components/guidesubmittype/restendpoint"] }
       },
       {
         "component": "text",
         "name": "restEndpointPostUrl",
         "label": "URL For POST request",
         "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "actionType"
-            },
-            "fd/af/components/guidesubmittype/restendpoint"
-          ]
-        }
+        "condition": { "==": [{ "var": "actionType" }, "fd/af/components/guidesubmittype/restendpoint"] }
       },
       {
         "component": "container",
         "name": "email",
         "label": "Email Configuration",
         "collapsible": false,
-        "condition": {
-          "==": [
-            {
-              "var": "actionType"
-            },
-            "fd/af/components/guidesubmittype/email"
-          ]
-        },
+        "condition": { "==": [{ "var": "actionType" }, "fd/af/components/guidesubmittype/email"] },
         "fields": [
           {
             "component": "text",
@@ -379,28 +266,14 @@
             "name": "templatePath",
             "label": "External template path",
             "valueType": "string",
-            "condition": {
-              "==": [
-                {
-                  "var": "useExternalEmailTemplate"
-                },
-                true
-              ]
-            }
+            "condition": { "==": [{ "var": "useExternalEmailTemplate" }, true] }
           },
           {
             "component": "richtext",
             "name": "template",
             "label": "Email template",
             "valueType": "string",
-            "condition": {
-              "!=": [
-                {
-                  "var": "useExternalEmailTemplate"
-                },
-                true
-              ]
-            }
+            "condition": { "!=": [{ "var": "useExternalEmailTemplate" }, true] }
           },
           {
             "component": "boolean",
@@ -444,123 +317,6 @@
         "name": "text",
         "value": "",
         "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "quote",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "quote",
-        "value": "",
-        "label": "Quote",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "author",
-        "label": "Author",
-        "value": ""
-      },
-      {
-        "component": "select",
-        "name": "classes",
-        "value": "",
-        "label": "Background Color",
-        "description": "The quote background color",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "default",
-            "value": "bg-default"
-          },
-          {
-            "name": "Red",
-            "value": "bg-red"
-          },
-          {
-            "name": "Green",
-            "value": "bg-green"
-          },
-          {
-            "name": "Blue",
-            "value": "bg-blue"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "teaser",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "background_image",
-        "label": "Background Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "name": "background_imageAlt",
-        "value": "",
-        "label": "Alt Text",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "foreground_pretitle",
-        "value": "",
-        "label": "Pre title",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "foreground_title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "select",
-        "name": "foreground_titleType",
-        "value": "h3",
-        "label": "Title Type",
-        "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
-        ]
-      },
-      {
-        "component": "richtext",
-        "name": "foreground_description",
-        "value": "",
-        "label": "Description",
         "valueType": "string"
       }
     ]
