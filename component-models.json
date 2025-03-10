@@ -246,12 +246,6 @@
     ]
   },
   {
-    "component": "aem-content-fragment",
-    "name": "picker",
-    "label": "Content Fragment Picker",
-    "valueType": "string"
-  },
-  {
     "id": "form-embed",
     "fields": [
       {
