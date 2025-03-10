@@ -178,6 +178,17 @@
     ]
   },
   {
+    "id": "aem-tag-picker",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "label": "AEM Tag Picker",
+        "name": "cq:tags",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
@@ -233,6 +244,12 @@
         "label": "Rows"
       }
     ]
+  },
+  {
+    "component": "aem-content-fragment",
+    "name": "picker",
+    "label": "Content Fragment Picker",
+    "valueType": "string"
   },
   {
     "id": "form-embed",
