@@ -49,6 +49,7 @@
         "carousel",
         "quote",
         "teaser",
+        "slide",
         "form",
         "form-embed",
         "aem-tag-picker",
