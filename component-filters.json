@@ -21,7 +21,8 @@
       "quote",
       "teaser",
       "form",
-      "form-embed"
+      "form-embed",
+      "aem-tag-picker"
     ]
   },
   {
