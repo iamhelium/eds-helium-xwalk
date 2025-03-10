@@ -1,0 +1,32 @@
+{
+  "definitions": [
+    {
+      "title": "Content Fragments",
+      "id": "aem-content-fragment",
+      "plugins": {
+        "xwalk": {
+          "cf": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "cfModel": "",
+            "cfFolder": "",
+            "title": "",
+            "description": "",
+            "template": {
+              "name": "Content Fragment",
+              "filter": "contentfragment"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "component": "aem-content-fragment",
+      "name": "picker",
+      "label": "Content Fragment Picker",
+      "valueType": "string"
+    }
+  ],
+  "filters": []
+}

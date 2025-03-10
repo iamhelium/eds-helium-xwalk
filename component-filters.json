@@ -16,6 +16,8 @@
       "cards",
       "columns",
       "fragment",
+      "accordion",
+      "carousel",
       "quote",
       "form",
       "form-embed",
@@ -27,6 +29,12 @@
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "slide"
     ]
   },
   {
