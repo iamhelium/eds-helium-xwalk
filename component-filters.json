@@ -18,7 +18,9 @@
       "fragment",
       "quote",
       "form",
-      "form-embed"
+      "form-embed",
+      "aem-tag-picker",
+      "aem-content-fragment"
     ]
   },
   {

@@ -4511,23 +4511,6 @@
             "value": "bg-blue"
           }
         ]
-      },
-      {
-        "component": "aem-content-fragment",
-        "name": "picker",
-        "label": "Content Fragment Picker",
-        "valueType": "string"
-      },
-      {
-        "id": "aem-tag-picker",
-        "fields": [
-          {
-            "component": "aem-tag",
-            "label": "AEM Tag Picker",
-            "name": "cq:tags",
-            "valueType": "string"
-          }
-        ]
       }
     ]
   },
@@ -4602,6 +4585,34 @@
         "valueType": "string"
       }
     ]
-  }
+  },
+  {
+    "id": "aem-tag-picker",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "label": "AEM Tag Picker",
+        "name": "cq:tags",
+        "valueType": "string"
+      }
+    ]
+  },
+  [
+    {
+      "id": "aem-content-fragment",
+      "fields": [
+        {
+          "component": "aem-content-fragment",
+          "name": "picker",
+          "label": "Content Fragment Picker",
+          "valueType": "string",
+          "validation": {
+            "rootPath": "/content/eds-helium-xwalk"
+          }
+        }
+      ]
+    }
+  ]
+
 
 ]
