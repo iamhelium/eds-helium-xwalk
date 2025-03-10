@@ -19,10 +19,13 @@
       "accordion",
       "carousel",
       "quote",
-      "form",
-      "form-embed",
-      "aem-tag-picker",
-      "aem-content-fragment"
+      "teaser"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordionitem"
     ]
   },
   {
