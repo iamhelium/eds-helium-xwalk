@@ -48,7 +48,9 @@
         "accordion",
         "carousel",
         "quote",
-        "teaser"
+        "teaser",
+        "form",
+        "form-embed"
       ]
     }
   ]
