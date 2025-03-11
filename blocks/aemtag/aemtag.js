@@ -1,38 +1,31 @@
 export default function decorate(block) {
-  // Assuming that the tag picker elements are within the provided block
-  const tagPickerWrapper = block.querySelector('.is-field.is-aem-tag');
+  // Find the container where the tags are displayed (assuming the class name is 'HpsDkq_spectrum-Tags')
+  const tagContainer = block.querySelector('.HpsDkq_spectrum-Tags');
 
-  if (tagPickerWrapper) {
-    // Find all selected tags inside the tag picker (assuming tags are inside elements with class '.HpsDkq_spectrum-Tag-content')
-    const selectedTags = tagPickerWrapper.querySelectorAll('.HpsDkq_spectrum-Tag-content');
+  // If the tag container is found
+  if (tagContainer) {
+    // Get all the tags inside the container (assuming tags have the class 'HpsDkq_spectrum-Tag-content')
+    const tags = tagContainer.querySelectorAll('.HpsDkq_spectrum-Tag-content');
 
-    // Create a container to hold the tags
-    const tagListContainer = document.createElement('ul');
-    tagListContainer.classList.add('tag-list');
+    // Create a new container to display the selected tags
+    const tagDisplayContainer = document.createElement('div');
+    tagDisplayContainer.classList.add('tag-display-container');
 
-    // Loop through each selected tag and create a list item for each
-    selectedTags.forEach((tag) => {
-      const tagName = tag.textContent.trim();
-      const li = document.createElement('li');
-      li.classList.add('tag-item');
-      li.textContent = tagName;
-
-      // Optionally, we can add a remove button if we want users to remove tags (if this is required)
-      const removeButton = document.createElement('button');
-      removeButton.classList.add('remove-tag');
-      removeButton.innerHTML = '&times;';
-      removeButton.addEventListener('click', () => {
-        li.remove();  // Remove the tag when the button is clicked
+    // If tags are selected, display them
+    if (tags.length > 0) {
+      tags.forEach(tag => {
+        const tagElement = document.createElement('p');
+        tagElement.textContent = tag.textContent.trim(); // Get the tag's name
+        tagDisplayContainer.appendChild(tagElement); // Append the tag to the display container
       });
+    } else {
+      tagDisplayContainer.textContent = 'No tags selected.';
+    }
 
-      li.appendChild(removeButton);
-      tagListContainer.appendChild(li);
-    });
-
-    // Clear the existing content of the block and append the generated tags
-    block.textContent = ''; // Remove existing content
-    block.appendChild(tagListContainer);  // Add the generated tags list
+    // Clear existing content in the block and append the tags display
+    block.textContent = ''; // Clear the block content
+    block.appendChild(tagDisplayContainer); // Append the tag display container
   } else {
-    console.log('Tag picker not found in the block.');
+    console.error('Tag container not found.');
   }
 }
