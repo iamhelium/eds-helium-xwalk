@@ -2,7 +2,8 @@
   "mappings": [
     "/content/eds-helium-xwalk/:/",
     "/content/eds-helium-xwalk/configuration:/.helix/config.json",
-    "/content/eds-helium-xwalk/metadata:/metadata.json"
+    "/content/eds-helium-xwalk/metadata:/metadata.json",
+    "/content/eds-helium-xwalk/taxonomy:/taxonomy.json"
   ],
   "includes": [
     "/content/eds-helium-xwalk/"
