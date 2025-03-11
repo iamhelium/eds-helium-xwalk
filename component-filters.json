@@ -24,7 +24,8 @@
       "form",
       "form-embed",
       "aem-tag-picker",
-      "aem-content-fragment"
+      "aem-content-fragment",
+      "experience-fragment"
     ]
   },
   {
