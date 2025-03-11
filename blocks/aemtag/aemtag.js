@@ -1,33 +1,35 @@
+import { createOptimizedPicture } from '../../scripts/aem.js'; // Reusing this if needed for optimizing images
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
 export default function decorate(block) {
-  const [quoteWrapper] = block.children;
+  // First, we assume that tags are available via a 'data-tags' attribute on the block element
+  const tags = block.getAttribute('data-tags'); // Retrieve tags from the 'data-tags' attribute
 
-  // Create a blockquote element
-  const blockquote = document.createElement('blockquote');
-  blockquote.textContent = quoteWrapper.textContent.trim();
-
-  // Replace quoteWrapper content with the blockquote
-  quoteWrapper.replaceChildren(blockquote);
-
-  // Assume that tags are stored in a 'data-tags' attribute on the block element
-  const tags = block.getAttribute('data-tags');
-
-  // If tags exist, process and log them
   if (tags) {
-    const tagList = tags.split(',').map(tag => tag.trim()); // assuming tags are comma-separated
-    console.log('Tags:', tagList);
+    // Convert the comma-separated string of tags into an array
+    const tagList = tags.split(',').map(tag => tag.trim());
 
-    // You could do further processing with the tags here (e.g., display them in the UI, etc.)
-    const tagsContainer = document.createElement('div');
-    tagsContainer.classList.add('tags-container');
-    tagList.forEach(tag => {
-      const tagElement = document.createElement('span');
-      tagElement.classList.add('tag');
-      tagElement.textContent = tag;
-      tagsContainer.appendChild(tagElement);
+    // Create a container for tags
+    const tagContainer = document.createElement('ul');
+    tagContainer.classList.add('tags-container');
+
+    // Loop through each tag and create an <li> for each one
+    tagList.forEach((tag) => {
+      const li = document.createElement('li');
+      li.classList.add('tag-item');
+      li.textContent = tag;
+
+      // Optional: Create a link to the tag (if you have URLs for each tag)
+      // const tagLink = document.createElement('a');
+      // tagLink.href = `/tags/${tag}`;
+      // tagLink.textContent = tag;
+      // li.appendChild(tagLink);
+
+      tagContainer.appendChild(li);
     });
 
-    // Append tags to the blockquote or another part of the component
-    blockquote.appendChild(tagsContainer);
+    // Now, let's add the tags container to the block element
+    block.appendChild(tagContainer);
   } else {
     console.log('No tags found.');
   }
