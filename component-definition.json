@@ -207,7 +207,7 @@
           "id": "aem-content-fragment",
           "plugins": {
             "xwalk": {
-              "cf": {
+              "page": {
                 "resourceType": "core/franklin/components/block/v1/block",
                 "cfModel": "Sample EDS Model",
                 "cfFolder": "/content/dam/eds-helium-xwalk/content-fragment/samplecf",
