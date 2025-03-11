@@ -23,7 +23,8 @@
       "slide",
       "form",
       "form-embed",
-      "aem-tag-picker"
+      "aem-tag-picker",
+      "aem-content-fragment"
     ]
   },
   {
