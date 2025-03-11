@@ -260,23 +260,6 @@
       }
     ]
   },
-  [
-    {
-      "id": "experience-fragment",
-      "fields": [
-        {
-          "component": "aem-experience-fragment",
-          "valueType": "string",
-          "name": "experience-fragment",
-          "label": "experience-fragment",
-          "variationName": "experienceFragmentVariation",
-          "validation": {
-            "rootPath": "/content/experience-fragments/eds_helium_xwalk"
-          }
-        }
-      ]
-    }
-  ],
   {
     "id": "form-embed",
     "fields": [
