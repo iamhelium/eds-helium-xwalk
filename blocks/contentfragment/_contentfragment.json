@@ -5,12 +5,12 @@
       "id": "aem-content-fragment",
       "plugins": {
         "xwalk": {
-          "page": {
+          "cf": {
             "resourceType": "core/franklin/components/block/v1/block",
-            "cfModel": "sample",
-            "cfFolder": "",
-            "title": "xyz",
-            "description": "sample secription",
+            "cfModel": "Sample EDS Model",
+            "cfFolder": "/content/dam/eds-helium-xwalk/content-fragment/samplecf",
+            "title": "sample title",
+            "description": "sample decription",
             "template": {
               "name": "Content Fragment",
               "model": "aem-content-fragment"
@@ -28,7 +28,11 @@
           "component": "aem-content-fragment",
           "name": "picker",
           "label": "Content Fragment Picker",
-          "valueType": "string"
+          "valueType": "string",
+          "variationName": "contentFragmentVariation",
+          "validation": {
+            "rootPath": "/content/dam/eds-helium-xwalk/content-fragment"
+          }
         }
       ]
     }
