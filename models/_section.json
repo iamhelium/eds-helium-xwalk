@@ -53,7 +53,9 @@
         "form",
         "form-embed",
         "aem-tag-picker",
-        "aem-content-fragment"
+        "aem-content-fragment",
+        "heliumbutton",
+        "video"
       ]
     }
   ]

@@ -1,0 +1,120 @@
+{
+  "definitions": [
+    {
+      "title": "HeliumButton",
+      "id": "heliumbutton",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "HeliumButton",
+              "model": "heliumbutton",
+              "text": "Button"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "heliumbutton",
+      "fields": [
+        {
+          "component": "text",
+          "name": "text",
+          "label": "Button Text",
+          "value": "Button",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "btnlink",
+          "label": "Link"
+        },
+        {
+          "component": "multiselect",
+          "name": "classes",
+          "label": "Button Style",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Type",
+              "children": [
+                {
+                  "name": "Primary",
+                  "value": "btn-primary"
+                },
+                {
+                  "name": "Secondary",
+                  "value": "btn-secondary"
+                },
+                {
+                  "name": "Tertiary",
+                  "value": "btn-tertiary"
+                }
+              ]
+            },
+            {
+              "name": "Alignment",
+              "children": [
+                {
+                  "name": "Left",
+                  "value": "btn-left-align"
+                },
+                {
+                  "name": "Center",
+                  "value": "btn-center-align"
+                },
+                {
+                  "name": "Right",
+                  "value": "btn-right-align"
+                }
+              ]
+            },
+            {
+              "name": "Color",
+              "children": [
+                {
+                  "name": "Red",
+                  "value": "btn-red"
+                },
+                {
+                  "name": "Green",
+                  "value": "btn-green"
+                }
+              ]
+            },
+            {
+              "name": "On Button Click Open",
+              "children": [
+                {
+                  "name": "Link",
+                  "value": "btn-link"
+                },
+                {
+                  "name": "Modal",
+                  "value": "btn-modal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "aem-content-fragment",
+          "name": "picker",
+          "label": "Content Fragment Picker",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-tag",
+          "label": "AEM Tag Picker",
+          "name": "cq:tags",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

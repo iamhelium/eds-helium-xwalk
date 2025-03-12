@@ -1,0 +1,40 @@
+.btn-primary {
+
+}
+
+.btn-secondary button {
+    background-color: var(--dark-color);
+}
+
+.btn-tertiary button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    color: blue;
+    text-decoration: underline;
+}
+
+.btn-left-align {
+    text-align: left;
+}
+
+.btn-right-align {
+    text-align: right;
+}
+
+.btn-center-align {
+    text-align: center;
+}
+
+.btn-red button {
+    background-color: red;
+}
+
+.btn-green button {
+    background-color: green;
+}
+
+.graphql-data {
+    display: flex;
+    justify-content: space-between;
+}

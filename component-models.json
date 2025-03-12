@@ -449,6 +449,103 @@
     ]
   },
   {
+    "id": "heliumbutton",
+    "fields": [
+      {
+        "component": "text",
+        "name": "text",
+        "label": "Button Text",
+        "value": "Button",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "btnlink",
+        "label": "Link"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Button Style",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Type",
+            "children": [
+              {
+                "name": "Primary",
+                "value": "btn-primary"
+              },
+              {
+                "name": "Secondary",
+                "value": "btn-secondary"
+              },
+              {
+                "name": "Tertiary",
+                "value": "btn-tertiary"
+              }
+            ]
+          },
+          {
+            "name": "Alignment",
+            "children": [
+              {
+                "name": "Left",
+                "value": "btn-left-align"
+              },
+              {
+                "name": "Center",
+                "value": "btn-center-align"
+              },
+              {
+                "name": "Right",
+                "value": "btn-right-align"
+              }
+            ]
+          },
+          {
+            "name": "Color",
+            "children": [
+              {
+                "name": "Red",
+                "value": "btn-red"
+              },
+              {
+                "name": "Green",
+                "value": "btn-green"
+              }
+            ]
+          },
+          {
+            "name": "On Button Click Open",
+            "children": [
+              {
+                "name": "Link",
+                "value": "btn-link"
+              },
+              {
+                "name": "Modal",
+                "value": "btn-modal"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "aem-content-fragment",
+        "name": "picker",
+        "label": "Content Fragment Picker",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-tag",
+        "label": "AEM Tag Picker",
+        "name": "cq:tags",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "hero",
     "fields": [
       {
@@ -588,6 +685,48 @@
         "value": "",
         "label": "Description",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Video Title",
+        "value": "My Video",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Video Description",
+        "value": "This is a sample video description.",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "videolink",
+        "label": "Video URL",
+        "value": "https://example.com/video.mp4",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Auto play",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto play On",
+            "value": "autoplay"
+          },
+          {
+            "name": "Auto play Off",
+            "value": ""
+          }
+        ]
       }
     ]
   }
