@@ -461,7 +461,7 @@ function decorateButtons(element) {
           if (backgroundColor) container.classList.add(backgroundColor);
           if (alignment) container.classList.add(alignment);
 
-          console.log('Updated container:', container);
+          // console.log('Updated container:', container);
         } else {
           console.error('Failed to fetch data for:', cleanResource, response.status);
         }
@@ -471,7 +471,10 @@ function decorateButtons(element) {
     }
   });
 
-  console.log('element', element);
+  (async () => {
+    await loadCSS(`${window.hlx.codeBasePath}/blocks/buttons/buttons.css`);
+    console.log('LOADING CSS');
+  })();
 }
 
 /**
