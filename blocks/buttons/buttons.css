@@ -1,0 +1,38 @@
+.button-container.left {
+  display: flex;
+  justify-content: left;
+}
+
+.button-container.center {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container.right {
+  display: flex;
+  justify-content: right;
+}
+
+.button-container.btn-red a {
+  background-color: red;
+}
+
+.button-container.btn-green a {
+  background-color: green;
+}
+
+.button-container.btn-blue a {
+  background-color: blue;
+}
+
+.button-container.txt-red a {
+  color: red;
+}
+
+.button-container.txt-green a {
+  color: green;
+}
+
+.button-container.txt-blue a {
+  color: blue;
+}
