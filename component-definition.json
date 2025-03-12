@@ -207,11 +207,11 @@
           "id": "aem-content-fragment",
           "plugins": {
             "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block",
+              "cf": {
+                "name": "Sample CF",
                 "cfModel": "Sample EDS Model",
-                "cfFolder": "/content/dam/eds-helium-xwalk/content-fragment/samplecf",
-                "title": "sample title",
+                "cfFolder": "/content/dam/eds-helium-xwalk/content-fragment/",
+                "title": "Sample title",
                 "description": "sample decription",
                 "template": {
                   "name": "Content Fragment",
