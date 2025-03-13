@@ -10,7 +10,7 @@
             "template": {
               "name": "AEM Tag",
               "model": "aem-tag-picker",
-              "cq:tags": "tag",
+              "tags": "tags",
               "text": "tag text"
             }
           }
@@ -25,7 +25,7 @@
         {
           "component": "aem-tag",
           "label": "AEM Tag Picker",
-          "name": "cq:tags",
+          "name": "tags",
           "value": "tags",
           "valueType": "string"
         },
