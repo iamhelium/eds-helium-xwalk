@@ -1,16 +1,7 @@
 export default function getTagTitle(block) {
 
-  const tagElement = block.querySelector('[data-aue-prop="Tags"]');
+  const metaTag = document.querySelector('meta[name="cq-tags"]');
+  const content = metaTag ? metaTag.getAttribute("content") : null;
 
-  if (tagElement) {
-    const tagTitle = tagElement.textContent.trim();
-    console.log('Tag Title:', tagTitle);
-    return tagTitle;
-  } else {
-    console.log('Tag element not found.');
-    return null;
+  console.log(content);
   }
-}
-
-const block = document.querySelector('.aem-tag-wrapper');
-getTagTitle(block);
