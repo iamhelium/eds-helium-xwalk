@@ -10,7 +10,7 @@
             "template": {
               "name": "AEM Tag",
               "model": "aem-tag-picker",
-              "text": "tag"
+              "aem-tag": "tag"
             }
           }
         }
