@@ -114,7 +114,7 @@
         },
         {
           "title": "AEM Tag",
-          "id": "aemtag",
+          "id": "aem-tag-picker",
           "plugins": {
             "xwalk": {
               "page": {
