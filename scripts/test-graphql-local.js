@@ -1,7 +1,7 @@
 export async function graphqlDemoGet() {
     const baseApiUrl = '/graphql/execute.json';
-    const projectId = 'aem-demo-assets';
-    const queryName = 'articles-all';
+    const projectId = 'eds-helium-xwalk';
+    const queryName = 'Sample';
     const queryParams = ''; // Adjust if needed, e.g., '?param=value'
     const graphqlEndpoint = `${baseApiUrl}/${projectId}/${queryName}${queryParams}`;
   
