@@ -11,9 +11,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
-import {
-  graphqlDemoGet
-} from './test-graphql-local.js';
+import { graphqlDemoGet } from './test-graphql-local.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -148,10 +146,10 @@ async function loadPage() {
   try {
     const response = await graphqlDemoGet();
     if (response != null) {
-        console.log("GraphQL response: ", response);
+      console.log('GraphQL response: ', response);
     }
   } catch (error) {
-      console.error('Error in graphqlDemoGet:', error);
+    console.error('Error in graphqlDemoGet:', error);
   }
 }
 
