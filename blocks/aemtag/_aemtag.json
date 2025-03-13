@@ -2,7 +2,7 @@
   "definitions": [
     {
       "title": "AEM Tag",
-      "id": "aem-tag-picker",
+      "id": "aemtag",
       "plugins": {
         "xwalk": {
           "page": {

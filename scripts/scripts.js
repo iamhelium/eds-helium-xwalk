@@ -148,7 +148,7 @@ async function loadPage() {
   try {
     const response = await graphqlDemoGet();
     if (response != null) {
-        console.log(response);
+        console.log("GraphQL response: ", response);
     }
   } catch (error) {
       console.error('Error in graphqlDemoGet:', error);
