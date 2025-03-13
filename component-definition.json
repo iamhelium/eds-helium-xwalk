@@ -122,7 +122,8 @@
                 "template": {
                   "name": "AEM Tag",
                   "model": "aem-tag-picker",
-                  "cq:tags": "tag"
+                  "cq:tags": "tag",
+                  "text": "tag text"
                 }
               }
             }
