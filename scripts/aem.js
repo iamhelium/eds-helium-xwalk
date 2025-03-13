@@ -431,18 +431,50 @@ function decorateButtons(element) {
           && twoup.childNodes.length === 1
           && twoup.tagName === 'P'
         ) {
-          a.className = 'button new';
-          twoup.classList.add('button-container');
-        }
-        if (
-          up.childNodes.length === 2
-        ) {
-          a.className = 'button new';
+          a.className = 'button secondary';
           twoup.classList.add('button-container');
         }
       }
     }
   });
+
+  // Extract `data-aue-resource`, fetch JSON, and add classes
+  const domain = window.location.origin; // Dynamically fetch the current domain
+  const buttonContainers = element.querySelectorAll('.button-container');
+  buttonContainers.forEach(async (container) => {
+    const resource = container.getAttribute('data-aue-resource');
+    if (resource) {
+      const cleanResource = resource.replace('urn:aemconnection:', ''); // Remove the prefix
+      const apiUrl = `${domain}${cleanResource}.json`; // Construct API URL
+      try {
+        const response = await fetch(apiUrl);
+        if (response.ok) {
+          const jsonData = await response.json();
+
+          // Extract styles from JSON
+          const textColor = jsonData['text-color'];
+          const backgroundColor = jsonData['background-color'];
+          const { alignment } = jsonData;
+
+          // Add extracted classes to the container
+          if (textColor) container.classList.add(textColor);
+          if (backgroundColor) container.classList.add(backgroundColor);
+          if (alignment) container.classList.add(alignment);
+
+          // console.log('Updated container:', container);
+        } else {
+          console.error('Failed to fetch data for:', cleanResource, response.status);
+        }
+      } catch (error) {
+        console.error('Error fetching data for:', cleanResource, error);
+      }
+    }
+  });
+
+  (async () => {
+    await loadCSS(`${window.hlx.codeBasePath}/blocks/buttons/buttons.css`);
+    console.log('LOADING CSS');
+  })();
 }
 
 /**
@@ -590,7 +622,6 @@ function buildBlock(blockName, content) {
  * @param {Element} block The block element
  */
 async function loadBlock(block) {
-
   const status = block.dataset.blockStatus;
   if (status !== 'loading' && status !== 'loaded') {
     block.dataset.blockStatus = 'loading';

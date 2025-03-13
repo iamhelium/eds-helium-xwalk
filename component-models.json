@@ -90,33 +90,67 @@
           {
             "name": "secondary",
             "value": "secondary"
-          },
-          {
-            "name": "new-B",
-            "value": "new"
           }
         ]
       },
       {
         "component": "select",
-        "name": "linkAlignment",
+        "name": "alignment",
         "label": "Alignment",
         "options": [
           {
-            "name": "Left-B",
-            "value": "left-align"
-          },
-          {
-            "name": "Right",
-            "value": "right-align"
+            "name": "Left",
+            "value": "left"
           },
           {
             "name": "Center",
-            "value": "center-align"
+            "value": "center"
           },
           {
-            "name": "Justify",
-            "value": "justify-align"
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "background-color",
+        "value": "",
+        "label": "Background Color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Red",
+            "value": "btn-red"
+          },
+          {
+            "name": "Green",
+            "value": "btn-green"
+          },
+          {
+            "name": "Blue",
+            "value": "btn-blue"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "text-color",
+        "value": "",
+        "label": "Text Color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Red",
+            "value": "txt-red"
+          },
+          {
+            "name": "Green",
+            "value": "txt-green"
+          },
+          {
+            "name": "Blue",
+            "value": "txt-blue"
           }
         ]
       }
