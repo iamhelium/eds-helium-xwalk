@@ -7,9 +7,9 @@
         "xwalk": {
           "cf": {
             "name":"Sample CF",
-            "cfModel": "Sample EDS Model",
-            "cfFolder": "/content/dam/eds-helium-xwalk/content-fragment/",
-            "title": "Sample title",
+            "cfModel": "EDS Xwalk Model",
+            "cfFolder": "samplecf",
+            "title": "Sample",
             "description": "sample decription",
             "template": {
               "name": "Content Fragment",
