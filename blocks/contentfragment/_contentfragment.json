@@ -29,7 +29,6 @@
           "name": "picker",
           "label": "Content Fragment Picker",
           "valueType": "string",
-          "variationName": "Main",
           "validation": {
             "rootPath": "/content/dam/eds-helium-xwalk/content-fragment/samplecf"
           }
