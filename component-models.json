@@ -288,7 +288,7 @@
         "label": "Content Fragment Picker",
         "valueType": "string",
         "validation": {
-          "rootPath": "/content/dam/eds-helium-xwalk/content-fragment/samplecf"
+          "rootPath": "/content/dam/eds-helium-xwalk/content-fragment"
         }
       }
     ]
