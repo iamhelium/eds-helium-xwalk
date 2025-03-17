@@ -5,7 +5,7 @@
       "id": "aem-content-fragment",
       "plugins": {
         "xwalk": {
-          "cf": {
+          "page": {
             "name":"Sample CF",
             "cfModel": "EDS Xwalk Model",
             "cfFolder": "content-fragment",
