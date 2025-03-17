@@ -29,7 +29,7 @@
           "name": "picker",
           "label": "Content Fragment Picker",
           "valueType": "string",
-          "variationName": "contentFragmentVariation",
+          "variationName": "Main",
           "validation": {
             "rootPath": "/content/dam/eds-helium-xwalk/content-fragment"
           }
