@@ -222,6 +222,20 @@
           }
         },
         {
+          "title": "Experience Fragments",
+          "id": "experience-fragment",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "template": {
+                  "name": "Experience Fragment",
+                  "model": "experience-fragment"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Adaptive Form - Embed",
           "id": "form-embed",
           "plugins": {

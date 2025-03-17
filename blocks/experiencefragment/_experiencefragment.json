@@ -1,0 +1,36 @@
+{
+  "definitions": [
+    {
+      "title": "Experience Fragments",
+      "id": "experience-fragment",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "template": {
+              "name": "Experience Fragment",
+              "model": "experience-fragment"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "experience-fragment",
+      "fields": [
+        {
+          "component": "aem-experience-fragment",
+          "valueType": "string",
+          "name": "experience-fragment",
+          "label": "experience-fragment",
+          "variationName": "experienceFragmentVariation",
+          "validation": {
+            "rootPath": "/content/dam/eds-helium-xwalk/content-fragment"
+          }
+        }
+      ]
+    }
+  ],
+  "filters": []
+}
