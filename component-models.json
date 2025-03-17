@@ -289,7 +289,7 @@
         "valueType": "string",
         "variationName": "Main",
         "validation": {
-          "rootPath": "/content/dam/eds-helium-xwalk/content-fragment"
+          "rootPath": "/content/dam/eds-helium-xwalk/content-fragment/samplecf"
         }
       }
     ]
