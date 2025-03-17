@@ -8,7 +8,7 @@
           "cf": {
             "name":"Sample CF",
             "cfModel": "EDS Xwalk Model",
-            "cfFolder": "samplecf",
+            "cfFolder": "content-fragment",
             "title": "Sample",
             "description": "sample decription",
             "template": {
