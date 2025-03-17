@@ -15,7 +15,7 @@ export default async function decorate(block) {
       dropdown.appendChild(option);
     });
 
-    block.appendChild(dropdown);
+    block.replaceChildren(dropdown);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
