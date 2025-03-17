@@ -27,7 +27,7 @@
           "label": "experience-fragment",
           "variationName": "experienceFragmentVariation",
           "validation": {
-            "rootPath": "/content/dam/eds-helium-xwalk/content-fragment"
+            "rootPath": "/content/experience-fragments"
           }
         }
       ]
