@@ -18,7 +18,7 @@ export default async function decorate(block) {
       dropdown.appendChild(option);
     });
 
-    const titleHeading = document.createElement('h2');
+    const titleHeading = document.createElement('h4');
     titleHeading.classList.add('title-heading');
     titleHeading.textContent = 'Select a name to see the title';
 
