@@ -55,7 +55,8 @@
         "aem-content-fragment",
         "heliumbutton",
         "video",
-        "experience-fragment"
+        "experience-fragment",
+        "dropdown"
       ]
     }
   ]
