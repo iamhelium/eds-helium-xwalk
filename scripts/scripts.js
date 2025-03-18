@@ -143,14 +143,14 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
-  try {
-    const response = await graphqlDemoGet();
-    if (response != null) {
-      console.log('GraphQL response: ', response);
-    }
-  } catch (error) {
-    console.error('Error in graphqlDemoGet:', error);
-  }
+  // try {
+  //   const response = await graphqlDemoGet();
+  //   if (response != null) {
+  //     console.log('GraphQL response: ', response);
+  //   }
+  // } catch (error) {
+  //   console.error('Error in graphqlDemoGet:', error);
+  // }
 }
 
 loadPage();
