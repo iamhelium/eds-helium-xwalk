@@ -19,7 +19,7 @@
 
 /* article content style */
 .article-card__content {
-    background: white;
+    background: #beb9b95c;
     display: inline-block;
     padding: 10px;
     border-radius: 0 0 8px 8px;
@@ -65,4 +65,5 @@
     /* Firefox Fallback */
     max-height: calc(1.5em * 3);
     line-height: 1.5em;
+    font-size: 14px;
 }
