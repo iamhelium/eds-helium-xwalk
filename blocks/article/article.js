@@ -19,7 +19,7 @@ export default async function decorate(block) {
 
     // Create the article card container
     const cardContainer = document.createElement("div");
-    cardContainer.classList.add("article-card");
+    cardContainer.classList.add("article-card-wrapper");
 
     for (const link of articleLinks) {
       const articleJsonUrl = `${domain}${link}/jcr:content.json`;
