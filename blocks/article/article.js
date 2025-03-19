@@ -22,7 +22,7 @@ export default async function decorate(block) {
     cardContainer.classList.add("article-card");
 
     for (const link of articleLinks) {
-      const articleJsonUrl = `${domain}${link}.json`;
+      const articleJsonUrl = `${domain}${link}/jcr:content.json`;
       try {
         const articleResponse = await fetch(articleJsonUrl);
         if (!articleResponse.ok)
