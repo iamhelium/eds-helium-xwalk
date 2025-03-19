@@ -20,7 +20,7 @@ export default async function decorate(block) {
 
     // Create the article card container
     const cardContainer = document.createElement('div');
-    cardContainer.classList.add('article-card');
+    cardContainer.classList.add('article-card-wrapper');
 
     for (const link of articleLinks) {
       const articleJsonUrl = `${domain}${link}/jcr:content.json`;
@@ -66,7 +66,7 @@ export default async function decorate(block) {
         const tagDiv = document.createElement('div');
         tagDiv.classList.add('tags');
         const tagP = document.createElement('p');
-        tagP.classList.add('semi-bold');
+        tagP.classList.add('card-tag');
         tagP.textContent = tags;
         tagDiv.appendChild(tagP);
 
