@@ -5,9 +5,15 @@
 }
 
 @media (max-width: 1024px) {
-  .article-card-wrapper {
-      grid-template-columns: 1fr;
-  }
+    .article-card-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .article-card-wrapper {
+        grid-template-columns: repeat(1fr);
+    }
 }
 
 .article-card-item {
