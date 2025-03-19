@@ -31,4 +31,8 @@ export default async function decorate(block) {
   } catch (error) {
     console.error('Error fetching data:', error);
   }
+
+  const metaTag = document.querySelector('meta[name="cq-tags"]');
+  const content = metaTag ? metaTag.getAttribute('content') : null;
+  console.log('AEM TAG: ', content, block);
 }
