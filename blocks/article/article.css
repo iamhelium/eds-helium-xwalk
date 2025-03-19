@@ -12,7 +12,7 @@
 
 @media (max-width: 768px) {
     .article-card-wrapper {
-        grid-template-columns: repeat(1fr);
+        grid-template-columns: 1fr;
     }
 }
 
