@@ -18,7 +18,21 @@
 }
 
 /* article content style */
+.article-card__content .title {
+  color: #25282a;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* Firefox Fallback */
+  max-height: calc(1.5em);
+  line-height: 1.5em;
+}
+
 .article-card__content .description {
+  color: #505254;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
