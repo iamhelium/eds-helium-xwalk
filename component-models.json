@@ -212,6 +212,16 @@
     ]
   },
   {
+    "id": "article",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "article-link",
+        "label": "Article Link"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
