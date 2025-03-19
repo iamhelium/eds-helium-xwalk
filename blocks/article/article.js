@@ -59,7 +59,7 @@ export default async function decorate(block) {
         const tagDiv = document.createElement("div");
         tagDiv.classList.add("tags");
         const tagP = document.createElement("p");
-        tagP.classList.add("semi-bold");
+        tagP.classList.add("card-tag");
         tagP.textContent = tags;
         tagDiv.appendChild(tagP);
 
