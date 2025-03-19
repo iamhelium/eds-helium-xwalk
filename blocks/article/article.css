@@ -4,6 +4,12 @@
     gap: 1.5rem;
 }
 
+@media (max-width: 1024px) {
+  .article-card-wrapper {
+      grid-template-columns: 1fr;
+  }
+}
+
 .article-card-item {
     box-shadow: none;
     transition: box-shadow 300ms ease-out, transform 300ms ease-out;
