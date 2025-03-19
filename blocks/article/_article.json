@@ -23,7 +23,12 @@
         {
           "component": "aem-content",
           "name": "article-link",
-          "label": "Article Link"
+          "label": "Article Link",
+          "valueType": "string",
+          "multi": true,
+          "validation": {
+            "rootPath": "/content/eds-helium-xwalk/index/articles"
+          }
         }
       ]
     }
