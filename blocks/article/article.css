@@ -5,57 +5,64 @@
 }
 
 .article-card:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /* article image style */
 .article-card__image {
-  width: 100%;
-  width: 100%;
-  height: 260px;
-  background: #beb9b91f;
-  border-radius: 16px 16px 0 0;
+    width: 100%;
+    width: 100%;
+    height: 260px;
+    background: #beb9b91f;
+    border-radius: 8px 8px 0 0;
 }
 
 /* article content style */
+.article-card__content {
+    background: white;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 0 0 8px 8px;
+}
 
 .article-card__content .tags {
-  min-height: 29px;
+    min-height: 29px;
 }
 
 .article-card__content .card-tag {
-background: #fefe0961;
-padding: 4px 8px;
-border-radius: 4px;
-width: fit-content;
-color: #b9b985;
-text-transform: uppercase;
-font-weight: 600;
-font-size: 14px;
+    background: #fefe0961;
+    padding: 4px 8px;
+    border-radius: 4px;
+    width: fit-content;
+    color: #b9b985;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
 }
 
 .article-card__content .title {
-  color: #25282a;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    color: #25282a;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-  /* Firefox Fallback */
-  max-height: calc(1.5em);
-  line-height: 1.5em;
+    /* Firefox Fallback */
+    max-height: calc(1.5em);
+    line-height: 1.5em;
 }
 
 .article-card__content .description {
-  color: #505254;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    color: #505254;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-  /* Firefox Fallback */
-  max-height: calc(1.5em * 3);
-  line-height: 1.5em;
+    /* Firefox Fallback */
+    max-height: calc(1.5em * 3);
+    line-height: 1.5em;
 }

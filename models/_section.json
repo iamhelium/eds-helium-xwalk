@@ -27,6 +27,10 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Margin Top",
+              "value": "margin-top"
             }
           ]
         }
