@@ -61,7 +61,7 @@ function filterArticles(block, finalJson, selectedTag) {
 if(articleWrapper){
   articleWrapper.appendChild(articleCardWrapper);
 } else {
-  block.appendChild(articleCardWrapper);
+  block.innerHTML = articleCardWrapper;
 }
 }
 
