@@ -77,9 +77,9 @@ function injectChips(block, finalJson) {
 
   chipWrapper.appendChild(chipList);
 
-  const articleWrapper = block.querySelector('.article-wrapper');
-  console.log('wrapper', articleWrapper);
-  articleWrapper.insertBefore(chipWrapper, block.querySelector('.article-card-wrapper'));
+  // const articleWrapper = block.querySelector('.article-wrapper');
+  // console.log('wrapper', articleWrapper);
+  block.insertBefore(chipWrapper, block.querySelector('.article-card-wrapper'));
 
   chipList.addEventListener('click', (event) => {
     if (event.target.classList.contains('chip')) {
