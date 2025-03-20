@@ -55,7 +55,8 @@ function filterArticles(block, finalJson, selectedTag) {
       articleCardWrapper.appendChild(articleCardItem);
     });
 
-  block.appendChild(articleCardWrapper);
+  // block.insertBefore(chipWrapper, block.querySelector('.article-card-wrapper'));
+  block.insertAdjacentElement('afterend', articleCardWrapper);
 }
 
 function injectChips(block, finalJson) {
