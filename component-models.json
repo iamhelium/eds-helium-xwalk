@@ -308,7 +308,7 @@
         "component": "custom-asset-namespace:custom-asset",
         "name": "image",
         "label": "Image",
-        "configUrl": "https://main--eds-helium-xwalk--iamhelium.aem.page/tools/assets-selector/config.json",
+        "configUrl": "https://main--eds-helium-xwalk--iamhelium.aem.page/tools/assets-selector/image.config.json",
         "valueType": "string"
       },
       {
