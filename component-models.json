@@ -257,7 +257,7 @@
             {
               "var": "layout-type"
             },
-            "dynamic"
+            "dynamic-article-link"
           ]
         }
       },
@@ -285,7 +285,7 @@
             {
               "var": "layout-type"
             },
-            "manual"
+            "manual-article-links"
           ]
         }
       }

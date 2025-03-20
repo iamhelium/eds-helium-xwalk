@@ -48,7 +48,7 @@
               }
             }
           ],
-          "condition": { "===": [{"var" : "layout-type"}, "dynamic"] }
+          "condition": { "===": [{"var" : "layout-type"}, "dynamic-article-link"] }
         },
         {
           "component": "container",
@@ -69,7 +69,7 @@
               }
             }
           ],
-          "condition": { "===": [{"var" : "layout-type"}, "manual"] }
+          "condition": { "===": [{"var" : "layout-type"}, "manual-article-links"] }
         }
       ]
     }
