@@ -1,51 +1,101 @@
 {
   "repoNames": [
-    "author-p51328-e442308.adobeaemcloud.com",
-    "delivery-p51328-e442308.adobeaemcloud.com"
+    "delivery-p51328-e442308.adobeaemcloud.com",
+    "author-p51328-e442308.adobeaemcloud.com"
   ],
   "aemTierType": [
-    "delivery",
-    "author"
+        "delivery",
+        "author"
   ],
-  "expiryOptions": {
-    "allowSelectionAndDrag": false
-  },
   "filterSchema": [
     {
+      "header": "File Types",
+      "groupKey": "FileTypeGroup",
       "fields": [
         {
-          "defaultValue": ["image/*"],
+          "excludeTags": ["image/*", "video/*", "application/pdf"],
           "element": "checkbox",
           "name": "type",
+          "defaultValue": [
+            "image/*"
+          ],
           "options": [
             {
-              "label": "Image",
-              "readOnly": true,
+              "label": "Images",
               "value": "image/*"
+            },
+            {
+              "label": "Videos",
+              "value": "video/*"
+            },
+            {
+              "label": "PDFs",
+              "value": "application/pdf"
             }
-          ]
+          ],
+          "orientation": "horizontal"
         }
-      ],
-      "groupKey": "FileTypeGroup",
-      "header": "File Type"
+      ]
+    },
+    {
+      "header": "Assets Tags",
+      "groupKey": "AssetTagsGroup",
+      "fields": [
+        {
+          "element": "taggroup",
+          "name": "property=metadata.application.xcm:keywords.id",
+          "defaultValue": [],
+          "options": [],
+          "columns": 3
+        }
+      ]
     },
     {
       "fields": [
         {
-          "columns": 3,
-          "defaultValue": ["arena"],
-          "element": "taggroup",
-          "name": "property=xcm:keywords.id=",
+          "element": "checkbox",
+          "name": "expiredAsset",
           "options": [
             {
-              "label": "Demo",
-              "value": "demo"
+              "label": "Expired",
+              "value": "expired"
+            }
+          ],
+          "orientation": "horizontal",
+          "columns": 2
+        },
+        {
+          "element": "DateRange",
+          "name": "property=pur:expirationDate",
+          "position": "top",
+          "label": "Expiration Duration",
+          "orientation": "horizontal"
+        }
+      ],
+      "header": "Expiration Status",
+      "groupKey": "ExpirationGroup"
+    },
+    {
+      "fields": [
+        {
+          "element": "Number",
+          "name": "property=tiff:imageWidth",
+          "range": true,
+          "quiet": true,
+          "label": "Width",
+          "hideArrows": true,
+          "columns": 2,
+          "readOnly": true,
+          "defaultValue": [
+            {
+              "min": 0,
+              "max": 5000
             }
           ]
         }
       ],
-      "groupKey": "AssetTagsGroup",
-      "header": "Assets Tags"
+      "header": "Size",
+      "groupKey": "SizeGroup"
     }
   ]
 }

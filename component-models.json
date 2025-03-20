@@ -337,6 +337,24 @@
     ]
   },
   {
+    "id": "dm-asset",
+    "fields": [
+      {
+        "component": "text",
+        "name": "dm_alttext",
+        "label": "Alt Text",
+        "valueType": "string"
+      },
+      {
+        "component": "custom-asset-namespace:custom-asset",
+        "name": "dm-image",
+        "label": "Image",
+        "configUrl": "https://main--eds-helium-xwalk--iamhelium.aem.page/tools/assets-selector/image.config.json",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "experience-fragment",
     "fields": [
       {
