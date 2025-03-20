@@ -62,6 +62,8 @@ function filterArticles(block, finalJson, selectedTag) {
 }
 
 function injectChips(block, finalJson) {
+  if (!finalJson.tags.length) return; // Do not inject chips for manual articles
+  
   const chipWrapper = document.createElement('div');
   chipWrapper.className = 'chip-wrapper';
 
@@ -123,13 +125,10 @@ export default async function decorate(block) {
           const articleData = await articleResponse.json();
           const content = articleData['jcr:content'] || {};
 
-          const tags = content['cq:tags'] || [];
-          tags.forEach(tag => tagsSet.add(tag));
-
           articlesJson.push({
             title: content['jcr:title'] || '',
             description: content['jcr:description'] || '',
-            tags: tags.map(tag => ({ 'tag-id': tag, tag: tag.split('/').pop() })),
+            tags: [], // No tags for manual articles
             image: {
               alt: content.image?.alt || '',
               fileReference: content.image?.fileReference || ''
@@ -172,7 +171,9 @@ export default async function decorate(block) {
     const finalJson = { tags: tagsArray, pages: articlesJson };
 
     block.innerHTML = '';
-    injectChips(block, finalJson);
+    if (layoutType === 'dynamic-article-link') {
+      injectChips(block, finalJson);
+    }
     filterArticles(block, finalJson, 'all');
   } catch (error) {
     console.error('Error fetching block data:', error);
