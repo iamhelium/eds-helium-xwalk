@@ -3,8 +3,10 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable no-restricted-syntax */
 function filterArticles(block, finalJson, selectedTag) {
-  const articleCardWrapper = block.querySelector('.article-card-wrapper');
-  articleCardWrapper.innerHTML = '';
+  // const articleCardWrapper = block.querySelector('.article-card-wrapper');
+  // articleCardWrapper.innerHTML = '';
+  const articleCardWrapper = document.createElement('div');
+  articleCardWrapper.classList.add('article-card-wrapper');
 
   finalJson.pages
     .filter((article) => selectedTag === 'all' || article.tags.some((tag) => tag['tag-id'] === selectedTag))
@@ -52,6 +54,8 @@ function filterArticles(block, finalJson, selectedTag) {
       articleCardItem.appendChild(articleCard);
       articleCardWrapper.appendChild(articleCardItem);
     });
+
+  block.appendChild(articleCardWrapper);
 }
 
 function injectChips(block, finalJson) {
@@ -150,6 +154,7 @@ export default async function decorate(block) {
       pages: articlesJson
     };
 
+    block.innerHTML = '';
     injectChips(block, finalJson);
     filterArticles(block, finalJson, 'all');
   } catch (error) {
