@@ -71,7 +71,7 @@ function injectChips(block, finalJson) {
   chipList.className = 'chip-list';
 
   const allTopicsButton = document.createElement('button');
-  allTopicsButton.className = 'chip selected';
+  allTopicsButton.className = 'chip article-tag selected';
   allTopicsButton.dataset.value = 'all';
   allTopicsButton.textContent = 'All topics';
   chipList.appendChild(allTopicsButton);
