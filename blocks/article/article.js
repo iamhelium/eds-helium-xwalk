@@ -56,7 +56,7 @@ function filterArticles(block, finalJson, selectedTag) {
     });
 
   // block.insertBefore(chipWrapper, block.querySelector('.article-card-wrapper'));
-  block.insertAdjacentElement('afterend', articleCardWrapper);
+  block.appendChild(articleCardWrapper);
 }
 
 function injectChips(block, finalJson) {
@@ -84,7 +84,8 @@ function injectChips(block, finalJson) {
 
   // const articleWrapper = block.querySelector('.article-wrapper');
   // console.log('wrapper', articleWrapper);
-  block.insertBefore(chipWrapper, block.querySelector('.article-card-wrapper'));
+  // block.insertBefore(chipWrapper, block.querySelector('.article-card-wrapper'));
+  block.appendChild(chipWrapper);
 
   chipList.addEventListener('click', (event) => {
     if (event.target.classList.contains('chip')) {
