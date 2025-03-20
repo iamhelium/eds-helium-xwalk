@@ -4,11 +4,22 @@
   "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open",
   "plugins": [
     {
+      "id": "aemedit",
+      "title": "Edit",
+      "environments": [
+        "dev",
+        "preview",
+        "live"
+      ],
+      "event": "aemedit"
+    },
+    {
       "id": "library",
       "title": "Library",
-      "environments": [ "edit" ],
-      "url": "/tools/sidekick/library.html",
-      "includePaths": [ "**.docx**" ]
+      "environments": [
+        "edit"
+      ],
+      "url": "/tools/sidekick/library.html"
     }
   ]
 }

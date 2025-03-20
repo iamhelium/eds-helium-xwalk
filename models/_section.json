@@ -61,7 +61,9 @@
         "experience-fragment",
         "dropdown",
         "pagetag",
-        "article"
+        "article",
+        "custom-asset-one",
+        "dm-asset"
       ]
     }
   ]

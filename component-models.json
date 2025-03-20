@@ -327,6 +327,29 @@
     ]
   },
   {
+    "id": "custom-asset-one",
+    "fields": [
+      {
+        "component": "custom-asset-namespace:custom-asset",
+        "name": "image",
+        "label": "Image",
+        "configUrl": "https://main--eds-helium-xwalk--iamhelium.aem.page/tools/assets-selector/image.config.json",
+        "valueType": "string"
+      },
+      {
+        "component": "custom-asset-namespace:custom-asset-mimetype",
+        "valueType": "string",
+        "name": "imageMimeType"
+      },
+      {
+        "component": "text",
+        "name": "imageTitle",
+        "label": "Alt Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "dropdown",
     "fields": [
       {
@@ -335,6 +358,24 @@
         "name": "title",
         "label": "Title",
         "value": "Content fragment With GraphQL"
+      }
+    ]
+  },
+  {
+    "id": "dm-asset",
+    "fields": [
+      {
+        "component": "text",
+        "name": "dm_alttext",
+        "label": "Alt Text",
+        "valueType": "string"
+      },
+      {
+        "component": "custom-asset-namespace:custom-asset",
+        "name": "dm-image",
+        "label": "Image",
+        "configUrl": "https://main--eds-helium-xwalk--iamhelium.aem.page/tools/assets-selector/image.config.json",
+        "valueType": "string"
       }
     ]
   },
