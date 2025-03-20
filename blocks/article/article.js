@@ -1,9 +1,9 @@
 export default async function decorate(block) {
-  const resourceElement = block.querySelector("[data-aue-resource]");
+  const resourceElement = block.getAttribute('data-aue-resource');
   if (!resourceElement) return;
 
   const domain = window.location.origin;
-  const jcrPath = resourceElement.getAttribute("data-aue-resource").replace("urn:aemconnection:", "");
+  const jcrPath = resourceElement.replace('urn:aemconnection:', '');
   const jsonUrl = `${domain}${jcrPath}.json`;
 
   try {
