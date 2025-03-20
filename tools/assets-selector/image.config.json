@@ -1,62 +1,51 @@
 {
-  "aemTierType": [
-    "delivery",
-    "author"
-  ],
-  "apiKey": "asset_search_service",
   "repoNames": [
     "author-p51328-e442308.adobeaemcloud.com",
     "delivery-p51328-e442308.adobeaemcloud.com"
   ],
-  "preferredDimensions":{
-    "minWidth": 500,
-    "maxWidth": 2000,
-    "minHeight": 500,
-    "maxHeight": 2000
+  "aemTierType": [
+    "delivery",
+    "author"
+  ],
+  "expiryOptions": {
+    "allowSelectionAndDrag": false
   },
   "filterSchema": [
     {
       "fields": [
         {
+          "defaultValue": ["image/*"],
           "element": "checkbox",
           "name": "type",
-          "defaultValue": [
-            "image/*"
-          ],
           "options": [
             {
               "label": "Image",
-              "value": "image/*",
-              "readOnly": true
-            }
-          ],
-          "orientation": "horizontal"
-        }
-      ],
-      "header": "File Type",
-      "groupKey": "FileTypeGroup"
-    },
-    {
-      "fields": [
-        {
-          "element": "Number",
-          "name": "property=tiff:imageWidth",
-          "range": true,
-          "quiet": true,
-          "label": "Width",
-          "hideArrows": true,
-          "columns": 2,
-          "readOnly": true,
-          "defaultValue": [
-            {
-              "min": 0,
-              "max": 1000
+              "readOnly": true,
+              "value": "image/*"
             }
           ]
         }
       ],
-      "header": "Size",
-      "groupKey": "SizeGroup"
+      "groupKey": "FileTypeGroup",
+      "header": "File Type"
+    },
+    {
+      "fields": [
+        {
+          "columns": 3,
+          "defaultValue": ["arena"],
+          "element": "taggroup",
+          "name": "property=xcm:keywords.id=",
+          "options": [
+            {
+              "label": "Demo",
+              "value": "demo"
+            }
+          ]
+        }
+      ],
+      "groupKey": "AssetTagsGroup",
+      "header": "Assets Tags"
     }
   ]
 }
