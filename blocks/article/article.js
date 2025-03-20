@@ -59,9 +59,9 @@ function filterArticles(block, finalJson, selectedTag) {
 
   const articleWrapper = block.querySelector('.article-card-wrapper');
 if(articleWrapper){
-  articleWrapper.appendChild(articleCardWrapper);
-} else {
   articleWrapper.replaceWith(articleCardWrapper);
+} else {
+  block.appendChild(articleCardWrapper);
 }
 }
 
