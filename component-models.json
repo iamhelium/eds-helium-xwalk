@@ -226,11 +226,11 @@
         "options": [
           {
             "name": "All Articles",
-            "value": "dynamic"
+            "value": "dynamic-article-link"
           },
           {
             "name": "Fetch Articles Manually",
-            "value": "manual"
+            "value": "manual-article-links"
           }
         ]
       },
@@ -243,7 +243,7 @@
         "fields": [
           {
             "component": "aem-content",
-            "name": "dynamic-link",
+            "name": "dynamic-article-link",
             "label": "Please select all articles root page path",
             "valueType": "string",
             "required": true,

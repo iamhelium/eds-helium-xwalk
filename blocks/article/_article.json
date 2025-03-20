@@ -26,8 +26,8 @@
           "name": "layout-type",
           "valueType": "string",
           "options": [
-            { "name": "All Articles", "value": "dynamic" },
-            { "name": "Fetch Articles Manually", "value": "manual" }
+            { "name": "All Articles", "value": "dynamic-article-link" },
+            { "name": "Fetch Articles Manually", "value": "manual-article-links" }
           ]
         },
         {
@@ -39,7 +39,7 @@
           "fields": [
             {
               "component": "aem-content",
-              "name": "dynamic-link",
+              "name": "dynamic-article-link",
               "label": "Please select all articles root page path",
               "valueType": "string",
               "required": true,
