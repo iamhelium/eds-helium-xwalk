@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-console */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-
 function createArticleCard(article) {
   const articleCardItem = document.createElement('div');
   articleCardItem.className = 'article-card-item';
@@ -27,7 +27,7 @@ function createArticleCard(article) {
   tagsDiv.className = 'tags';
   const tagsP = document.createElement('p');
   tagsP.className = 'card-tag';
-  tagsP.textContent = article.tags.map(tag => tag.tag).join(', ');
+  tagsP.textContent = article.tags.map((tag) => tag.tag).join(', ');
   tagsDiv.appendChild(tagsP);
 
   const title = document.createElement('h6');
@@ -50,8 +50,11 @@ function filterArticles(block, finalJson, selectedTag) {
   articleCardWrapper.classList.add('article-card-wrapper');
 
   finalJson.pages
-    .filter(article => selectedTag === 'all' || article.tags.some(tag => tag['tag-id'] === selectedTag))
-    .forEach(article => articleCardWrapper.appendChild(createArticleCard(article)));
+    .filter(
+      (article) => selectedTag === 'all'
+        || article.tags.some((tag) => tag['tag-id'] === selectedTag),
+    )
+    .forEach((article) => articleCardWrapper.appendChild(createArticleCard(article)));
 
   const existingWrapper = block.querySelector('.article-card-wrapper');
   if (existingWrapper) {
@@ -63,7 +66,7 @@ function filterArticles(block, finalJson, selectedTag) {
 
 function injectChips(block, finalJson) {
   if (!finalJson.tags.length) return; // Do not inject chips for manual articles
-  
+
   const chipWrapper = document.createElement('div');
   chipWrapper.className = 'chip-wrapper';
 
@@ -76,7 +79,7 @@ function injectChips(block, finalJson) {
   allTopicsButton.textContent = 'All topics';
   chipList.appendChild(allTopicsButton);
 
-  finalJson.tags.forEach(tag => {
+  finalJson.tags.forEach((tag) => {
     const chipButton = document.createElement('button');
     chipButton.className = 'chip article-tag';
     chipButton.dataset.value = tag['tag-id'];
@@ -87,9 +90,11 @@ function injectChips(block, finalJson) {
   chipWrapper.appendChild(chipList);
   block.appendChild(chipWrapper);
 
-  chipList.addEventListener('click', event => {
+  chipList.addEventListener('click', (event) => {
     if (event.target.classList.contains('chip')) {
-      document.querySelectorAll('.chip').forEach(chip => chip.classList.remove('selected'));
+      document
+        .querySelectorAll('.chip')
+        .forEach((chip) => chip.classList.remove('selected'));
       event.target.classList.add('selected');
       filterArticles(block, finalJson, event.target.dataset.value);
     }
@@ -111,8 +116,8 @@ export default async function decorate(block) {
     const data = await response.json();
     const layoutType = data['layout-type'];
 
-    let articlesJson = [];
-    let tagsSet = new Set();
+    const articlesJson = [];
+    const tagsSet = new Set();
 
     if (layoutType === 'manual-article-links') {
       const articleLinks = data[layoutType] || [];
@@ -129,12 +134,15 @@ export default async function decorate(block) {
           articlesJson.push({
             title: content['jcr:title'] || '',
             description: content['jcr:description'] || '',
-            tags: tags.map(tag => ({ 'tag-id': tag, tag: tag.split('/').pop() })),
+            tags: tags.map((tag) => ({
+              'tag-id': tag,
+              tag: tag.split('/').pop(),
+            })),
             image: {
               alt: content.image?.alt || '',
-              fileReference: content.image?.fileReference || ''
+              fileReference: content.image?.fileReference || '',
             },
-            link: `${domain}${link}.html`
+            link: `${domain}${link}.html`,
           });
         } catch (error) {
           console.error('Error loading individual article:', error);
@@ -151,24 +159,33 @@ export default async function decorate(block) {
           if (dynamicData[key]['jcr:content']) {
             const content = dynamicData[key]['jcr:content'];
             const tags = content['cq:tags'] || [];
-            tags.forEach(tag => tagsSet.add(tag));
+            tags.forEach((tag) => tagsSet.add(tag));
 
             articlesJson.push({
               title: content['jcr:title'],
-              description: `${content['jcr:description']?.substring(0, 100)}...`,
-              tags: tags.map(tag => ({ 'tag-id': tag, tag: tag.split('/').pop() })),
+              description: `${content['jcr:description']?.substring(
+                0,
+                100,
+              )}...`,
+              tags: tags.map((tag) => ({
+                'tag-id': tag,
+                tag: tag.split('/').pop(),
+              })),
               image: {
                 alt: content.image?.alt || '',
-                fileReference: content.image?.fileReference || ''
+                fileReference: content.image?.fileReference || '',
               },
-              link: `${domain}${dynamicLink}/${key}.html`
+              link: `${domain}${dynamicLink}/${key}.html`,
             });
           }
         }
       }
     }
 
-    const tagsArray = Array.from(tagsSet).map(tag => ({ 'tag-id': tag, tag: tag.split('/').pop() }));
+    const tagsArray = Array.from(tagsSet).map((tag) => ({
+      'tag-id': tag,
+      tag: tag.split('/').pop(),
+    }));
     const finalJson = { tags: tagsArray, pages: articlesJson };
 
     block.innerHTML = '';
