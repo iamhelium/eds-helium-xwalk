@@ -61,7 +61,7 @@ export default async function decorate(block) {
       pages: articlesJson
     };
 
-    injectChips(block, finalJson);
+    // injectChips(block, finalJson);
     filterArticles(block, finalJson, 'all');
   } catch (error) {
     console.error('Error fetching block data:', error);
@@ -81,7 +81,7 @@ function injectChips(block, finalJson) {
   allTopicsButton.textContent = 'All topics';
   chipList.appendChild(allTopicsButton);
 
-  finalJson.tags.forEach(tag => {
+  finalJson.tags.forEach((tag) => {
     const chipButton = document.createElement('button');
     chipButton.className = 'chip article-tag';
     chipButton.dataset.value = tag['tag-id'];
@@ -94,9 +94,9 @@ function injectChips(block, finalJson) {
   const articleWrapper = block.querySelector('.article-wrapper');
   articleWrapper.insertBefore(chipWrapper, block.querySelector('.article-card-wrapper'));
 
-  chipList.addEventListener('click', event => {
+  chipList.addEventListener('click', (event) => {
     if (event.target.classList.contains('chip')) {
-      document.querySelectorAll('.chip').forEach(chip => chip.classList.remove('selected'));
+      document.querySelectorAll('.chip').forEach((chip) => chip.classList.remove('selected'));
       event.target.classList.add('selected');
       filterArticles(block, finalJson, event.target.dataset.value);
     }
@@ -108,8 +108,8 @@ function filterArticles(block, finalJson, selectedTag) {
   articleCardWrapper.innerHTML = '';
 
   finalJson.pages
-    .filter(article => selectedTag === 'all' || article.tags.some(tag => tag['tag-id'] === selectedTag))
-    .forEach(article => {
+    .filter((article) => selectedTag === 'all' || article.tags.some(tag => tag['tag-id'] === selectedTag))
+    .forEach((article) => {
       const articleCardItem = document.createElement('div');
       articleCardItem.className = 'article-card-item';
 
@@ -132,7 +132,7 @@ function filterArticles(block, finalJson, selectedTag) {
       tagsDiv.className = 'tags';
       const tagsP = document.createElement('p');
       tagsP.className = 'card-tag';
-      tagsP.textContent = article.tags.map(tag => tag.tag).join(', ');
+      tagsP.textContent = article.tags.map((tag) => tag.tag).join(', ');
       tagsDiv.appendChild(tagsP);
 
       const title = document.createElement('h6');
