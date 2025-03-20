@@ -27,6 +27,10 @@
             "valueType": "string"
           },
           {
+            "component": "custom-asset-namespace:custom-asset-mimetype",
+            "valueType": "string"
+          },
+          {
             "component": "custom-asset-namespace:custom-asset",
             "name": "dm-image",
             "label": "Image",
