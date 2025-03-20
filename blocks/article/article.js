@@ -1,3 +1,7 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
+
 function createArticleCard(article) {
   const articleCardItem = document.createElement('div');
   articleCardItem.className = 'article-card-item';
@@ -67,7 +71,7 @@ function injectChips(block, finalJson) {
   chipList.className = 'chip-list';
 
   const allTopicsButton = document.createElement('button');
-  allTopicsButton.className = 'chip selected';
+  allTopicsButton.className = 'chip article-tag selected';
   allTopicsButton.dataset.value = 'all';
   allTopicsButton.textContent = 'All topics';
   chipList.appendChild(allTopicsButton);
@@ -120,11 +124,12 @@ export default async function decorate(block) {
 
           const articleData = await articleResponse.json();
           const content = articleData['jcr:content'] || {};
+          const tags = content['cq:tags'] || [];
 
           articlesJson.push({
             title: content['jcr:title'] || '',
             description: content['jcr:description'] || '',
-            tags: [], // No tags for manual articles
+            tags: tags.map(tag => ({ 'tag-id': tag, tag: tag.split('/').pop() })),
             image: {
               alt: content.image?.alt || '',
               fileReference: content.image?.fileReference || ''
