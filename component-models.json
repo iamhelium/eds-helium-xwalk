@@ -239,7 +239,7 @@
         "label": "Display Articles Dynamically",
         "name": "dynamic-link-container",
         "valueType": "string",
-        "collapsible": true,
+        "collapsible": false,
         "fields": [
           {
             "component": "aem-content",
