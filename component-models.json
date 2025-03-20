@@ -261,15 +261,23 @@
         }
       },
       {
-        "component": "aem-content",
-        "name": "manual-article-links",
+        "component": "container",
         "label": "Add Articles Manually",
+        "name": "manual-link-container",
         "valueType": "string",
-        "description": "Please select the page path",
-        "multi": true,
-        "validation": {
-          "rootPath": "/content/eds-helium-xwalk/index/articles"
-        },
+        "collapsible": false,
+        "fields": [
+          {
+            "component": "aem-content",
+            "name": "manual-article-links",
+            "label": "Please select the page path",
+            "valueType": "string",
+            "multi": true,
+            "validation": {
+              "rootPath": "/content/eds-helium-xwalk/index/articles"
+            }
+          }
+        ],
         "condition": {
           "===": [
             {
