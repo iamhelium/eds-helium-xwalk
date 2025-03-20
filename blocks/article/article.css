@@ -104,25 +104,29 @@
     font-size: 14px;
 }
 
-.chip-wrapper.chip-list {
+.article-wrapper .chip-wrapper {
+    margin-bottom: 24px;
+}
+
+.article-wrapper .chip-wrapper .chip-list {
     display: flex;
     flex-flow: row wrap;
     column-gap: 16px;
 }
 
-button.chip.article-tag {
+.article-wrapper button.chip.article-tag {
     background: #ffdb01;
     border-radius: 8px;
     color: #505254;
     font-weight: 600;
 }
 
-button.chip.article-tag:hover {
+.article-wrapper button.chip.article-tag:hover {
     color: #25282a;
     border: 2px solid #25282a;
 }
 
-button.chip.article-tag.selected {
+.article-wrapper button.chip.article-tag.selected {
     background: #ffdb0166;
     color: #25282a;
     border: 2px solid #25282a;
