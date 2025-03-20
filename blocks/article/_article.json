@@ -42,6 +42,7 @@
               "name": "dynamic-link",
               "label": "Please select all articles root page path",
               "valueType": "string",
+              "required": true,
               "validation": {
                 "rootPath": "/content/eds-helium-xwalk"
               }
@@ -62,6 +63,7 @@
               "label": "Please select the page path",
               "valueType": "string",
               "multi": true,
+              "required": true,
               "validation": {
                 "rootPath": "/content/eds-helium-xwalk/index/articles"
               }
