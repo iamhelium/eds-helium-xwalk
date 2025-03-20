@@ -6,7 +6,7 @@
   "apiKey": "asset_search_service",
   "repoNames": [
     "author-p51328-e442308.adobeaemcloud.com",
-    "delivery-author-p51328-e442308.adobeaemcloud.com"
+    "delivery-p51328-e442308.adobeaemcloud.com"
   ],
   "preferredDimensions":{
     "minWidth": 500,
