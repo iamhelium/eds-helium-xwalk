@@ -29,8 +29,7 @@
         },
         {
           "component": "custom-asset-namespace:custom-asset-mimetype",
-          "valueType": "string",
-          "name": "imageMimeType"
+          "valueType": "string"
         },
         {
           "component": "text",

@@ -374,8 +374,7 @@
       },
       {
         "component": "custom-asset-namespace:custom-asset-mimetype",
-        "valueType": "string",
-        "name": "imageMimeType"
+        "valueType": "string"
       },
       {
         "component": "text",
@@ -404,6 +403,10 @@
         "component": "text",
         "name": "dm_alttext",
         "label": "Alt Text",
+        "valueType": "string"
+      },
+      {
+        "component": "custom-asset-namespace:custom-asset-mimetype",
         "valueType": "string"
       },
       {
