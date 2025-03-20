@@ -56,7 +56,13 @@ function filterArticles(block, finalJson, selectedTag) {
     });
 
   // block.insertBefore(chipWrapper, block.querySelector('.article-card-wrapper'));
+
+  const articleWrapper = block.querySelector('.article-card-wrapper');
+if(articleWrapper){
+  articleWrapper.appendChild(articleCardWrapper);
+} else {
   block.appendChild(articleCardWrapper);
+}
 }
 
 function injectChips(block, finalJson) {
