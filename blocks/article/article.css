@@ -37,6 +37,7 @@
     height: 260px;
     background: #beb9b91f;
     border-radius: 8px 8px 0 0;
+    overflow: hidden;
 }
 
 .article-card-item:hover .article-card__image img {
