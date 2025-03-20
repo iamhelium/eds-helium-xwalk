@@ -219,13 +219,38 @@
     "id": "article",
     "fields": [
       {
+        "component": "select",
+        "label": "Layout Type",
+        "name": "layout-type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "All Articles",
+            "value": "dynamic"
+          },
+          {
+            "name": "Fetch Articles Manually",
+            "value": "manual"
+          }
+        ]
+      },
+      {
         "component": "aem-content",
         "name": "article-link",
-        "label": "Article Link",
+        "label": "Add Articles Manually",
         "valueType": "string",
+        "description": "Please select the page path",
         "multi": true,
         "validation": {
           "rootPath": "/content/eds-helium-xwalk/index/articles"
+        },
+        "condition": {
+          "===": [
+            {
+              "var": "layout-type"
+            },
+            "manual"
+          ]
         }
       }
     ]
