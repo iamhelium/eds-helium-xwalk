@@ -31,8 +31,27 @@
           ]
         },
         {
+          "component": "container",
+          "label": "Display Articles Dynamically",
+          "name": "dynamic-link-container",
+          "valueType": "string",
+          "collapsible": true,
+          "fields": [
+            {
+              "component": "aem-content",
+              "name": "dynamic-link",
+              "label": "Please select all articles root page path",
+              "valueType": "string",
+              "validation": {
+                "rootPath": "/content/eds-helium-xwalk"
+              }
+            }
+          ],
+          "condition": { "===": [{"var" : "layout-type"}, "dynamic"] }
+        },
+        {
           "component": "aem-content",
-          "name": "article-link",
+          "name": "manual-article-links",
           "label": "Add Articles Manually",
           "valueType": "string",
           "description":"Please select the page path",
