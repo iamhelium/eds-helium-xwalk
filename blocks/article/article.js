@@ -89,7 +89,7 @@ export default async function decorate(block) {
             
             const anchor = document.createElement('a');
             anchor.classList.add('article-card');
-            anchor.href = window.location.pathname.endsWith('.html') ? `${article.link}.html` : article.link;
+            anchor.href = new URL(article.link, window.location.origin).pathname;
 
             const imageWrapper = document.createElement('div');
             imageWrapper.classList.add('article-card__image');
