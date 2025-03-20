@@ -128,7 +128,7 @@ export default async function decorate(block) {
           articlesJson.push({
             title: content['jcr:title'] || '',
             description: content['jcr:description'] || '',
-            tags: (content['cq:tags'] || []).map((tag) => tag.split('/').pop()).join(', '),
+            tags: tags.map(tag => ({ 'tag-id': tag, tag: tag.split('/').pop() })),
             image: {
               alt: content.image?.alt || '',
               fileReference: content.image?.fileReference || ''
