@@ -103,3 +103,27 @@
     line-height: 1.5em;
     font-size: 14px;
 }
+
+.chip-wrapper.chip-list {
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 16px;
+}
+
+button.chip.article-tag {
+    background: #ffdb01;
+    border-radius: 8px;
+    color: #505254;
+    font-weight: 600;
+}
+
+button.chip.article-tag:hover {
+    color: #25282a;
+    border: 2px solid #25282a;
+}
+
+button.chip.article-tag.selected {
+    background: #ffdb0166;
+    color: #25282a;
+    border: 2px solid #25282a;
+}
