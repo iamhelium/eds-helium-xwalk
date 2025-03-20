@@ -124,6 +124,7 @@ export default async function decorate(block) {
 
           const articleData = await articleResponse.json();
           const content = articleData['jcr:content'] || {};
+          const tags = content['cq:tags'] || [];
 
           articlesJson.push({
             title: content['jcr:title'] || '',
