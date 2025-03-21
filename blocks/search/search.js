@@ -189,9 +189,8 @@ function searchBox(block, config) {
 export default async function decorate(block) {
   const placeholders = await fetchPlaceholders();
 
-  // Fetch JSON URL from Universal Editor
-  const searchLinkEl = block.querySelector('[data-search-link]');
-  const source = searchLinkEl ? searchLinkEl.textContent.trim() : '/query-index.json';
+  // Set the fixed JSON data source
+  const source = 'https://main--eds-helium-xwalk--iamhelium.aem.page/query-index.json';
 
   block.innerHTML = '';
   block.append(
@@ -207,3 +206,4 @@ export default async function decorate(block) {
 
   decorateIcons(block);
 }
+

@@ -17,18 +17,6 @@
     }
   ],
   "models": [
-    {
-      "id": "search",
-      "fields": [
-        {
-          "component": "aem-content",
-          "name": "search-link",
-          "label": "Select Query Index Link",
-          "valueType": "string",
-          "required": true
-        }
-      ]
-    }
   ],
   "filters": []
 }
