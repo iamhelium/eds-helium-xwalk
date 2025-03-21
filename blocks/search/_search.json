@@ -23,7 +23,7 @@
         {
           "component": "aem-content",
           "name": "search-link",
-          "label": "Select query index link",
+          "label": "Select Query Index Link",
           "valueType": "string",
           "required": true
         }
