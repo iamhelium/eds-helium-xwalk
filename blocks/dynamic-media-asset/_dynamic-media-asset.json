@@ -36,7 +36,7 @@
             "name": "dm-image",
             "value": "Image",
             "label": "Image",
-            "configUrl": "https://main--eds-helium-xwalk--iamhelium.aem.page/tools/assets-selector/image.config.json",
+            "configUrl": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html",
             "valueType": "string"
           }
         ]
