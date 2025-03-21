@@ -25,8 +25,7 @@
           "name": "tags",
           "value": "transactions",
           "label": "Tag",
-          "valueType": "string",
-          "rootPath": "/content/cq:tags"
+          "valueType": "string"
         }
       ]
     }
