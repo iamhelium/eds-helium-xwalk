@@ -750,11 +750,12 @@
     "id": "pagetag",
     "fields": [
       {
-        "component": "text",
+        "component": "aem-tag",
+        "name": "tags",
+        "value": "transactions",
+        "label": "Tag",
         "valueType": "string",
-        "name": "title",
-        "label": "Title",
-        "value": "Fetching page tags"
+        "rootPath": "/content/cq:tags"
       }
     ]
   },
