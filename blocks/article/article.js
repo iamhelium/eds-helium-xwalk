@@ -2,11 +2,109 @@
 /* eslint-disable no-console */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
+function createArticleCard(article) {
+  const articleCardItem = document.createElement('div');
+  articleCardItem.className = 'article-card-item';
+
+  const articleCard = document.createElement('a');
+  articleCard.className = 'article-card';
+  articleCard.href = article.link;
+
+  const imageDiv = document.createElement('div');
+  imageDiv.className = 'article-card__image';
+  if (article.image.fileReference) {
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = article.image.fileReference;
+    img.alt = article.image.alt || '';
+    imageDiv.appendChild(img);
+  }
+
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'article-card__content';
+
+  const tagsDiv = document.createElement('div');
+  tagsDiv.className = 'tags';
+  const tagsP = document.createElement('p');
+  tagsP.className = 'card-tag';
+  tagsP.textContent = article.tags.map((tag) => tag.tag).join(', ');
+  tagsDiv.appendChild(tagsP);
+
+  const title = document.createElement('h6');
+  title.className = 'title';
+  title.textContent = article.title;
+
+  const description = document.createElement('p');
+  description.className = 'description';
+  description.textContent = article.description;
+
+  contentDiv.append(tagsDiv, title, description);
+  articleCard.append(imageDiv, contentDiv);
+  articleCardItem.appendChild(articleCard);
+
+  return articleCardItem;
+}
+
+function filterArticles(block, finalJson, selectedTag) {
+  const articleCardWrapper = document.createElement('div');
+  articleCardWrapper.classList.add('article-card-wrapper');
+
+  finalJson.pages
+    .filter(
+      (article) => selectedTag === 'all'
+        || article.tags.some((tag) => tag['tag-id'] === selectedTag),
+    )
+    .forEach((article) => articleCardWrapper.appendChild(createArticleCard(article)));
+
+  const existingWrapper = block.querySelector('.article-card-wrapper');
+  if (existingWrapper) {
+    existingWrapper.replaceWith(articleCardWrapper);
+  } else {
+    block.appendChild(articleCardWrapper);
+  }
+}
+
+function injectChips(block, finalJson) {
+  if (!finalJson.tags.length) return; // Do not inject chips for manual articles
+
+  const chipWrapper = document.createElement('div');
+  chipWrapper.className = 'chip-wrapper';
+
+  const chipList = document.createElement('div');
+  chipList.className = 'chip-list';
+
+  const allTopicsButton = document.createElement('button');
+  allTopicsButton.className = 'chip article-tag selected';
+  allTopicsButton.dataset.value = 'all';
+  allTopicsButton.textContent = 'All topics';
+  chipList.appendChild(allTopicsButton);
+
+  finalJson.tags.forEach((tag) => {
+    const chipButton = document.createElement('button');
+    chipButton.className = 'chip article-tag';
+    chipButton.dataset.value = tag['tag-id'];
+    chipButton.textContent = tag.tag;
+    chipList.appendChild(chipButton);
+  });
+
+  chipWrapper.appendChild(chipList);
+  block.appendChild(chipWrapper);
+
+  chipList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('chip')) {
+      document
+        .querySelectorAll('.chip')
+        .forEach((chip) => chip.classList.remove('selected'));
+      event.target.classList.add('selected');
+      filterArticles(block, finalJson, event.target.dataset.value);
+    }
+  });
+}
+
 export default async function decorate(block) {
   const resourceElement = block.getAttribute('data-aue-resource');
   if (!resourceElement) return;
 
-  // Construct the API URL
   const domain = window.location.origin;
   const jcrPath = resourceElement.replace('urn:aemconnection:', '');
   const jsonUrl = `${domain}${jcrPath}.json`;
@@ -16,81 +114,86 @@ export default async function decorate(block) {
     if (!response.ok) throw new Error('Failed to fetch JCR data');
 
     const data = await response.json();
-    const articleLinks = data['article-link'] || [];
+    const layoutType = data['layout-type'];
 
-    // Create the article card container
-    const cardContainer = document.createElement('div');
-    cardContainer.classList.add('article-card-wrapper');
+    const articlesJson = [];
+    const tagsSet = new Set();
 
-    for (const link of articleLinks) {
-      const articleJsonUrl = `${domain}${link}/jcr:content.json`;
-      try {
-        const articleResponse = await fetch(articleJsonUrl);
-        if (!articleResponse.ok) {
-          throw new Error('Failed to fetch article data');
+    if (layoutType === 'manual-article-links') {
+      const articleLinks = data[layoutType] || [];
+      for (const link of articleLinks) {
+        const articleJsonUrl = `${domain}${link}.infinity.json`;
+        try {
+          const articleResponse = await fetch(articleJsonUrl);
+          if (!articleResponse.ok) throw new Error('Failed to fetch article data');
+
+          const articleData = await articleResponse.json();
+          const content = articleData['jcr:content'] || {};
+          const tags = content['cq:tags'] || [];
+
+          articlesJson.push({
+            title: content['jcr:title'] || '',
+            description: content['jcr:description'] || '',
+            tags: tags.map((tag) => ({
+              'tag-id': tag,
+              tag: tag.split('/').pop(),
+            })),
+            image: {
+              alt: content.image?.alt || '',
+              fileReference: content.image?.fileReference || '',
+            },
+            link: `${domain}${link}.html`,
+          });
+        } catch (error) {
+          console.error('Error loading individual article:', error);
         }
+      }
+    } else if (layoutType === 'dynamic-article-link') {
+      const dynamicLink = data[layoutType];
+      if (dynamicLink) {
+        const dynamicUrl = `${domain}${dynamicLink}.infinity.json`;
+        const dynamicResponse = await fetch(dynamicUrl);
+        const dynamicData = await dynamicResponse.json();
 
-        const articleData = await articleResponse.json();
-        const title = articleData['jcr:title'] || '';
-        const description = articleData['jcr:description'] || '';
-        const tags = (articleData['cq:tags'] || [])
-          .map((tag) => tag.split('/').pop())
-          .join(', ');
+        for (const key in dynamicData) {
+          if (dynamicData[key]['jcr:content']) {
+            const content = dynamicData[key]['jcr:content'];
+            const tags = content['cq:tags'] || [];
+            tags.forEach((tag) => tagsSet.add(tag));
 
-        // Creating the article card item
-        const cardItem = document.createElement('div');
-        cardItem.classList.add('article-card-item');
-
-        const anchor = document.createElement('a');
-        anchor.classList.add('article-card');
-
-        if (window.location.pathname.endsWith('.html')) {
-          anchor.href = `${link}.html`;
-        } else {
-          anchor.href = link;
+            articlesJson.push({
+              title: content['jcr:title'],
+              description: `${content['jcr:description']?.substring(
+                0,
+                100,
+              )}...`,
+              tags: tags.map((tag) => ({
+                'tag-id': tag,
+                tag: tag.split('/').pop(),
+              })),
+              image: {
+                alt: content.image?.alt || '',
+                fileReference: content.image?.fileReference || '',
+              },
+              link: `${domain}${dynamicLink}/${key}.html`,
+            });
+          }
         }
-
-        const imageWrapper = document.createElement('div');
-        imageWrapper.classList.add('article-card__image');
-
-        const img = document.createElement('img');
-        img.loading = 'lazy';
-        if (articleData.image) {
-          img.src = articleData.image;
-        }
-        imageWrapper.appendChild(img);
-
-        const contentWrapper = document.createElement('div');
-        contentWrapper.classList.add('article-card__content');
-
-        const tagDiv = document.createElement('div');
-        tagDiv.classList.add('tags');
-        const tagP = document.createElement('p');
-        tagP.classList.add('card-tag');
-        tagP.textContent = tags;
-        tagDiv.appendChild(tagP);
-
-        const titleElement = document.createElement('h6');
-        titleElement.classList.add('title');
-        titleElement.textContent = title;
-
-        const descriptionElement = document.createElement('p');
-        descriptionElement.classList.add('description');
-        descriptionElement.textContent = description;
-
-        contentWrapper.append(tagDiv, titleElement, descriptionElement);
-        anchor.append(imageWrapper, contentWrapper);
-        cardItem.appendChild(anchor);
-
-        cardContainer.appendChild(cardItem);
-      } catch (error) {
-        console.error('Error loading individual article:', error);
       }
     }
 
+    const tagsArray = Array.from(tagsSet).map((tag) => ({
+      'tag-id': tag,
+      tag: tag.split('/').pop(),
+    }));
+    const finalJson = { tags: tagsArray, pages: articlesJson };
+
     block.innerHTML = '';
-    block.appendChild(cardContainer);
+    if (layoutType === 'dynamic-article-link') {
+      injectChips(block, finalJson);
+    }
+    filterArticles(block, finalJson, 'all');
   } catch (error) {
-    console.error('Error loading article block:', error);
+    console.error('Error fetching block data:', error);
   }
 }

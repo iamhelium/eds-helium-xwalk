@@ -216,6 +216,18 @@
     ]
   },
   {
+    "id": "aem-tag-picker",
+    "fields": [
+      {
+        "component": "aem-tag",
+        "label": "AEM Tag Picker",
+        "name": "Tags",
+        "value": "Tags",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "article",
     "fields": [
       {
@@ -226,11 +238,11 @@
         "options": [
           {
             "name": "All Articles",
-            "value": "dynamic"
+            "value": "dynamic-article-link"
           },
           {
             "name": "Fetch Articles Manually",
-            "value": "manual"
+            "value": "manual-article-links"
           }
         ]
       },
@@ -243,9 +255,10 @@
         "fields": [
           {
             "component": "aem-content",
-            "name": "dynamic-link",
+            "name": "dynamic-article-link",
             "label": "Please select all articles root page path",
             "valueType": "string",
+            "required": true,
             "validation": {
               "rootPath": "/content/eds-helium-xwalk"
             }
@@ -256,7 +269,7 @@
             {
               "var": "layout-type"
             },
-            "dynamic"
+            "dynamic-article-link"
           ]
         }
       },
@@ -273,6 +286,7 @@
             "label": "Please select the page path",
             "valueType": "string",
             "multi": true,
+            "required": true,
             "validation": {
               "rootPath": "/content/eds-helium-xwalk/index/articles"
             }
@@ -283,7 +297,7 @@
             {
               "var": "layout-type"
             },
-            "manual"
+            "manual-article-links"
           ]
         }
       }
@@ -400,6 +414,7 @@
       {
         "component": "text",
         "name": "dm_alttext",
+        "value": "Alt text",
         "label": "Alt Text",
         "valueType": "string"
       },
@@ -410,8 +425,9 @@
       {
         "component": "custom-asset-namespace:custom-asset",
         "name": "dm-image",
+        "value": "Image",
         "label": "Image",
-        "configUrl": "https://main--eds-helium-xwalk--iamhelium.aem.page/tools/assets-selector/image.config.json",
+        "configUrl": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html",
         "valueType": "string"
       }
     ]
@@ -734,11 +750,12 @@
     "id": "pagetag",
     "fields": [
       {
-        "component": "text",
+        "component": "aem-tag",
+        "name": "tags",
+        "value": "transactions",
+        "label": "Tag",
         "valueType": "string",
-        "name": "title",
-        "label": "Title",
-        "value": "Fetching page tags"
+        "rootPath": "/content/cq:tags/eds-helium-xwalk"
       }
     ]
   },
@@ -784,6 +801,18 @@
             "value": "bg-blue"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "search",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "search-link",
+        "label": "Select query index link",
+        "valueType": "string",
+        "required": true
       }
     ]
   },

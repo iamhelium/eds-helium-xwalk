@@ -30,7 +30,9 @@
       "pagetag",
       "article",
       "custom-asset-one",
-      "dm-asset"
+      "dm-asset",
+      "search",
+      "aem-tag-picker"
     ]
   },
   {
@@ -63,9 +65,7 @@
       "text",
       "image",
       "button",
-      "title",
-      "custom-asset-one",
-      "dm-asset"
+      "title"
     ]
   },
   {
