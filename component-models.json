@@ -790,6 +790,18 @@
     ]
   },
   {
+    "id": "search",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "search-link",
+        "label": "Select query index link",
+        "valueType": "string",
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "teaser",
     "fields": [
       {
