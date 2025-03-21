@@ -49,20 +49,27 @@ function highlightTextElements(terms, elements) {
   });
 }
 
-export async function fetchData(source) {
-  const response = await fetch(source);
-  if (!response.ok) {
-    console.error('Error loading API response', response);
+export async function fetchData() {
+  const source = 'https://main--eds-helium-xwalk--iamhelium.aem.page/query-index.json';
+
+  try {
+    const response = await fetch(source);
+    if (!response.ok) {
+      console.error('Error loading API response', response);
+      return null;
+    }
+
+    const json = await response.json();
+    if (!json) {
+      console.error('Empty API response');
+      return null;
+    }
+
+    return json.data;
+  } catch (error) {
+    console.error('Fetch error:', error);
     return null;
   }
-
-  const json = await response.json();
-  if (!json) {
-    console.error('Empty API response', source);
-    return null;
-  }
-
-  return json.data;
 }
 
 function renderResult(result, searchTerms) {
@@ -102,7 +109,9 @@ function renderResult(result, searchTerms) {
 
 function clearSearchResults(block) {
   const searchResults = block.querySelector('.search-results');
-  searchResults.innerHTML = '';
+  if (searchResults) {
+    searchResults.innerHTML = '';
+  }
 }
 
 function clearSearch(block) {
@@ -115,7 +124,7 @@ function clearSearch(block) {
   }
 }
 
-async function renderResults(block, config, filteredData, searchTerms) {
+async function renderResults(block, filteredData, searchTerms) {
   clearSearchResults(block);
   const searchResults = block.querySelector('.search-results');
 
@@ -128,7 +137,7 @@ async function renderResults(block, config, filteredData, searchTerms) {
   } else {
     const noResultsMessage = document.createElement('li');
     searchResults.classList.add('no-results');
-    noResultsMessage.textContent = config.placeholders.searchNoResults || 'No results found.';
+    noResultsMessage.textContent = 'No results found.';
     searchResults.append(noResultsMessage);
   }
 }
@@ -142,9 +151,10 @@ function filterData(searchTerms, data) {
   );
 }
 
-async function handleSearch(e, block, config) {
-  const searchValue = e.target.value;
+async function handleSearch(e, block) {
+  const searchValue = e.target.value.trim();
   searchParams.set('q', searchValue);
+  
   if (window.history.replaceState) {
     const url = new URL(window.location.href);
     url.search = searchParams.toString();
@@ -157,20 +167,25 @@ async function handleSearch(e, block, config) {
   }
 
   const searchTerms = searchValue.toLowerCase().split(/\s+/).filter(Boolean);
-  const data = await fetchData(config.source);
+  const data = await fetchData();
+  if (!data) {
+    console.error('No data fetched');
+    return;
+  }
+
   const filteredData = filterData(searchTerms, data);
-  await renderResults(block, config, filteredData, searchTerms);
+  await renderResults(block, filteredData, searchTerms);
 }
 
-function searchBox(block, config) {
+function searchBox(block) {
   const input = document.createElement('input');
   input.setAttribute('type', 'search');
   input.className = 'search-input';
-  input.placeholder = config.placeholders.searchPlaceholder || 'Search...';
+  input.placeholder = 'Search...';
   input.setAttribute('aria-label', 'Search');
 
   input.addEventListener('input', (e) => {
-    handleSearch(e, block, config);
+    handleSearch(e, block);
   });
 
   input.addEventListener('keyup', (e) => {
@@ -187,16 +202,12 @@ function searchBox(block, config) {
 }
 
 export default async function decorate(block) {
-  const placeholders = await fetchPlaceholders();
-
-  // Set the fixed JSON data source
-  const source = 'https://main--eds-helium-xwalk--iamhelium.aem.page/query-index.json';
-
   block.innerHTML = '';
-  block.append(
-    searchBox(block, { source, placeholders }),
-    document.createElement('ul')
-  );
+
+  const searchResults = document.createElement('ul');
+  searchResults.classList.add('search-results');
+
+  block.append(searchBox(block), searchResults);
 
   if (searchParams.get('q')) {
     const input = block.querySelector('input');
@@ -206,4 +217,3 @@ export default async function decorate(block) {
 
   decorateIcons(block);
 }
-
