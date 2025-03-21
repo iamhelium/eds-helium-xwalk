@@ -24,6 +24,7 @@
           "component": "aem-tag",
           "label": "AEM Tag Picker",
           "name": "Tags",
+          "value": "Tags",
           "valueType": "string"
         }
       ]

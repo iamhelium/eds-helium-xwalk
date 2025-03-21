@@ -222,6 +222,7 @@
         "component": "aem-tag",
         "label": "AEM Tag Picker",
         "name": "Tags",
+        "value": "Tags",
         "valueType": "string"
       }
     ]
@@ -413,6 +414,7 @@
       {
         "component": "text",
         "name": "dm_alttext",
+        "value": "Alt text",
         "label": "Alt Text",
         "valueType": "string"
       },
@@ -423,6 +425,7 @@
       {
         "component": "custom-asset-namespace:custom-asset",
         "name": "dm-image",
+        "value": "Image",
         "label": "Image",
         "configUrl": "https://main--eds-helium-xwalk--iamhelium.aem.page/tools/assets-selector/image.config.json",
         "valueType": "string"
