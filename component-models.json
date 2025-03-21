@@ -754,7 +754,8 @@
         "name": "tags",
         "value": "transactions",
         "label": "Tag",
-        "valueType": "string"
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/eds-helium-xwalk"
       }
     ]
   },
