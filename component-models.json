@@ -237,11 +237,11 @@
         "options": [
           {
             "name": "All Articles",
-            "value": "dynamic"
+            "value": "dynamic-article-link"
           },
           {
             "name": "Fetch Articles Manually",
-            "value": "manual"
+            "value": "manual-article-links"
           }
         ]
       },
@@ -254,9 +254,10 @@
         "fields": [
           {
             "component": "aem-content",
-            "name": "dynamic-link",
+            "name": "dynamic-article-link",
             "label": "Please select all articles root page path",
             "valueType": "string",
+            "required": true,
             "validation": {
               "rootPath": "/content/eds-helium-xwalk"
             }
@@ -267,7 +268,7 @@
             {
               "var": "layout-type"
             },
-            "dynamic"
+            "dynamic-article-link"
           ]
         }
       },
@@ -284,6 +285,7 @@
             "label": "Please select the page path",
             "valueType": "string",
             "multi": true,
+            "required": true,
             "validation": {
               "rootPath": "/content/eds-helium-xwalk/index/articles"
             }
@@ -294,7 +296,7 @@
             {
               "var": "layout-type"
             },
-            "manual"
+            "manual-article-links"
           ]
         }
       }
