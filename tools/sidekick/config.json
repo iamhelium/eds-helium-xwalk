@@ -4,26 +4,6 @@
   "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open",
   "plugins": [
     {
-      "id": "aemedit",
-      "title": "Edit",
-      "environments": [
-        "dev",
-        "preview",
-        "live"
-      ],
-      "event": "aemedit"
-    },
-    {
-      "id": "library",
-      "title": "Assets Library",
-      "environments": [
-        "dev",
-        "preview",
-        "live"
-      ],
-      "url": "/tools/sidekick/library.html"
-    },
-    {
       "id": "asset-library",
       "title": "AEM Assets Selector",
       "environments": [
