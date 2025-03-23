@@ -221,9 +221,10 @@
       {
         "component": "aem-tag",
         "label": "AEM Tag Picker",
-        "name": "Tags",
+        "name": "tags",
         "value": "Tags",
-        "valueType": "string"
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/eds-helium-xwalk"
       }
     ]
   },
@@ -743,19 +744,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "pagetag",
-    "fields": [
-      {
-        "component": "aem-tag",
-        "name": "tags",
-        "value": "transactions",
-        "label": "Tag",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/eds-helium-xwalk"
       }
     ]
   },
