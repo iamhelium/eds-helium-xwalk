@@ -1,4 +1,3 @@
-/* eslint-disable quote-props */
 import {
   createOptimizedPicture,
   decorateIcons,
@@ -54,15 +53,7 @@ export async function fetchData() {
   const source = 'https://main--eds-helium-xwalk--iamhelium.aem.page/query-index.json';
 
   try {
-    const response = await fetch(source, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
-
+    const response = await fetch(source);
     if (!response.ok) {
       console.error('Error loading API response', response);
       return null;
