@@ -22,32 +22,32 @@ export default function decorate(block) {
   const textElement = block.querySelector('[data-aue-prop="text"]');
   const linkElement = block.querySelector('a.button');
 
-  if (textElement && linkElement) {
-    const buttonText = textElement.textContent.trim();
-    const linkHref = linkElement.getAttribute('href');
+  // if (textElement && linkElement) {
+  //   const buttonText = textElement.textContent.trim();
+  //   const linkHref = linkElement.getAttribute('href');
 
-    const button = document.createElement('button');
-    button.textContent = buttonText;
-    button.className = '';
+  //   const button = document.createElement('button');
+  //   button.textContent = buttonText;
+  //   button.className = '';
 
-    button.addEventListener('click', async () => {
-      if (block.classList.contains('btn-tertiary')) {
-        try {
-          const data = await graphqlDemoGet();
-          renderData(data, block);
-        } catch (error) {
-          console.error('Error fetching GraphQL data:', error);
-        }
-      } else if (linkHref && block.classList.contains('btn-modal')) {
-        await openModal(linkHref);
-      } else if (linkHref && block.classList.contains('btn-link')) {
-        window.location.href = linkHref;
-      }
-    });
+  //   button.addEventListener('click', async () => {
+  //     if (block.classList.contains('btn-tertiary')) {
+  //       try {
+  //         const data = await graphqlDemoGet();
+  //         renderData(data, block);
+  //       } catch (error) {
+  //         console.error('Error fetching GraphQL data:', error);
+  //       }
+  //     } else if (linkHref && block.classList.contains('btn-modal')) {
+  //       await openModal(linkHref);
+  //     } else if (linkHref && block.classList.contains('btn-link')) {
+  //       window.location.href = linkHref;
+  //     }
+  //   });
 
-    block.innerHTML = '';
-    block.appendChild(button);
-  }
+  //   block.innerHTML = '';
+  //   block.appendChild(button);
+  // }
   console.log('Helium Button JS loaded');
 }
 
