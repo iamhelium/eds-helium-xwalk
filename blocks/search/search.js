@@ -50,7 +50,7 @@ function highlightTextElements(terms, elements) {
 }
 
 export async function fetchData() {
-  const source = 'https://main--eds-helium-xwalk--iamhelium.aem.page/query-index.json';
+  const source = 'https://author-p51328-e442308.adobeaemcloud.com/content/eds-helium-xwalk.resource/query-index.json';
 
   try {
     const response = await fetch(source);
