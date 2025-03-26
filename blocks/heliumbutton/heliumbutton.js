@@ -48,6 +48,7 @@ export default function decorate(block) {
     block.innerHTML = '';
     block.appendChild(button);
   }
+  console.log('Helium Button JS loaded');
 }
 
 // export default function decorate(block) {
