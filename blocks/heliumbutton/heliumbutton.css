@@ -1,12 +1,8 @@
-.btn-primary {
-
-}
-
-.btn-secondary button {
+.btn-secondary .button-container {
     background-color: var(--dark-color);
 }
 
-.btn-tertiary button {
+.btn-tertiary .button-container {
     background-color: transparent;
     border: 0;
     border-radius: 0;
@@ -26,11 +22,11 @@
     text-align: center;
 }
 
-.btn-red button {
+.btn-red .button-container {
     background-color: red;
 }
 
-.btn-green button {
+.btn-green .button-container {
     background-color: green;
 }
 
