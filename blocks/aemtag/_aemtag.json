@@ -22,8 +22,8 @@
       "fields": [
         {
           "component": "aem-tag",
-          "label": "AEM Tag Picker",
           "name": "tags",
+          "label": "AEM Tag Picker",
           "value": "",
           "valueType": "string",
           "rootPath": "/content/cq:tags/eds-helium-xwalk"
