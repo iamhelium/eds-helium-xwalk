@@ -407,7 +407,7 @@
         "label": "Title",
         "value": "Content fragment With GraphQL",
         "validation": {
-          "rootPath": "/content/dam/eds-helium-xwalk/content-fragment"
+          "rootPath": "/content/eds-helium-xwalk"
         }
       }
     ]
