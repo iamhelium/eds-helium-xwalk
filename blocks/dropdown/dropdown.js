@@ -11,6 +11,15 @@ export default async function decorate(block) {
     const dropdown = document.createElement('select');
     dropdown.classList.add('custom-dropdown');
 
+    // Add placeholder option
+    const placeholderOption = document.createElement('option');
+    placeholderOption.textContent = 'Select a name';
+    placeholderOption.value = '';
+    placeholderOption.disabled = true;
+    placeholderOption.hidden = true;
+    placeholderOption.selected = true;
+    dropdown.appendChild(placeholderOption);
+
     items.forEach((item) => {
       const option = document.createElement('option');
       option.textContent = item.name ?? '';
