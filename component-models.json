@@ -405,7 +405,10 @@
         "valueType": "string",
         "name": "title",
         "label": "Title",
-        "value": "Content fragment With GraphQL"
+        "value": "Content fragment With GraphQL",
+        "validation": {
+          "rootPath": "/content/dam/eds-helium-xwalk/content-fragment"
+        }
       }
     ]
   },
@@ -632,7 +635,10 @@
       {
         "component": "aem-content",
         "name": "reference",
-        "label": "Reference"
+        "label": "Reference",
+        "validation": {
+          "rootPath": "/content/experience-fragments/eds_helium_xwalk"
+        }
       }
     ]
   },
