@@ -25,7 +25,7 @@
           "name": "reference",
           "label": "Reference",
           "validation": {
-            "rootPath": "/content/experience-fragments/eds_helium_xwalk"
+            "rootPath": "/content/eds-helium-xwalk"
           }
         }
       ]
