@@ -452,7 +452,7 @@
           "plugins": {
             "aem": {
               "page": {
-                "resourceType": "wknd/components/text",
+                "resourceType": "helium-aem/components/xfpage",
                 "template": {
                   "text": "Default Text",
                   "name": "Text"
@@ -461,7 +461,7 @@
             },
             "aem65": {
               "page": {
-                "resourceType": "wknd/components/text",
+                "resourceType": "helium-aem/components/xfpage",
                 "template": {
                   "text": "Default Text",
                   "name": "Text"
