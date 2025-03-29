@@ -35,6 +35,38 @@
           "...": "../blocks/*/_*.json#/definitions"
         }
       ]
+    },
+    {
+      "title":"General Components",
+      "id":"general",
+      "components":[
+        {
+          "title":"Text",
+          "id":"text",
+          "model": "text",
+          "filter": "texts",
+          "plugins":{
+            "aem":{
+              "page":{
+                "resourceType":"helium-aem/components/xfpage",
+                "template":{
+                  "text":"Default Text",
+                  "name":"Text"
+                }
+              }
+            },
+            "aem65":{
+              "page":{
+                "resourceType":"helium-aem/components/xfpage",
+                "template":{
+                  "text":"Default Text",
+                  "name":"Text"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }
