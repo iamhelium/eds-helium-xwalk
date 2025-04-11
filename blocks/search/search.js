@@ -1,3 +1,5 @@
+import ffetch from '../../scripts/ffetch.js';
+
 import {
   createOptimizedPicture,
   decorateIcons,
@@ -202,6 +204,8 @@ function searchBox(block) {
 }
 
 export default async function decorate(block) {
+  console.log('FETCH: ', await ffetch('/query-index.json').first());
+
   block.innerHTML = '';
 
   const searchResults = document.createElement('ul');
