@@ -1,281 +1,470 @@
 /*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *  Copyright 2018 Adobe Systems Incorporated
  *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
-
-:root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
-
-  /* fonts */
-  --body-font-family: poppins, roboto, roboto-fallback, sans-serif;
-  --heading-font-family: poppins, roboto-condensed, roboto-condensed-fallback, sans-serif;
-
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
-
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
-
-  /* nav height */
-  --nav-height: 64px;
-}
-
-/* fallback fonts */
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
-@media (width >= 900px) {
-  :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+/* From animated.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
-
-body {
-  display: none;
-  margin: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
+/*
+ *  Copyright 2018 Adobe Systems Incorporated
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+/*
+ *  Copyright 2018 Adobe Systems Incorporated
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+/*
+ *  Copyright 2018 Adobe Systems Incorporated
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+/* From animated.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-body.appear {
-  display: block;
-}
-
-header {
-  height: var(--nav-height);
-}
-
-header .header,
-footer .footer {
-  visibility: hidden;
-}
-
-header .header[data-block-status="loaded"],
-footer .footer[data-block-status="loaded"] {
-  visibility: visible;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
-  font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
-  scroll-margin: 40px;
-}
-
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
-
-p,
-dl,
-ol,
-ul,
-pre,
-blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
-}
-
-code,
-pre {
-  font-size: var(--body-font-size-s);
-}
-
-pre {
-  padding: 16px;
-  border-radius: 8px;
-  background-color: var(--light-color);
-  overflow-x: auto;
-  white-space: pre;
-}
-
-main > div {
-  margin: 40px 16px;
-}
-
-input,
-textarea,
-select,
-button {
-  font: inherit;
-}
-
-/* links */
-a:any-link {
-  color: var(--link-color);
-  text-decoration: none;
-  word-break: break-word;
-}
-
-a:hover {
-  color: var(--link-hover-color);
-  text-decoration: underline;
-}
-
-/* buttons */
-a.button:any-link,
-button {
-  box-sizing: border-box;
-  display: inline-block;
-  max-width: 100%;
-  margin: 12px 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font-family: var(--body-font-family);
+/*
+ *  Copyright 2018 Adobe Systems Incorporated
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+@font-face {
+  font-family: "wknd-icon-font";
+  src: url("../resources/fonts/wknd-icon-font.ttf") format("truetype"), url("../resources/fonts/wknd-icon-font.woff") format("woff"), url("../resources/fonts/wknd-icon-font.svg#wknd-icon-font") format("svg");
+  font-weight: normal;
   font-style: normal;
-  font-weight: 500;
-  line-height: 1.25;
-  text-align: center;
-  text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
-  cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-display: block;
+}
+[class$=__icon], [class*=__icon], [class$=-icon], [class*=-icon] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "wknd-icon-font" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 1.25rem;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
-  background-color: var(--link-hover-color);
-  cursor: pointer;
+.wkndicon-menu:before {
+  content: "\e916";
 }
 
-button:disabled,
-button:disabled:hover {
-  background-color: var(--light-color);
-  cursor: unset;
+.wkndicon-google:before {
+  content: "\e900";
 }
 
-a.button.secondary,
-button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color);
+.wkndicon-twitter:before {
+  content: "\e901";
 }
 
-a.button.new,
-button.new {
-  background-color: green;
-  border: 2px solid currentcolor;
-  color: red;
+.wkndicon-facebook:before {
+  content: "\e902";
 }
 
-.left-align {
-  text-align: left;
+.wkndicon-instagram:before {
+  content: "\e903";
 }
 
-.right-align {
-  text-align: right;
+.wkndicon-social-share:before {
+  content: "\e904";
 }
 
-.center-align {
-  text-align: center;
-}  
-
-main img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
+.wkndicon-map:before {
+  content: "\e905";
 }
 
-.icon {
-  display: inline-block;
-  height: 24px;
-  width: 24px;
+.wkndicon-alert:before {
+  content: "\e906";
 }
 
-.icon img {
-  height: 100%;
+.wkndicon-download:before {
+  content: "\e907";
+}
+
+.wkndicon-info:before {
+  content: "\e908";
+}
+
+.wkndicon-email:before {
+  content: "\e909";
+}
+
+.wkndicon-comment:before {
+  content: "\e90a";
+}
+
+.wkndicon-share:before {
+  content: "\e90b";
+}
+
+.wkndicon-user:before {
+  content: "\e90c";
+}
+
+.wkndicon-home:before {
+  content: "\e90d";
+}
+
+.wkndicon-right-arrow:before {
+  content: "\e90e";
+}
+
+.wkndicon-left-arrow:before {
+  content: "\e90f";
+}
+
+.wkndicon-minus:before {
+  content: "\e910";
+}
+
+.wkndicon-plus:before {
+  content: "\e911";
+}
+
+.wkndicon-location:before {
+  content: "\e912";
+}
+
+.wkndicon-search:before {
+  content: "\e913";
+}
+
+.wkndicon-delete:before {
+  content: "\e914";
+}
+
+.wkndicon-cart:before {
+  content: "\e915";
+}
+
+.wkndicon-menu:before {
+  content: "\e916";
+}
+
+.wkndicon-lock:before {
+  content: "\e98f";
+}
+
+.wkndicon-unlocked:before {
+  content: "\e990";
+}
+
+.wkndicon-play3:before {
+  content: "\ea1c";
+}
+
+/*
+* ADOBE CONFIDENTIAL
+*
+* Copyright 2020 Adobe Systems Incorporated
+* All Rights Reserved.
+*
+* NOTICE:  All information contained herein is, and remains
+* the property of Adobe Systems Incorporated and its suppliers,
+* if any.  The intellectual and technical concepts contained
+* herein are proprietary to Adobe Systems Incorporated and its
+* suppliers and may be covered by U.S. and Foreign Patents,
+* patents in process, and are protected by trade secret or copyright law.
+* Dissemination of this information or reproduction of this material
+* is strictly forbidden unless prior written permission is obtained
+* from Adobe Systems Incorporated.
+*/
+/* grid component */
+.aem-Grid {
+  display: block;
   width: 100%;
 }
 
-/* sections */
-main > .section {
-  margin: 40px 0;
+.aem-Grid::before,
+.aem-Grid::after {
+  display: table;
+  content: " ";
 }
 
-main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
+.aem-Grid::after {
+  clear: both;
 }
 
-main > .section:first-of-type {
-  margin-top: 0;
-}
-
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
-}
-
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--text-color);
-  color: var(--light-color);
+/* placeholder for new components */
+.aem-Grid-newComponent {
+  clear: both;
   margin: 0;
-  padding: 40px 0;
 }
 
-main .section.margin-top {
-  margin-top: 40px;
+/* column of a grid */
+.aem-GridColumn {
+  clear: both;
+  box-sizing: border-box;
+}
+
+/* force showing hidden */
+.aem-GridShowHidden > .aem-Grid > .aem-GridColumn {
+  display: block !important;
+}
+
+/* force showing hidden components in unhide mode */
+.aem-GridShowHidden > .cmp-container > .aem-Grid > .aem-GridColumn {
+  display: block !important;
+}
+
+/* Generates all the rules for the grid columns up to the given amount of column */
+/* Generates all the rules for the grid column offset up to the given amount of column */
+/* Generates all the rules for the grid and columns for the given break point and total of columns */
+/* Generates all the rules for the grids and columns */
+/* API function to be called to generate a grid config */
+.chevron::before {
+  border-style: solid;
+  border-width: 0.15em 0.15em 0 0;
+  content: "";
+  display: inline-block;
+  height: 0.45em;
+  left: 0.15em;
+  position: relative;
+  top: 0.15em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.45em;
+}
+
+.chevron.right:before {
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.chevron.left:before {
+  left: 0.25em;
+  transform: rotate(-135deg);
+}
+
+/*
+ *  Copyright 2018 Adobe Systems Incorporated
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+/*
+ *  Copyright 2018 Adobe Systems Incorporated
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+@font-face {
+  font-family: "wknd-icon-font";
+  src: url("../resources/fonts/wknd-icon-font.ttf") format("truetype"), url("../resources/fonts/wknd-icon-font.woff") format("woff"), url("../resources/fonts/wknd-icon-font.svg#wknd-icon-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class$=__icon], [class*=__icon], [class$=-icon], [class*=-icon] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "wknd-icon-font" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 1.25rem;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wkndicon-menu:before {
+  content: "\e916";
+}
+
+.wkndicon-google:before {
+  content: "\e900";
+}
+
+.wkndicon-twitter:before {
+  content: "\e901";
+}
+
+.wkndicon-facebook:before {
+  content: "\e902";
+}
+
+.wkndicon-instagram:before {
+  content: "\e903";
+}
+
+.wkndicon-social-share:before {
+  content: "\e904";
+}
+
+.wkndicon-map:before {
+  content: "\e905";
+}
+
+.wkndicon-alert:before {
+  content: "\e906";
+}
+
+.wkndicon-download:before {
+  content: "\e907";
+}
+
+.wkndicon-info:before {
+  content: "\e908";
+}
+
+.wkndicon-email:before {
+  content: "\e909";
+}
+
+.wkndicon-comment:before {
+  content: "\e90a";
+}
+
+.wkndicon-share:before {
+  content: "\e90b";
+}
+
+.wkndicon-user:before {
+  content: "\e90c";
+}
+
+.wkndicon-home:before {
+  content: "\e90d";
+}
+
+.wkndicon-right-arrow:before {
+  content: "\e90e";
+}
+
+.wkndicon-left-arrow:before {
+  content: "\e90f";
+}
+
+.wkndicon-minus:before {
+  content: "\e910";
+}
+
+.wkndicon-plus:before {
+  content: "\e911";
+}
+
+.wkndicon-location:before {
+  content: "\e912";
+}
+
+.wkndicon-search:before {
+  content: "\e913";
+}
+
+.wkndicon-delete:before {
+  content: "\e914";
+}
+
+.wkndicon-cart:before {
+  content: "\e915";
+}
+
+.wkndicon-menu:before {
+  content: "\e916";
+}
+
+.wkndicon-lock:before {
+  content: "\e98f";
+}
+
+.wkndicon-unlocked:before {
+  content: "\e990";
+}
+
+.wkndicon-play3:before {
+  content: "\ea1c";
 }
