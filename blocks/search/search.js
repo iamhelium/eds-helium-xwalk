@@ -1,7 +1,10 @@
+/* eslint-disable no-console */
+import ffetch from '../../scripts/ffetch.js';
+
 import {
   createOptimizedPicture,
   decorateIcons,
-  fetchPlaceholders,
+  // fetchPlaceholders,
 } from '../../scripts/aem.js';
 
 const searchParams = new URLSearchParams(window.location.search);
@@ -143,18 +146,15 @@ async function renderResults(block, filteredData, searchTerms) {
 }
 
 function filterData(searchTerms, data) {
-  return data.filter((result) => 
-    searchTerms.some(term => 
-      (result.title && result.title.toLowerCase().includes(term)) || 
-      (result.description && result.description.toLowerCase().includes(term))
-    )
-  );
+  return data.filter((result) => searchTerms.some((term) => (result.title
+    && result.title.toLowerCase().includes(term))
+    || (result.description && result.description.toLowerCase().includes(term))));
 }
 
 async function handleSearch(e, block) {
   const searchValue = e.target.value.trim();
   searchParams.set('q', searchValue);
-  
+
   if (window.history.replaceState) {
     const url = new URL(window.location.href);
     url.search = searchParams.toString();
@@ -202,6 +202,16 @@ function searchBox(block) {
 }
 
 export default async function decorate(block) {
+  console.log('FETCH DEFAULT: ', await ffetch('/query-index.json').all());
+  console.log('FETCH TEASER: ', await ffetch('/teaser-index.json').all());
+
+// const filteredEntries = await ffetch('/teaser-link.json').all()
+//   .filter(({ path }) => path.includes('/index/about-us'));
+
+// for await (const entry of filteredEntries) {
+//   console.log("ENTRY: ", entry);
+// }
+
   block.innerHTML = '';
 
   const searchResults = document.createElement('ul');
