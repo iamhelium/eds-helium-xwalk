@@ -31,12 +31,12 @@ indices:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
 
-  teaser:
+  teaserJson:
     include:
       - /**
     exclude:
       - '/**.json'
-    target: /teaser-index.json
+    target: /teaser.json
     properties:
       title:
         select: head > meta[property="og:title"]
