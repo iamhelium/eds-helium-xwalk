@@ -203,7 +203,7 @@ function searchBox(block) {
 
 export default async function decorate(block) {
   console.log('FETCH DEFAULT: ', await ffetch('/query-index.json').all());
-  console.log('FETCH TEASER: ', await ffetch('/teaser-index.json').all());
+  // console.log('FETCH TEASER: ', await ffetch('/teaser-index.json').all());
 
 // const filteredEntries = await ffetch('/teaser-link.json').all()
 //   .filter(({ path }) => path.includes('/index/about-us'));
