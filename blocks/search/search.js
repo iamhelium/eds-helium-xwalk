@@ -225,13 +225,13 @@ export function cleanUrl(url) {
 
 export default async function decorate(block) {
   console.log('Query Index: ', await ffetch('/query-index.json').all());
-  console.log('Teaser Index: ', await ffetch('/teaser.json').all());
+  console.log('Teaser Index: ', await ffetch('/teaser-index.json').all());
   console.log('Taxonomy: ', await ffetch('/taxonomy.json').all());
 
   const currentUrl = '/content/eds-helium-xwalk/component/teaser-block.html';
   const currentPath = cleanUrl(currentUrl);
 
-  const matchedEntries = await ffetch('/teaser.json').filter(({ path }) => path === currentPath).first();
+  const matchedEntries = await ffetch('/teaser-index.json').filter(({ path }) => path === currentPath).first();
 
   console.log('Matched Entry:', matchedEntries);
 
