@@ -36,7 +36,7 @@ indices:
       - /**
     exclude:
       - '/**.json'
-    target: /teaser.json
+    target: /teaser-index.json
     properties:
       title:
         select: head > meta[property="og:title"]

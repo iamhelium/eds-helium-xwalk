@@ -5,7 +5,7 @@
     "/content/eds-helium-xwalk/metadata:/metadata.json",
     "/content/eds-helium-xwalk/taxonomy:/taxonomy.json",
     "/content/eds-helium-xwalk.resource/query-index.json:/query-index.json",
-    "/content/eds-helium-xwalk.resource/teaser.json:/teaser.json"
+    "/content/eds-helium-xwalk.resource/teaser-index.json:/teaser.json"
   ],
   "includes": [
     "/content/eds-helium-xwalk/"
