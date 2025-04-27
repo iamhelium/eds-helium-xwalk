@@ -17,6 +17,18 @@
     }
   ],
   "models": [
+    {
+      "id": "search-input",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "search-placeholder",
+          "label": "Search Input Placeholder",
+          "value": "Search"
+        }
+      ]
+    }
   ],
   "filters": []
 }
