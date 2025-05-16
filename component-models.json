@@ -456,8 +456,10 @@
             {
               "var": "layout-type"
             },
-            "child-articles",
-            "recent-articles"
+            [
+              "child-articles",
+              "recent-articles"
+            ]
           ]
         }
       },
