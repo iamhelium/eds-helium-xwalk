@@ -452,23 +452,14 @@
           }
         ],
         "condition": {
-          "or": [
+          "in": [
             {
-              "===": [
-                {
-                  "var": "layout-type"
-                },
-                "child-articles"
-              ]
+              "var": "layout-type"
             },
-            {
-              "===": [
-                {
-                  "var": "layout-type"
-                },
-                "recent-articles"
-              ]
-            }
+            [
+              "child-articles",
+              "recent-articles"
+            ]
           ]
         }
       },
