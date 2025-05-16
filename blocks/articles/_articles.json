@@ -70,7 +70,7 @@
               "valueType": "string",
               "required": true,
               "validation": {
-                "rootPath": "/content/eds-wknd"
+                "rootPath": "/content/eds-helium-xwalk"
               }
             },
             {
@@ -129,7 +129,7 @@
               "valueType": "string",
               "required": true,
               "validation": {
-                "rootPath": "/content/eds-wknd"
+                "rootPath": "/content/eds-helium-xwalk"
               }
             },
             {
@@ -167,7 +167,7 @@
               "valueType": "string[]",
               "required": true,
               "validation": {
-                "rootPath": "/content/eds-wknd"
+                "rootPath": "/content/eds-helium-xwalk"
               }
             },
             {
@@ -290,7 +290,7 @@
           "name": "article-link",
           "valueType": "string",
           "validation": {
-            "rootPath": "/content/eds-wknd"
+            "rootPath": "/content/eds-helium-xwalk"
           }
         }
       ]
