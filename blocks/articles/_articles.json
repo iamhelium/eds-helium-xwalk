@@ -1,0 +1,307 @@
+{
+  "definitions": [
+    {
+      "title": "Articles",
+      "id": "articles",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Articles",
+              "model": "articles",
+              "filter": "articles"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Article",
+      "id": "article2",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Article",
+              "model": "article2"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "articles",
+      "fields": [
+        {
+          "component": "select",
+          "label": "Layout Type",
+          "name": "layout-type",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "All Articles",
+              "value": "child-articles"
+            },
+            {
+              "name": "Recent Articles",
+              "value": "recent-articles"
+            },
+            {
+              "name": "Create Articles Manually",
+              "value": "manual-articles"
+            }
+          ]
+        },
+        {
+          "component": "container",
+          "label": "List all Articles as card under the Selected Parent Page",
+          "name": "child-article-container",
+          "valueType": "string",
+          "collapsible": false,
+          "fields": [
+            {
+              "component": "aem-content",
+              "name": "child-article-parent",
+              "label": "Parent Page",
+              "valueType": "string",
+              "required": true,
+              "validation": {
+                "rootPath": "/content/eds-wknd"
+              }
+            },
+            {
+              "component": "number",
+              "name": "child-article-depth",
+              "label": "Child Depth",
+              "valueType": "number",
+              "value": 1,
+              "validation": {
+                "numberMin": 1,
+                "customErrorMsg": "Value cannot be less than 1."
+              }
+            },
+            {
+              "component": "boolean",
+              "label": "List all Articles with Tags filter",
+              "name": "tag-filter",
+              "valueType": "boolean"
+            },
+            {
+              "component": "aem-tag",
+              "label": "Choose Tags for filter",
+              "name": "tags",
+              "valueType": "string",
+              "rootPath": "/content/cq:tags/eds-wknd",
+              "condition": {
+                "===": [
+                  {
+                    "var": "tag-filter"
+                  },
+                  true
+                ]
+              }
+            }
+          ],
+          "condition": {
+            "===": [
+              {
+                "var": "layout-type"
+              },
+              "child-articles"
+            ]
+          }
+        },
+        {
+          "component": "container",
+          "label": "List all Articles as card with Tag filter under Selected Parent Page",
+          "name": "child-article-tag-container",
+          "valueType": "string",
+          "collapsible": false,
+          "fields": [
+            {
+              "component": "aem-content",
+              "name": "child-article-tag-parent",
+              "label": "Parent Page",
+              "valueType": "string",
+              "required": true,
+              "validation": {
+                "rootPath": "/content/eds-wknd"
+              }
+            },
+            {
+              "component": "number",
+              "name": "child-article-tag-depth",
+              "label": "Child Depth",
+              "valueType": "number",
+              "value": 1,
+              "validation": {
+                "numberMin": 1,
+                "customErrorMsg": "Value cannot be less than 1."
+              }
+            }
+          ],
+          "condition": {
+            "===": [
+              {
+                "var": "layout-type"
+              },
+              "child-article-tag"
+            ]
+          }
+        },
+        {
+          "component": "container",
+          "label": "List recent Article Cards from Selected Parent Page",
+          "name": "recent-article-container",
+          "valueType": "string",
+          "collapsible": false,
+          "fields": [
+            {
+              "component": "aem-content",
+              "name": "recent-article-parent",
+              "label": "Parent Page",
+              "valueType": "string[]",
+              "required": true,
+              "validation": {
+                "rootPath": "/content/eds-wknd"
+              }
+            },
+            {
+              "component": "number",
+              "name": "recent-article-parent-depth",
+              "label": "Child Depth",
+              "valueType": "number",
+              "value": 1,
+              "validation": {
+                "numberMin": 1,
+                "customErrorMsg": "Value cannot be less than 1."
+              }
+            },
+            {
+              "component": "number",
+              "name": "recent-article-parent-count",
+              "label": "Article Count",
+              "valueType": "number",
+              "value": 4,
+              "validation": {
+                "numberMin": 1,
+                "customErrorMsg": "Value cannot be less than 1."
+              }
+            }
+          ],
+          "condition": {
+            "===": [
+              {
+                "var": "layout-type"
+              },
+              "recent-article"
+            ]
+          }
+        },
+        {
+          "component": "select",
+          "label": "Order By",
+          "name": "order",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Title",
+              "value": "title"
+            },
+            {
+              "name": "Last modified date",
+              "value": "last-modified-date"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "label": "Sort Order",
+          "name": "sort",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Ascending",
+              "value": "ascending"
+            },
+            {
+              "name": "Descending",
+              "value": "descending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "article2",
+      "fields": [
+        {
+          "component": "select",
+          "label": "Article Type",
+          "name": "article-type",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default Article",
+              "value": "article"
+            },
+            {
+              "name": "Locked Article",
+              "value": "locked-article"
+            }
+          ]
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Article Image"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Alternative text for accessibility",
+          "required": true
+        },
+        {
+          "component": "text",
+          "label": "Title",
+          "name": "article-title",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "label": "Description",
+          "name": "article-description",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "label": "Article Link",
+          "name": "article-link",
+          "valueType": "string",
+          "validation": {
+            "rootPath": "/content/eds-wknd"
+          }
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "articles",
+      "components": [
+        "article2"
+      ]
+    }
+  ]
+}
