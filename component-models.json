@@ -349,7 +349,6 @@
             "name": "child-article-depth",
             "label": "Child Depth",
             "valueType": "number",
-            "value": 1,
             "validation": {
               "numberMin": 1,
               "customErrorMsg": "Value cannot be less than 1."
