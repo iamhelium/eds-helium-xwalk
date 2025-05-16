@@ -181,11 +181,12 @@
             }
           ],
           "condition": {
-            "!==": [
+            "===": [
               {
                 "var": "layout-type"
               },
-              "manual-articles"
+              "child-articles",
+              "recent-articles"
             ]
           }
         },
