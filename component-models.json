@@ -452,14 +452,23 @@
           }
         ],
         "condition": {
-          "===": [
+          "or": [
             {
-              "var": "layout-type"
+              "===": [
+                {
+                  "var": "layout-type"
+                },
+                "child-articles"
+              ]
             },
-            [
-              "child-articles",
-              "recent-articles"
-            ]
+            {
+              "===": [
+                {
+                  "var": "layout-type"
+                },
+                "recent-articles"
+              ]
+            }
           ]
         }
       },
@@ -479,11 +488,23 @@
           }
         ],
         "condition": {
-          "!==": [
+          "or": [
             {
-              "var": "layout-type"
+              "===": [
+                {
+                  "var": "layout-type"
+                },
+                "child-articles"
+              ]
             },
-            "manual-articles"
+            {
+              "===": [
+                {
+                  "var": "layout-type"
+                },
+                "recent-articles"
+              ]
+            }
           ]
         }
       }
