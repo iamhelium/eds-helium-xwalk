@@ -337,7 +337,7 @@
           {
             "component": "aem-content",
             "name": "child-article-parent",
-            "label": "List all Articles as card under the Selected Parent Page",
+            "label": "Parent Page",
             "valueType": "string",
             "required": true,
             "validation": {
@@ -387,44 +387,6 @@
       },
       {
         "component": "container",
-        "label": "List all Articles as card with Tag filter under Selected Parent Page",
-        "name": "child-article-tag-container",
-        "valueType": "string",
-        "collapsible": false,
-        "fields": [
-          {
-            "component": "aem-content",
-            "name": "child-article-tag-parent",
-            "label": "Parent Page",
-            "valueType": "string",
-            "required": true,
-            "validation": {
-              "rootPath": "/content/eds-helium-xwalk"
-            }
-          },
-          {
-            "component": "number",
-            "name": "child-article-tag-depth",
-            "label": "Child Depth",
-            "valueType": "number",
-            "value": 1,
-            "validation": {
-              "numberMin": 1,
-              "customErrorMsg": "Value cannot be less than 1."
-            }
-          }
-        ],
-        "condition": {
-          "===": [
-            {
-              "var": "layout-type"
-            },
-            "child-article-tag"
-          ]
-        }
-      },
-      {
-        "component": "container",
         "label": "List recent Article Cards from Selected Parent Page",
         "name": "recent-article-container",
         "valueType": "string",
@@ -434,7 +396,7 @@
             "component": "aem-content",
             "name": "recent-article-parent",
             "label": "Parent Page",
-            "valueType": "string[]",
+            "valueType": "string",
             "required": true,
             "validation": {
               "rootPath": "/content/eds-helium-xwalk"
@@ -442,10 +404,9 @@
           },
           {
             "component": "number",
-            "name": "recent-article-parent-depth",
+            "name": "recent-article-depth",
             "label": "Child Depth",
             "valueType": "number",
-            "value": 1,
             "validation": {
               "numberMin": 1,
               "customErrorMsg": "Value cannot be less than 1."
@@ -453,10 +414,9 @@
           },
           {
             "component": "number",
-            "name": "recent-article-parent-count",
+            "name": "recent-article-count",
             "label": "Article Count",
             "valueType": "number",
-            "value": 4,
             "validation": {
               "numberMin": 1,
               "customErrorMsg": "Value cannot be less than 1."
@@ -490,7 +450,15 @@
             "name": "Last modified date",
             "value": "last-modified-date"
           }
-        ]
+        ],
+        "condition": {
+          "!==": [
+            {
+              "var": "layout-type"
+            },
+            "manual-articles"
+          ]
+        }
       },
       {
         "component": "select",
@@ -506,29 +474,21 @@
             "name": "Descending",
             "value": "descending"
           }
-        ]
+        ],
+        "condition": {
+          "!==": [
+            {
+              "var": "layout-type"
+            },
+            "manual-articles"
+          ]
+        }
       }
     ]
   },
   {
     "id": "article2",
     "fields": [
-      {
-        "component": "select",
-        "label": "Article Type",
-        "name": "article-type",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default Article",
-            "value": "article"
-          },
-          {
-            "name": "Locked Article",
-            "value": "locked-article"
-          }
-        ]
-      },
       {
         "component": "reference",
         "valueType": "string",
