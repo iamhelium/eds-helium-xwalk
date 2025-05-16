@@ -216,26 +216,12 @@
               "value": "descending"
             }
           ],
-          "condition": {
-            "or": [
-              {
-                "===": [
-                  {
-                    "var": "layout-type"
-                  },
-                  "child-articles"
-                ]
-              },
-              {
-                "===": [
-                  {
-                    "var": "layout-type"
-                  },
-                  "recent-articles"
-                ]
-              }
-            ]
-          }
+  "condition": {
+    "in": [
+      { "var": "layout-type" },
+      ["child-articles", "recent-articles"]
+    ]
+  }
         }
       ]
     },
