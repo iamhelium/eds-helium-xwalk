@@ -337,7 +337,7 @@
           {
             "component": "aem-content",
             "name": "child-article-parent",
-            "label": "Parent Page",
+            "label": "List all Articles as card under the Selected Parent Page",
             "valueType": "string",
             "required": true,
             "validation": {
@@ -468,7 +468,7 @@
             {
               "var": "layout-type"
             },
-            "recent-article"
+            "recent-articles"
           ]
         }
       },
