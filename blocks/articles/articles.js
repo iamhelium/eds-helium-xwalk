@@ -177,8 +177,10 @@ export default async function decorate(block) {
         // const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
         // console.log('TAXANOMY RES: ', taxonomyResponse);
 
-        console.log(await ffetch('/taxonomy.json'));
-        console.log(await ffetch('/taxonomy.json').all());
+        const response = await fetch('/taxonomy.json');
+        const tags = await response.json(); // tags is already an array
+        console.log(tags);
+        console.log(tags.json());
         // console.log(await ffetch('/taxonomy.json').sheet('default').all());
         // console.log(await ffetch('/taxonomy.json').sheet('default'));
         // if (taxonomyResponse[':type'] === 'multi-sheet') {
