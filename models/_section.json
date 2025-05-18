@@ -43,6 +43,10 @@
                 {
                   "name": "Full Width",
                   "value": "full-width"
+                },
+                {
+                  "name": "Teaser Section",
+                  "value": "teaser-section"
                 }
               ]
             },
