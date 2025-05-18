@@ -8,7 +8,7 @@
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "name": "search",
+              "name": "Search",
               "model": "search"
             }
           }
@@ -17,6 +17,34 @@
     }
   ],
   "models": [
+    {
+      "id": "search",
+      "fields": [
+        {
+          "component": "text",
+          "name": "search-placeholder",
+          "label": "Search Placeholder",
+          "value": "Search",
+          "valueType": "string"
+        },
+        {
+          "component": "select",
+          "label": "Search Field Alignment",
+          "name": "classes",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Right",
+              "value": "right"
+            }
+          ]
+        }
+      ]
+    }
   ],
   "filters": []
 }
