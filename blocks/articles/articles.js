@@ -141,6 +141,8 @@ export default async function decorate(block) {
   const order = orderEl?.querySelector('p')?.textContent.trim();
   const sort = sortEl?.querySelector('p')?.textContent.trim();
 
+  console.log(layoutType, childParent, childDepth, enableTags, filterTags, recentParent, recentDepth, recentCount, order, sort);
+
   let articleList = [];
   try {
     articleList = await ffetch('/article-index.json').all();
