@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /*
  * Copyright 2024 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -406,14 +407,24 @@ function wrapTextNodes(block) {
  * @param {Element} element container element
  */
 function decorateButtons(element) {
+  const socialIcons = {
+    menu: '<i class="wknd-icon wkndicon-menu"></i>',
+    google: '<i class="wknd-icon wkndicon-google"></i>',
+    twitter: '<i class="wknd-icon wkndicon-twitter"></i>',
+    facebook: '<i class="wknd-icon wkndicon-facebook"></i>',
+    instagram: '<i class="wknd-icon wkndicon-instagram"></i>',
+  };
+
   element.querySelectorAll('a').forEach((a) => {
-    a.title = a.title || a.textContent;
+    a.title = a.title || a.textContent.trim();
+    const iconKey = a.title.toLowerCase();
+
     if (a.href !== a.textContent) {
       const up = a.parentElement;
-      const twoup = a.parentElement.parentElement;
+      const twoup = up.parentElement;
       if (!a.querySelector('img')) {
         if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
-          a.className = 'button'; // default
+          a.className = 'button';
           up.classList.add('button-container');
         }
         if (
@@ -436,47 +447,19 @@ function decorateButtons(element) {
         }
       }
     }
-  });
 
-  // Extract `data-aue-resource`, fetch JSON, and add classes
-  const domain = window.location.origin; // Dynamically fetch the current domain
-  const buttonContainers = element.querySelectorAll('.button-container');
-  buttonContainers.forEach(async (container) => {
-    const resource = container.getAttribute('data-aue-resource');
-    if (resource) {
-      const cleanResource = resource.replace('urn:aemconnection:', ''); // Remove the prefix
-      const apiUrl = `${domain}${cleanResource}.json`; // Construct API URL
-      try {
-        const response = await fetch(apiUrl);
-        if (response.ok) {
-          const jsonData = await response.json();
-
-          // Extract styles from JSON
-          const textColor = jsonData['text-color'];
-          const backgroundColor = jsonData['background-color'];
-          const { alignment } = jsonData;
-
-          // Add extracted classes to the container
-          if (textColor) container.classList.add(textColor);
-          if (backgroundColor) container.classList.add(backgroundColor);
-          if (alignment) container.classList.add(alignment);
-
-          // console.log('Updated container:', container);
-        } else {
-          console.error('Failed to fetch data for:', cleanResource, response.status);
-        }
-      } catch (error) {
-        console.error('Error fetching data for:', cleanResource, error);
-      }
+    if (socialIcons[iconKey]) {
+      a.innerHTML = socialIcons[iconKey];
+      a.classList.add('social-icon', 'social-button', 'button');
+      a.parentElement.classList.add('social-container');
     }
   });
-
-  (async () => {
-    await loadCSS(`${window.hlx.codeBasePath}/blocks/buttons/buttons.css`);
-    // console.log('LOADING CSS');
-  })();
 }
 
+// Run function on page load
+document.addEventListener('DOMContentLoaded', () => {
+  decorateButtons(document.body);
+});
 /**
  * Add <img> for icon, prefixed with codeBasePath and optional prefix.
  * @param {Element} [span] span element with icon classes
@@ -492,6 +475,8 @@ function decorateIcon(span, prefix = '', alt = '') {
   img.src = `${window.hlx.codeBasePath}${prefix}/icons/${iconName}.svg`;
   img.alt = alt;
   img.loading = 'lazy';
+  img.width = 16;
+  img.height = 16;
   span.append(img);
 }
 
@@ -501,7 +486,7 @@ function decorateIcon(span, prefix = '', alt = '') {
  * @param {string} [prefix] prefix to be added to icon the src
  */
 function decorateIcons(element, prefix = '') {
-  const icons = [...element.querySelectorAll('span.icon')];
+  const icons = element.querySelectorAll('span.icon');
   icons.forEach((span) => {
     decorateIcon(span, prefix);
   });
