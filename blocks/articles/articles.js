@@ -178,9 +178,12 @@ export default async function decorate(block) {
         // console.log('TAXANOMY RES: ', taxonomyResponse);
 
         const response = await fetch('/taxonomy.json');
-        const tags = await response.json(); // tags is already an array
-        console.log(tags);
-        console.log(tags.json());
+        const tags = await response.json();
+        console.log('tags:', tags);
+
+        const responseSheet = await ffetch('/taxonomy.json').sheet('default');
+        const tagsheet = await responseSheet.all(); // tags is already an array
+        console.log('tagsheet:', tagsheet);
         // console.log(await ffetch('/taxonomy.json').sheet('default').all());
         // console.log(await ffetch('/taxonomy.json').sheet('default'));
         // if (taxonomyResponse[':type'] === 'multi-sheet') {
