@@ -207,6 +207,7 @@ export default async function decorate(block) {
         tabList.appendChild(tab);
       });
 
+      console.log('tab List', tabList, 'article Container: ', articleContainer);
       setupTabKeyboardNavigation(tabList);
       block.append(tabList, articleContainer);
       renderArticles();
@@ -245,7 +246,7 @@ export default async function decorate(block) {
     return;
   }
 
-  if (layoutType === 'Create Articles Manually') {
+  if (layoutType === 'manual-articles') {
     // To be implemented based on how manual articles are configured
     block.innerHTML = '<p>[Manual Articles Placeholder]</p>';
   }
