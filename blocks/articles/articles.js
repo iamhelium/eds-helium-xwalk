@@ -163,6 +163,8 @@ export default async function decorate(block) {
     return articleList.filter((article) => {
       const { path } = article;
       const isChild = path.startsWith(parentPath) && (path !== parentPath);
+      console.log('path.startsWith(parentPath): ', path, parentPath, path.startsWith(parentPath));
+      console.log('path !== parentPath: ', path, parentPath, (path !== parentPath));
 
       console.log('isChild', isChild);
 
@@ -173,7 +175,7 @@ export default async function decorate(block) {
     });
   };
 
-  console.log('get Article', getArticlesByDepth(childParent, childDepth));
+  // console.log('get Article', getArticlesByDepth(childParent, childDepth));
 
   if (layoutType === 'child-articles') {
     const filtered = getArticlesByDepth(childParent, childDepth);
