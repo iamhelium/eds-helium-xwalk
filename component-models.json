@@ -71,8 +71,8 @@
       },
       {
         "component": "text",
-        "name": "linkTitle",
-        "label": "Title"
+        "name": "linkIcon",
+        "label": "Icon"
       },
       {
         "component": "select",
@@ -80,77 +80,16 @@
         "label": "Type",
         "options": [
           {
-            "name": "default",
+            "name": "Default",
             "value": ""
           },
           {
-            "name": "primary",
+            "name": "Primary",
             "value": "primary"
           },
           {
-            "name": "secondary",
+            "name": "Secondary",
             "value": "secondary"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "alignment",
-        "label": "Alignment",
-        "options": [
-          {
-            "name": "Left",
-            "value": "left"
-          },
-          {
-            "name": "Center",
-            "value": "center"
-          },
-          {
-            "name": "Right",
-            "value": "right"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "background-color",
-        "value": "",
-        "label": "Background Color",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Red",
-            "value": "btn-red"
-          },
-          {
-            "name": "Green",
-            "value": "btn-green"
-          },
-          {
-            "name": "Blue",
-            "value": "btn-blue"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "text-color",
-        "value": "",
-        "label": "Text Color",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Red",
-            "value": "txt-red"
-          },
-          {
-            "name": "Green",
-            "value": "txt-green"
-          },
-          {
-            "name": "Blue",
-            "value": "txt-blue"
           }
         ]
       }
@@ -160,17 +99,44 @@
     "id": "section",
     "fields": [
       {
+        "component": "text",
+        "name": "name",
+        "label": "Section Name",
+        "description": "The label shown for this section in the Content Tree"
+      },
+      {
         "component": "multiselect",
         "name": "style",
-        "label": "Style",
+        "label": "Section Styles",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 2,
         "options": [
           {
-            "name": "Highlight",
-            "value": "highlight"
+            "name": "Layout",
+            "children": [
+              {
+                "name": "Default Width",
+                "value": ""
+              },
+              {
+                "name": "Full Width",
+                "value": "full-width"
+              }
+            ]
           },
           {
-            "name": "Margin Top",
-            "value": "margin-top"
+            "name": "Margin",
+            "children": [
+              {
+                "name": "Margin Top",
+                "value": "top-margin"
+              },
+              {
+                "name": "Margin Bottom",
+                "value": "bottom-margin"
+              }
+            ]
           }
         ]
       }

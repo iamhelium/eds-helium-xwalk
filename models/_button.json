@@ -31,8 +31,8 @@
         },
         {
           "component": "text",
-          "name": "linkTitle",
-          "label": "Title"
+          "name": "linkIcon",
+          "label": "Icon"
         },
         {
           "component": "select",
@@ -40,77 +40,16 @@
           "label": "Type",
           "options": [
             {
-              "name": "default",
+              "name": "Default",
               "value": ""
             },
             {
-              "name": "primary",
+              "name": "Primary",
               "value": "primary"
             },
             {
-              "name": "secondary",
-              "value": "secondary"
-            }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "alignment",
-          "label": "Alignment",
-          "options": [
-            {
-              "name": "Left",
-              "value": "left"
-            },
-            {
-              "name": "Center",
-              "value": "center"
-            },
-            {
-              "name": "Right",
-              "value": "right"
-            }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "background-color",
-          "value": "",
-          "label": "Background Color",
-          "valueType": "string",
-          "options": [
-            {
-              "name": "Red",
-              "value": "btn-red"
-            },
-            {
-              "name": "Green",
-              "value": "btn-green"
-            },
-            {
-              "name": "Blue",
-              "value": "btn-blue"
-            }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "text-color",
-          "value": "",
-          "label": "Text Color",
-          "valueType": "string",
-          "options": [
-            {
-              "name": "Red",
-              "value": "txt-red"
-            },
-            {
-              "name": "Green",
-              "value": "txt-green"
-            },
-            {
-              "name": "Blue",
-              "value": "txt-blue"
+              "name":"Secondary",
+              "value":"secondary"
             }
           ]
         }
