@@ -258,6 +258,6 @@ export default async function decorate(block) {
 
   if (layoutType === 'manual-articles') {
     // To be implemented based on how manual articles are configured
-    block.innerHTML = '<p>[Manual Articles Placeholder]</p>';
+    // block.innerHTML = '<p>[Manual Articles Placeholder]</p>';
   }
 }
