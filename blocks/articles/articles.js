@@ -2,6 +2,7 @@
 /* eslint-disable no-console, no-shadow, object-curly-newline, no-nested-ternary */
 
 import ffetch from '../../scripts/ffetch.js';
+import { createOptimizedPicture } from '../../scripts/aem.js';
 import { cleanUrl, generateUID, getDepth } from '../../scripts/helper.js';
 
 // Sort articles based on title or last modified date
@@ -57,6 +58,7 @@ function createArticleCard({ path, title = '', description = '', image = '', ima
   const article = document.createElement('article');
   article.className = 'article-content';
 
+  // Picture wrapped in link
   const imgLink = document.createElement('a');
   imgLink.className = 'article-image--link';
   imgLink.href = path;
@@ -67,18 +69,14 @@ function createArticleCard({ path, title = '', description = '', image = '', ima
   const cmpImage = document.createElement('div');
   cmpImage.className = 'cmp-image';
 
-  const img = document.createElement('img');
-  img.className = 'cmp-image__image';
-  img.src = image;
-  img.alt = imageAlt;
-  img.loading = 'lazy';
-  img.width = 765;
-  img.height = 535;
+  const picture = createOptimizedPicture(image, imageAlt, false);
+  picture.querySelector('img')?.classList.add('cmp-image__image');
 
-  cmpImage.appendChild(img);
+  cmpImage.appendChild(picture);
   imgWrapper.appendChild(cmpImage);
   imgLink.appendChild(imgWrapper);
 
+  // Title
   const titleLink = document.createElement('a');
   titleLink.className = 'article-title--link';
   titleLink.href = path;
@@ -86,9 +84,9 @@ function createArticleCard({ path, title = '', description = '', image = '', ima
   const titleSpan = document.createElement('span');
   titleSpan.className = 'article-title';
   titleSpan.textContent = title;
-
   titleLink.appendChild(titleSpan);
 
+  // Description
   const desc = document.createElement('span');
   desc.className = 'article-description';
   desc.textContent = description;
@@ -123,12 +121,19 @@ function setupTabKeyboardNavigation(tabList) {
 
 // Main decorate function that builds the article layout
 export default async function decorate(block) {
+  const children = [...block.children];
+  const configRows = children.slice(0, 10);
+  const manualArticleBlocks = children.slice(10);
+
   const [
     layoutTypeEl, childParentEl, childDepthEl,
     enableTagsEl, filterTagsEl,
     recentParentEl, recentDepthEl, recentCountEl,
     orderEl, sortEl,
-  ] = [...block.children];
+  ] = configRows;
+
+  // Clear original block before rendering any layout
+  block.innerHTML = '';
 
   const layoutType = layoutTypeEl?.querySelector('p')?.textContent.trim();
   const childParent = cleanUrl(childParentEl?.querySelector('a')?.getAttribute('href') || '');
@@ -257,7 +262,32 @@ export default async function decorate(block) {
   }
 
   if (layoutType === 'manual-articles') {
-    // To be implemented based on how manual articles are configured
-    // block.innerHTML = '<p>[Manual Articles Placeholder]</p>';
+    const articleContainer = document.createElement('div');
+    articleContainer.className = 'article-list';
+
+    // const manualArticleBlocks = [...block.children].slice(10); // from 11th div onward
+
+    manualArticleBlocks.forEach((rawBlock) => {
+      const [imgDiv, titleDiv, descDiv, linkDiv] = [...rawBlock.children];
+
+      const image = imgDiv?.querySelector('img')?.getAttribute('src') || '';
+      const imageAlt = imgDiv?.querySelector('img')?.getAttribute('alt') || '';
+      const title = titleDiv?.textContent.trim() || '';
+      const description = descDiv?.textContent.trim() || '';
+      const path = linkDiv?.querySelector('a')?.getAttribute('href') || '';
+
+      const articleCard = createArticleCard({ path, title, description, image, imageAlt });
+
+      // Copy any AUE (Authoring UI Extension) attributes
+      [...rawBlock.attributes].forEach((attr) => {
+        if (attr.name.startsWith('data-aue')) {
+          articleCard.setAttribute(attr.name, attr.value);
+        }
+      });
+
+      articleContainer.appendChild(articleCard);
+    });
+
+    block.appendChild(articleContainer);
   }
 }
