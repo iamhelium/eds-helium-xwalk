@@ -182,7 +182,7 @@ export default async function decorate(block) {
         console.log('tags:', tags);
 
         const responseSheet = await ffetch('/taxonomy.json').sheet('default');
-        const tagsheet = await responseSheet.all(); // tags is already an array
+        const tagsheet = await responseSheet.default?.all(); // tags is already an array
         console.log('tagsheet:', tagsheet);
         // console.log(await ffetch('/taxonomy.json').sheet('default').all());
         // console.log(await ffetch('/taxonomy.json').sheet('default'));
