@@ -174,8 +174,8 @@ export default async function decorate(block) {
       // const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
       // console.log(taxonomyResponse);
       try {
-        const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
-        console.log('TAXANOMY RES: ', taxonomyResponse);
+        // const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
+        // console.log('TAXANOMY RES: ', taxonomyResponse);
 
         console.log(await ffetch('/taxonomy.json'));
         // console.log(await ffetch('/taxonomy.json').sheet('default').all());
