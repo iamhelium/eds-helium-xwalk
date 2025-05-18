@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable max-len */
 /* eslint-disable no-console, no-shadow, object-curly-newline, no-nested-ternary */
 
@@ -175,13 +176,13 @@ export default async function decorate(block) {
       try {
         const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
         console.log(taxonomyResponse);
-        if (taxonomyResponse[':type'] === 'multi-sheet') {
-          tags = taxonomyResponse.default?.data || [];
-        } else if (taxonomyResponse[':type'] === 'sheet') {
-          tags = taxonomyResponse.data || [];
-        } else {
-          console.warn('Unexpected taxonomy format:', taxonomyResponse);
-        }
+        // if (taxonomyResponse[':type'] === 'multi-sheet') {
+        //   tags = taxonomyResponse?.default?.data || [];
+        // } else if (taxonomyResponse[':type'] === 'sheet') {
+        //   tags = taxonomyResponse?.data || [];
+        // } else {
+        //   console.warn('Unexpected taxonomy format:', taxonomyResponse);
+        // }
       } catch (e) {
         console.warn('Failed to fetch tags:', e);
         return;
