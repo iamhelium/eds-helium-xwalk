@@ -226,6 +226,7 @@ export function cleanUrl(url) {
 export default async function decorate(block) {
   console.log('Query Index: ', await ffetch('/query-index.json').all());
   console.log('Teaser Index: ', await ffetch('/teaser-index.json').all());
+  console.log('Article Index: ', await ffetch('/article-index.json').all());
   console.log('Taxonomy: ', await ffetch('/taxonomy.json').all());
 
   const currentUrl = '/content/eds-helium-xwalk/component/teaser-block.html';
