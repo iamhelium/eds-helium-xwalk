@@ -2,3 +2,26 @@
 <script src="/scripts/aem.js" type="module"></script>
 <script src="/scripts/scripts.js" type="module"></script>
 <link rel="stylesheet" href="/styles/styles.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Asar&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asar&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap">
+</noscript>
+<script>
+  (function () {
+    var href = window.location.href;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+
+    if (href.includes('eds-wknd-2')) {
+      link.href = '/multisite/eds-wknd-2/styles/styles.css';
+    } else if (href.includes('eds-wknd')) {
+      link.href = '/styles/eds-wknd-styles.css';
+    }
+
+    if (link.href) {
+      document.head.appendChild(link);
+    }
+  })();
+</script>
