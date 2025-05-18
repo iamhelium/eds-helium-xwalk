@@ -1,51 +1,36 @@
-/* eslint-disable max-len */
-/* eslint-disable no-console, no-shadow, object-curly-newline, no-nested-ternary */
-
+/* eslint-disable no-console, object-curly-newline */
 import ffetch from '../../scripts/ffetch.js';
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { cleanUrl, generateUID, getDepth } from '../../scripts/helper.js';
 
-// Sort articles based on title or last modified date
+/**
+ * Sorts articles by title or last modified date.
+ */
 function sortArticles(articles, orderBy, sortDir) {
   return articles.sort((a, b) => {
-    let valA;
-    let valB;
-
-    if (orderBy === 'title') {
-      valA = a.title?.toLowerCase() || '';
-      valB = b.title?.toLowerCase() || '';
-    } else {
-      valA = new Date(a.lastModified || 0);
-      valB = new Date(b.lastModified || 0);
-    }
-
-    const result = valA > valB ? 1 : valA < valB ? -1 : 0;
+    const valA = orderBy === 'title' ? a.title?.toLowerCase() || '' : new Date(a.lastModified || 0);
+    const valB = orderBy === 'title' ? b.title?.toLowerCase() || '' : new Date(b.lastModified || 0);
+    const result = Math.sign(valA - valB);
     return sortDir === 'ascending' ? result : -result;
   });
 }
 
-// Sort articles by last published date in descending order
+/**
+ * Sorts articles by last published date (descending).
+ */
 function sortByLastPublished(articles) {
-  return articles.sort((a, b) => {
-    const valA = new Date(a.lastPublished || 0);
-    const valB = new Date(b.lastPublished || 0);
-    return valB - valA;
-  });
+  return articles.sort((a, b) => new Date(b.lastPublished || 0) - new Date(a.lastPublished || 0));
 }
 
-// Create a tab element for filtering articles by tag
+/**
+ * Create a tab element for filtering articles by tag
+ */
 function createTab({ tag, title }, uid, isActive = false) {
   const li = document.createElement('li');
+  li.className = `tag${isActive ? ' tag--active' : ''}`;
   li.setAttribute('role', 'tab');
-  li.className = 'tag';
-  if (isActive) {
-    li.classList.add('tag--active');
-    li.setAttribute('tabindex', '0');
-    li.setAttribute('aria-selected', 'true');
-  } else {
-    li.setAttribute('tabindex', '-1');
-    li.setAttribute('aria-selected', 'false');
-  }
+  li.setAttribute('tabindex', isActive ? '0' : '-1');
+  li.setAttribute('aria-selected', isActive ? 'true' : 'false');
   li.id = `tabs-${uid}-tab`;
   li.setAttribute('aria-controls', `tabs-${uid}-tabpanel`);
   li.dataset.tag = tag;
@@ -53,12 +38,14 @@ function createTab({ tag, title }, uid, isActive = false) {
   return li;
 }
 
-// Create an article card element to display article details
+/**
+ * Creates an article card element.
+ */
 function createArticleCard({ path, title = '', description = '', image = '', imageAlt = '' }) {
   const article = document.createElement('article');
   article.className = 'article-content';
 
-  // Picture wrapped in link
+  // Image section
   const imgLink = document.createElement('a');
   imgLink.className = 'article-image--link';
   imgLink.href = path;
@@ -76,7 +63,7 @@ function createArticleCard({ path, title = '', description = '', image = '', ima
   imgWrapper.appendChild(cmpImage);
   imgLink.appendChild(imgWrapper);
 
-  // Title
+  // Title section
   const titleLink = document.createElement('a');
   titleLink.className = 'article-title--link';
   titleLink.href = path;
@@ -84,30 +71,30 @@ function createArticleCard({ path, title = '', description = '', image = '', ima
   const titleSpan = document.createElement('span');
   titleSpan.className = 'article-title';
   titleSpan.textContent = title;
+
   titleLink.appendChild(titleSpan);
 
-  // Description
+  // Description section
   const desc = document.createElement('span');
   desc.className = 'article-description';
   desc.textContent = description;
 
   article.append(imgLink, titleLink, desc);
-
   return article;
 }
 
-// Enable keyboard navigation for tab elements
+/**
+ * Enables keyboard navigation for tab list.
+ */
 function setupTabKeyboardNavigation(tabList) {
   const tabs = [...tabList.querySelectorAll('[role="tab"]')];
 
   tabList.addEventListener('keydown', (e) => {
     const currentIndex = tabs.findIndex((tab) => tab === document.activeElement);
     if (e.key === 'ArrowRight') {
-      const nextTab = tabs[(currentIndex + 1) % tabs.length];
-      nextTab.focus();
+      tabs[(currentIndex + 1) % tabs.length].focus();
     } else if (e.key === 'ArrowLeft') {
-      const prevTab = tabs[(currentIndex - 1 + tabs.length) % tabs.length];
-      prevTab.focus();
+      tabs[(currentIndex - 1 + tabs.length) % tabs.length].focus();
     } else if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       document.activeElement.click();
@@ -119,7 +106,9 @@ function setupTabKeyboardNavigation(tabList) {
   });
 }
 
-// Main decorate function that builds the article layout
+/**
+ * Main decorate function that builds the article layout.
+ */
 export default async function decorate(block) {
   const children = [...block.children];
   const configRows = children.slice(0, 10);
@@ -156,8 +145,6 @@ export default async function decorate(block) {
     return;
   }
 
-  // block.innerHTML = '';
-
   const getArticlesByDepth = (parentPath, maxDepth) => {
     const parentDepth = getDepth(parentPath);
     return articleList.filter(({ path }) => {
@@ -167,6 +154,7 @@ export default async function decorate(block) {
     });
   };
 
+  // "child-articles"   → renders all child articles ("All Articles")
   if (layoutType === 'child-articles') {
     const filtered = getArticlesByDepth(childParent, childDepth);
     const sorted = sortArticles(filtered, order, sort);
@@ -177,17 +165,9 @@ export default async function decorate(block) {
       try {
         const res = await fetch('/taxonomy.json');
         if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-
         const taxonomy = await res.json();
         const type = taxonomy[':type'];
-
-        if (type === 'multi-sheet') {
-          tags = Array.isArray(taxonomy.default?.data) ? taxonomy.default.data : [];
-        } else if (type === 'sheet') {
-          tags = Array.isArray(taxonomy.data) ? taxonomy.data : [];
-        } else {
-          console.warn('Unexpected taxonomy type:', type);
-        }
+        tags = type === 'multi-sheet' ? taxonomy.default?.data || [] : taxonomy.data || [];
       } catch (e) {
         console.warn('Failed to fetch tags:', e);
         return;
@@ -213,14 +193,16 @@ export default async function decorate(block) {
 
       const tabs = [];
 
+      // Add "ALL" tab
       const allTab = createTab({ tag: '', title: 'ALL' }, uid, true);
-      tabs.push(allTab);
       tabList.appendChild(allTab);
+      tabs.push(allTab);
 
+      // Add filtered tags
       filteredTags.forEach((tagData) => {
         const tab = createTab(tagData, uid);
-        tabs.push(tab);
         tabList.appendChild(tab);
+        tabs.push(tab);
       });
 
       setupTabKeyboardNavigation(tabList);
@@ -247,13 +229,14 @@ export default async function decorate(block) {
       sorted.forEach((article) => articleContainer.appendChild(createArticleCard(article)));
       block.appendChild(articleContainer);
     }
+
     return;
   }
 
+  // "recent-articles"  → renders a limited number of recent articles ("Recent Articles")
   if (layoutType === 'recent-articles') {
     const filtered = getArticlesByDepth(recentParent, recentDepth);
     const sorted = sortByLastPublished(filtered).slice(0, recentCount);
-
     const articleContainer = document.createElement('div');
     articleContainer.className = 'article-list';
     sorted.forEach((article) => articleContainer.appendChild(createArticleCard(article)));
@@ -261,21 +244,18 @@ export default async function decorate(block) {
     return;
   }
 
+  // "manual-articles"  → renders manually specified articles ("Create Articles Manually")
   if (layoutType === 'manual-articles') {
     const articleContainer = document.createElement('div');
     articleContainer.className = 'article-list';
 
-    // const manualArticleBlocks = [...block.children].slice(10); // from 11th div onward
-
     manualArticleBlocks.forEach((rawBlock) => {
       const [imgDiv, titleDiv, descDiv, linkDiv] = [...rawBlock.children];
-
       const image = imgDiv?.querySelector('img')?.getAttribute('src') || '';
       const imageAlt = imgDiv?.querySelector('img')?.getAttribute('alt') || '';
       const title = titleDiv?.textContent.trim() || '';
       const description = descDiv?.textContent.trim() || '';
       const path = linkDiv?.querySelector('a')?.getAttribute('href') || '';
-
       const articleCard = createArticleCard({ path, title, description, image, imageAlt });
 
       // Copy any AUE (Authoring UI Extension) attributes

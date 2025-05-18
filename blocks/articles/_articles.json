@@ -186,8 +186,7 @@
                 "var": "layout-type"
               },
               [
-                "child-articles",
-                "recent-articles"
+                "child-articles"
               ]
             ]
           }
@@ -213,8 +212,7 @@
                 "var": "layout-type"
               },
               [
-                "child-articles",
-                "recent-articles"
+                "child-articles"
               ]
             ]
           }
