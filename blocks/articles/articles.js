@@ -168,6 +168,7 @@ export default async function decorate(block) {
   if (layoutType === 'child-articles') {
     const filtered = getArticlesByDepth(childParent, childDepth);
     const sorted = sortArticles(filtered, order, sort);
+    console.log('filtered', filtered, 'sorted: ', sorted);
 
     if (enableTags) {
       // TAG FILTER VARIATION
