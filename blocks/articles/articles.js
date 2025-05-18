@@ -1,4 +1,3 @@
-/* eslint-disable prefer-const */
 /* eslint-disable max-len */
 /* eslint-disable no-console, no-shadow, object-curly-newline, no-nested-ternary */
 
@@ -170,29 +169,20 @@ export default async function decorate(block) {
     if (enableTags) {
       // TAG FILTER VARIATION
       let tags = [];
-
-      // const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
-      // console.log(taxonomyResponse);
       try {
-        // const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
-        // console.log('TAXANOMY RES: ', taxonomyResponse);
+        const res = await fetch('/taxonomy.json');
+        if (!res.ok) throw new Error(`HTTP error ${res.status}`);
 
-        const response = await fetch('/taxonomy.json');
-        const tags = await response.json();
-        console.log('tags:', tags);
+        const taxonomy = await res.json();
+        const type = taxonomy[':type'];
 
-        const responseSheet = await ffetch('/taxonomy.json').withFetch(fetch).sheet('default');
-        const tagsheet = await responseSheet.all(); // tags is already an array
-        console.log('tagsheet:', tagsheet);
-        // console.log(await ffetch('/taxonomy.json').sheet('default').all());
-        // console.log(await ffetch('/taxonomy.json').sheet('default'));
-        // if (taxonomyResponse[':type'] === 'multi-sheet') {
-        //   tags = taxonomyResponse?.default?.data || [];
-        // } else if (taxonomyResponse[':type'] === 'sheet') {
-        //   tags = taxonomyResponse?.data || [];
-        // } else {
-        //   console.warn('Unexpected taxonomy format:', taxonomyResponse);
-        // }
+        if (type === 'multi-sheet') {
+          tags = Array.isArray(taxonomy.default?.data) ? taxonomy.default.data : [];
+        } else if (type === 'sheet') {
+          tags = Array.isArray(taxonomy.data) ? taxonomy.data : [];
+        } else {
+          console.warn('Unexpected taxonomy type:', type);
+        }
       } catch (e) {
         console.warn('Failed to fetch tags:', e);
         return;
