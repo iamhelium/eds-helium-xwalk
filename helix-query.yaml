@@ -4,7 +4,7 @@ indices:
     include:
       - /**
     exclude:
-      - '/**.json'
+      - /**.json
       - /nav/**
       - /footer/**
     target: /query-index.json
@@ -32,7 +32,7 @@ indices:
     include:
       - /**
     exclude:
-      - '/**.json'
+      - /**.json
     target: /teaser-index.json
     properties:
       title:
@@ -43,7 +43,7 @@ indices:
         value: attribute(el, "content")
       image:
         select: head > meta[property="og:image"]
-        value: match(attribute(el, "content"), "^(https?:\/\/.*?(pricefx.com))+(.*)|^(.*)")
+        value: match(attribute(el, "content"), "^(https?:\/\/.*?(mysite.com))+(.*)|^(.*)")
       imageAlt:
         select: head > meta[property="og:image:alt"]
         value: attribute(el, "content")
@@ -53,4 +53,29 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
-      
+
+  articles:
+    include:
+      - /**
+    exclude:
+      - /**.json
+    target: /article-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "^(https?:\/\/.*?(mysite.com))+(.*)|^(.*)")
+      imageAlt:
+        select: head > meta[property="og:image:alt"]
+        value: attribute(el, "content")
+      cq-tags:
+        select: head > meta[name="cq-tags"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
