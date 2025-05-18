@@ -26,7 +26,7 @@ export function cleanUrl(url) {
   if (typeof url !== 'string' || !url.trim()) return '';
 
   let cleaned = url.trim();
-  const repoName = 'eds-wknd';
+  const repoName = 'eds-helium-xwalk';
 
   // Remove ".html" at the end (case insensitive)
   cleaned = cleaned.replace(/\.html$/i, '');
