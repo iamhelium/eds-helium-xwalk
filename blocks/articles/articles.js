@@ -170,7 +170,7 @@ export default async function decorate(block) {
       // TAG FILTER VARIATION
       let tags = [];
 
-      const taxonomyResponse = await ffetch('/taxonomy.json');
+      const taxonomyResponse = await ffetch('/taxonomy.json').all();
       console.log(taxonomyResponse);
       try {
         const taxonomyResponse = await ffetch('/taxonomy.json');
