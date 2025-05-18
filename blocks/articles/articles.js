@@ -169,8 +169,11 @@ export default async function decorate(block) {
     if (enableTags) {
       // TAG FILTER VARIATION
       let tags = [];
+
+      const taxonomyResponse = await ffetch('/taxonomy.json');
+      console.log(taxonomyResponse);
       try {
-        const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
+        const taxonomyResponse = await ffetch('/taxonomy.json');
         console.log(taxonomyResponse);
         if (taxonomyResponse[':type'] === 'multi-sheet') {
           tags = taxonomyResponse.default?.data || [];
