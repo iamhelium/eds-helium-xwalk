@@ -1043,6 +1043,10 @@
               {
                 "name": "Teaser Banner",
                 "value": "teaser-banner"
+              },
+              {
+                "name": "Teaser Secure",
+                "value": "teaser-secure"
               }
             ]
           },
