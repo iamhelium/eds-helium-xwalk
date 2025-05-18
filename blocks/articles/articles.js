@@ -178,8 +178,8 @@ export default async function decorate(block) {
         console.log('TAXANOMY RES: ', taxonomyResponse);
 
         console.log(await ffetch('/taxonomy.json'));
-        console.log(await ffetch('/taxonomy.json').sheet('default').all());
-        console.log(await ffetch('/taxonomy.json').sheet('default'));
+        // console.log(await ffetch('/taxonomy.json').sheet('default').all());
+        // console.log(await ffetch('/taxonomy.json').sheet('default'));
         // if (taxonomyResponse[':type'] === 'multi-sheet') {
         //   tags = taxonomyResponse?.default?.data || [];
         // } else if (taxonomyResponse[':type'] === 'sheet') {
