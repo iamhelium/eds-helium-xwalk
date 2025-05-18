@@ -170,13 +170,14 @@ export default async function decorate(block) {
       // TAG FILTER VARIATION
       let tags = [];
       try {
-        const taxonomy = await ffetch('/taxonomy.json').json();
-        if (taxonomy[':type'] === 'multi-sheet') {
-          tags = taxonomy.default?.data || [];
-        } else if (taxonomy[':type'] === 'sheet') {
-          tags = taxonomy.data || [];
+        const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
+        console.log(taxonomyResponse);
+        if (taxonomyResponse[':type'] === 'multi-sheet') {
+          tags = taxonomyResponse.default?.data || [];
+        } else if (taxonomyResponse[':type'] === 'sheet') {
+          tags = taxonomyResponse.data || [];
         } else {
-          console.warn('Unexpected taxonomy type:', taxonomy[':type']);
+          console.warn('Unexpected taxonomy format:', taxonomyResponse);
         }
       } catch (e) {
         console.warn('Failed to fetch tags:', e);
