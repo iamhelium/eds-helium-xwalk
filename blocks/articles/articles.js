@@ -161,8 +161,13 @@ export default async function decorate(block) {
 
     console.log('parentDepth', parentDepth, 'articleList: ', articleList);
     return articleList.filter(({ path }) => {
-      const isChild = path.startsWith(parentPath) && path !== parentPath;
+      const isChild = path.startsWith(parentPath) && (path !== parentPath);
+
+      console.log('isChild', isChild);
+
       const currentDepth = getDepth(path);
+
+      console.log('currentDepth', currentDepth);
       return isChild && currentDepth > parentDepth && currentDepth <= parentDepth + maxDepth;
     });
   };
