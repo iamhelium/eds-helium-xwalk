@@ -151,7 +151,7 @@ export default async function decorate(block) {
     return;
   }
 
-  block.innerHTML = '';
+  // block.innerHTML = '';
 
   const getArticlesByDepth = (parentPath, maxDepth) => {
     const parentDepth = getDepth(parentPath);
