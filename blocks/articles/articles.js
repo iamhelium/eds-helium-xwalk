@@ -229,6 +229,7 @@ export default async function decorate(block) {
       // DEFAULT VARIATION
       const articleContainer = document.createElement('div');
       articleContainer.className = 'article-list';
+      console.log('default all article', sorted, 'article Container: ', articleContainer);
       sorted.forEach((article) => articleContainer.appendChild(createArticleCard(article)));
       block.appendChild(articleContainer);
     }
