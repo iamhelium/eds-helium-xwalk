@@ -170,7 +170,14 @@ export default async function decorate(block) {
       // TAG FILTER VARIATION
       let tags = [];
       try {
-        tags = await ffetch('/taxonomy.json').all();
+        const taxonomy = await ffetch('/taxonomy.json').json();
+        if (taxonomy[':type'] === 'multi-sheet') {
+          tags = taxonomy.default?.data || [];
+        } else if (taxonomy[':type'] === 'sheet') {
+          tags = taxonomy.data || [];
+        } else {
+          console.warn('Unexpected taxonomy type:', taxonomy[':type']);
+        }
       } catch (e) {
         console.warn('Failed to fetch tags:', e);
         return;
