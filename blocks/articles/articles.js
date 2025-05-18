@@ -141,8 +141,6 @@ export default async function decorate(block) {
   const order = orderEl?.querySelector('p')?.textContent.trim();
   const sort = sortEl?.querySelector('p')?.textContent.trim();
 
-  console.log(layoutType, childParent, childDepth, enableTags, filterTags, recentParent, recentDepth, recentCount, order, sort);
-
   let articleList = [];
   try {
     articleList = await ffetch('/article-index.json').all();
@@ -153,34 +151,20 @@ export default async function decorate(block) {
     return;
   }
 
-  console.log('article List', articleList);
   block.innerHTML = '';
 
   const getArticlesByDepth = (parentPath, maxDepth) => {
     const parentDepth = getDepth(parentPath);
-
-    console.log('parentDepth', parentDepth, 'articleList: ', articleList);
-    return articleList.filter((article) => {
-      const { path } = article;
-      const isChild = path.startsWith(parentPath) && (path !== parentPath);
-      console.log('path.startsWith(parentPath): ', path, parentPath, path.startsWith(parentPath));
-      console.log('path !== parentPath: ', path, parentPath, (path !== parentPath));
-
-      console.log('isChild', isChild);
-
+    return articleList.filter(({ path }) => {
+      const isChild = path.startsWith(parentPath) && path !== parentPath;
       const currentDepth = getDepth(path);
-
-      console.log('currentDepth', currentDepth);
       return isChild && currentDepth > parentDepth && currentDepth <= parentDepth + maxDepth;
     });
   };
 
-  // console.log('get Article', getArticlesByDepth(childParent, childDepth));
-
   if (layoutType === 'child-articles') {
     const filtered = getArticlesByDepth(childParent, childDepth);
     const sorted = sortArticles(filtered, order, sort);
-    console.log('filtered', filtered, 'sorted: ', sorted);
 
     if (enableTags) {
       // TAG FILTER VARIATION
@@ -222,7 +206,6 @@ export default async function decorate(block) {
         tabList.appendChild(tab);
       });
 
-      console.log('tab List', tabList, 'article Container: ', articleContainer);
       setupTabKeyboardNavigation(tabList);
       block.append(tabList, articleContainer);
       renderArticles();
@@ -244,7 +227,6 @@ export default async function decorate(block) {
       // DEFAULT VARIATION
       const articleContainer = document.createElement('div');
       articleContainer.className = 'article-list';
-      console.log('default all article', sorted, 'article Container: ', articleContainer);
       sorted.forEach((article) => articleContainer.appendChild(createArticleCard(article)));
       block.appendChild(articleContainer);
     }
