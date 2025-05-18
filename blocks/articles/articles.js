@@ -176,6 +176,10 @@ export default async function decorate(block) {
       try {
         const taxonomyResponse = await ffetch('/taxonomy.json').sheet('default').all();
         console.log('TAXANOMY RES: ', taxonomyResponse);
+
+        console.log(await ffetch('/taxonomy.json'));
+        console.log(await ffetch('/taxonomy.json').sheet('default').all());
+        console.log(await ffetch('/taxonomy.json').sheet('default'));
         // if (taxonomyResponse[':type'] === 'multi-sheet') {
         //   tags = taxonomyResponse?.default?.data || [];
         // } else if (taxonomyResponse[':type'] === 'sheet') {
